@@ -121,11 +121,11 @@ EXPECTED_ARTICLE_5 = {
 
 
 def prepare_article(pages: list[Fragment], number: int) -> Article:
-    if number != 5:
-        raise ValueError("This pilot is deliberately limited to article 5.")
+    if number not in range(1, 29):
+        raise ValueError("FFAR article number must be between 1 and 28.")
     block = segment_articles(pages)[number]
     units = inventory(number, "\n".join(f.text for f in block.fragments))
-    if {u.unit_id for u in units} != EXPECTED_ARTICLE_5:
+    if number == 5 and {u.unit_id for u in units} != EXPECTED_ARTICLE_5:
         raise ValueError("Article 5 inventory differs from the 11 expected clauses.")
     return Article(number, block.fragments, units)
 
@@ -204,6 +204,24 @@ def build_source_spans(article: Article):
             for left, right, fragment in fragments:
                 first, last = max(left, start), min(right, end)
                 if last <= first or not joined[first:last].strip():
+                    continue
+                # The next article heading can follow a page number/running
+                # header. Do not attach a fragment consisting only of known
+                # FFAR layout furniture as a separate legal proof.
+                candidate = joined[first:last]
+                layout_lines = {
+                    str(fragment.page - 260),
+                    "ACTING AS A FOOTBALL AGENT", "BECOMING A FOOTBALL AGENT",
+                    "GENERAL RULES", "FINAL PROVISIONS", "DEFINITIONS",
+                }
+                meaningful = [
+                    line.strip() for line in candidate.splitlines()
+                    if line.strip() and line.strip() not in layout_lines
+                    and not re.fullmatch(r"[IVX]+\.", line.strip())
+                    and not re.fullmatch(r"\d+ of \d+", line.strip())
+                    and not line.strip().startswith("FIFA Football Agent Exam Study Materials")
+                ]
+                if not meaningful:
                     continue
                 piece += 1
                 span_id = f"S_{unit.unit_id.replace('.', '_')}_{role}_{piece}"
