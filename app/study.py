@@ -66,6 +66,17 @@ def render_unit(row, sources):
     </details>"""
 
 
+def render_fee_table(rows):
+    if not rows:
+        return ''
+    body = ''.join('<tr>' + ''.join('<td>' + safe(row.get(k)) + '</td>' for k in ('CLIENT','BASE','FIRST','EXCESS')) + '</tr>' for row in rows)
+    return ('<section class="card"><h2>Tableau du texte source — applicabilité à vérifier</h2>'
+            '<p>Barème de l’article 15.2, lu avec la règle de l’excédent de 15.2.b. Les plafonds ci-dessous ne sont pas présentés comme actuellement applicables.</p>'
+            '<div style="overflow-x:auto"><table><thead><tr><th>Client</th><th>Assiette</th><th>Premiers 200 000 USD de rémunération annuelle</th><th>Part excédant 200 000 USD</th></tr></thead><tbody>' + body + '</tbody></table></div>'
+            '<p>Pour l’entité libératrice, le plafond est 10 % de l’indemnité de transfert après exclusions, sans application des tranches de rémunération. Le seuil 200 000 USD s’entend aussi en montant équivalent.</p>'
+            '<p>Les extraits exacts du tableau sont consultables dans les informations sur les plafonds ci-dessous.</p></section>')
+
+
 def render_study_page(card, reviews, sources):
     review_url = '/reviews'
     if reviews and reviews[0].get('ID_RUN'):
@@ -85,6 +96,7 @@ def render_study_page(card, reviews, sources):
           {render_sources(section.get('SOURCE_PASSAGE_IDS') or [], sources)}
           </details>
         </section>""")
+    fee_table = render_fee_table(card.get('FEE_CAP_TABLE'))
     reference_label = card.get('REFERENCE_LABEL') or ''
     status = 'Fiche en brouillon' if card.get('STATUS') == 'DRAFT' else 'Statut à examiner'
     return f"""<!doctype html>
@@ -104,12 +116,12 @@ h2{{font-size:24px;margin:0 0 18px}}h3{{font-size:19px}}h4{{font-size:15px;margi
 .source{{padding:12px 0}}pre{{white-space:pre-wrap;overflow-wrap:anywhere;background:#f5f6f8;padding:16px;border-radius:8px;font:13px/1.7 ui-monospace,monospace}}
 .supplement+.supplement{{border-top:1px solid #e1e5ec;margin-top:26px;padding-top:12px}}
 .pending{{background:#fffbef;border-left:3px solid #c5952a;padding:18px 22px}}
-li{{margin:7px 0}}.toc{{display:flex;flex-wrap:wrap;gap:10px 24px;margin:24px 0}}
+table{{border-collapse:collapse;width:100%;font-size:14px}}th,td{{border:1px solid #e1e5ec;padding:12px;text-align:left;vertical-align:top}}th{{background:#f5f6f8}}li{{margin:7px 0}}.toc{{display:flex;flex-wrap:wrap;gap:10px 24px;margin:24px 0}}
 @media(max-width:550px){{.card{{padding:20px}}.ref{{display:block}}}}
 @media print{{body{{background:white}}main{{max-width:none;padding:0}}nav,.toc{{display:none}}.card{{border:0;padding:10px 0}}}}
 </style></head><body><main>
 <nav><a href="/">Informations</a><a href="{safe(review_url)}">Revue des extractions</a>
-<a href="/study/eligibility">Éligibilité</a><a href="/study/minors">Mineurs</a><a href="/study/representation">Représentation</a><a href="/study/licensing">Maintien de la licence</a><a href="/study/becoming-agent">Devenir agent</a><a href="/study/agency-clients">Agents et clients</a></nav>
+<a href="/study/eligibility">Éligibilité</a><a href="/study/minors">Mineurs</a><a href="/study/representation">Représentation</a><a href="/study/licensing">Maintien de la licence</a><a href="/study/becoming-agent">Devenir agent</a><a href="/study/agency-clients">Agents et clients</a><a href="/study/fees">Honoraires</a></nav>
 <div class="label">MYAGENT / FICHE DE RÉVISION</div>
 <h1>{safe(card['TITLE'])}</h1><span class="badge">{status}</span>
 <p class="muted small">{safe(reference_label)}</p>
@@ -117,6 +129,7 @@ li{{margin:7px 0}}.toc{{display:flex;flex-wrap:wrap;gap:10px 24px;margin:24px 0}
 <p class="muted small">La fiche présente {len(reviews)} informations de travail. Aucune validation juridique experte n’est enregistrée. Les versions sources sont conservées ; le statut juridique actuel et le programme 2027 restent à confirmer.</p>
 <div class="toc"><a href="#conditions">Informations à connaître</a>
 <a href="#definitions">Définitions et renvois</a><a href="#pending">Points ouverts</a></div>
+{fee_table}
 <section class="card" id="conditions"><h2>Les informations à connaître</h2>
 <p class="muted">Ouvre une information pour étudier son énoncé, sa portée et ses sources.</p>
 {unit_html}</section>
@@ -183,6 +196,10 @@ def reference_as_card(row):
     if row['ID_REFERENCE'] == 'REF_FFAR_AGENCY_CLIENTS_V1':
         card['TITLE'] = 'Agents, agences et clients'
         card['INTRODUCTION'] = 'Articles 11 et 18 : exercice via une agence, responsabilité, droits des clients, obligations des clubs dans TMS et comportements interdits. Les renvois au RSTP et aux définitions restent signalés.'
+    if row['ID_REFERENCE'] == 'REF_FFAR_FEES_V1':
+        card['TITLE'] = 'Honoraires'
+        card['INTRODUCTION'] = 'Articles 14 et 15 du corpus : principes de paiement, exceptions, assiettes et plafonds. Applicabilité actuelle et inclusion au programme de la session à vérifier séparément.'
+        card['FEE_CAP_TABLE'] = reference.get('fee_cap_table') or []
     return card, reviews
 
 
@@ -203,18 +220,18 @@ def build_study_router(require_admin, get_bigquery_client):
 
     @router.get('/study/{topic}', response_class=HTMLResponse)
     def study_card(topic: str):
-        card_keys = {'eligibility': 'FFAR_ELIGIBILITY', 'minors': 'FFAR_MINORS', 'representation': 'FFAR_REPRESENTATION', 'licensing': 'FFAR_LICENSING', 'becoming-agent': 'FFAR_BECOMING_AGENT', 'agency-clients': 'FFAR_AGENCY_CLIENTS'}
+        card_keys = {'eligibility': 'FFAR_ELIGIBILITY', 'minors': 'FFAR_MINORS', 'representation': 'FFAR_REPRESENTATION', 'licensing': 'FFAR_LICENSING', 'becoming-agent': 'FFAR_BECOMING_AGENT', 'agency-clients': 'FFAR_AGENCY_CLIENTS', 'fees': 'FFAR_FEES'}
         card_key = card_keys.get(topic)
         if card_key is None:
             raise HTTPException(404, 'Fiche inconnue.')
         try:
-            if topic in ('representation','licensing','becoming-agent','agency-clients'):
+            if topic in ('representation','licensing','becoming-agent','agency-clients','fees'):
                 rows = query(f"""
                     SELECT ID_REFERENCE, VERSION_NUMBER, STATUS, CONTENT_JSON
                     FROM `{DATASET}.FIFA_REQUIREMENT_REFERENCE`
                     WHERE ID_REFERENCE=@reference_id
                     LIMIT 2
-                """, [bigquery.ScalarQueryParameter('reference_id','STRING',{'representation':'REF_FFAR_ARTICLE_12_V1','licensing':'REF_FFAR_ARTICLE_17_V1','becoming-agent':'REF_FFAR_BECOMING_AGENT_V1','agency-clients':'REF_FFAR_AGENCY_CLIENTS_V1'}[topic])])
+                """, [bigquery.ScalarQueryParameter('reference_id','STRING',{'representation':'REF_FFAR_ARTICLE_12_V1','licensing':'REF_FFAR_ARTICLE_17_V1','becoming-agent':'REF_FFAR_BECOMING_AGENT_V1','agency-clients':'REF_FFAR_AGENCY_CLIENTS_V1','fees':'REF_FFAR_FEES_V1'}[topic])])
                 if not rows:
                     raise HTTPException(404, 'Référence de la fiche absente. Exécuter le script SQL de référence.')
                 if len(rows) != 1:
