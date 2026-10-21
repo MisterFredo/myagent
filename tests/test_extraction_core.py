@@ -4,6 +4,7 @@ import unittest
 from app.extraction_core import (
     Article, Fragment, Unit, EXPECTED_ARTICLE_5,
     inventory, prepare_article, check_result,
+    build_source_spans, resolve_evidence, check_article_5_thresholds,
 )
 
 
@@ -120,6 +121,79 @@ class EvidenceTests(unittest.TestCase):
         result = simple_result()
         result["items"][0]["unresolved_references"] = ["Article 17"]
         self.assertTrue(check_result(result, self.article))
+
+
+class SourceSpanTests(unittest.TestCase):
+    def setUp(self):
+        self.article = prepare_article(pages_fixture(), 5)
+        self.spans, self.inventories = build_source_spans(self.article)
+
+    def selected_result(self):
+        return {"items": [{
+            "unit_id": u["unit_id"],
+            "disposition": "Article " + u["unit_id"],
+            "title_fr": "Titre", "summary_fr": "Résumé",
+            "statement_fr": "Énoncé détaillé",
+            "conditions": [], "exceptions": [], "consequences": [],
+            "unresolved_references": [],
+            "evidence": [{"span_id": span_id} for span_id in
+                         u["own_span_ids"] + u["parent_span_ids"]],
+        } for u in self.inventories], "review_notes": []}
+
+    def test_spans_preserve_source_bytes_as_text(self):
+        source_by_id = {f.passage_id: f.text for f in self.article.fragments}
+        for span in self.spans.values():
+            original = source_by_id[span["passage_id"]]
+            self.assertEqual(span["quote"], original[span["fragment_start"]:span["fragment_end"]])
+
+    def test_hydrated_evidence_passes_exact_quote_check(self):
+        result, errors = resolve_evidence(self.selected_result(), self.spans, self.inventories)
+        self.assertEqual(errors, [])
+        self.assertEqual(check_result(result, self.article), [])
+
+    def test_unknown_span_rejected(self):
+        raw = self.selected_result()
+        raw["items"][0]["evidence"] = [{"span_id": "INVENTED"}]
+        _, errors = resolve_evidence(raw, self.spans, self.inventories)
+        self.assertTrue(errors)
+
+    def test_other_unit_span_rejected(self):
+        raw = self.selected_result()
+        raw["items"][0]["evidence"].append(raw["items"][1]["evidence"][0])
+        _, errors = resolve_evidence(raw, self.spans, self.inventories)
+        self.assertTrue(any("invalid source span" in error for error in errors))
+
+    def test_parent_context_cannot_be_silently_omitted(self):
+        raw = self.selected_result()
+        entry = self.inventories[0]
+        raw["items"][0]["evidence"] = [{"span_id": entry["own_span_ids"][0]}]
+        _, errors = resolve_evidence(raw, self.spans, self.inventories)
+        self.assertTrue(any("inherited" in error for error in errors))
+
+    def test_model_quote_is_never_used(self):
+        raw = self.selected_result()
+        raw["items"][0]["evidence"][0]["quote"] = "fabricated quote [...]"
+        result, errors = resolve_evidence(raw, self.spans, self.inventories)
+        self.assertEqual(errors, [])
+        self.assertNotIn("fabricated", result["items"][0]["evidence"][0]["quote"])
+
+    def test_french_threshold_cannot_exist_only_in_quote(self):
+        raw = self.selected_result()
+        result, _ = resolve_evidence(raw, self.spans, self.inventories)
+        errors = check_article_5_thresholds(result)
+        self.assertTrue(any("5.1.a.iii" in error for error in errors))
+
+    def test_four_explicit_french_thresholds(self):
+        result = self.selected_result()
+        statements = {
+            "5.1.a.iii": "Suspension d’au moins deux ans.",
+            "5.1.b": "Période de 24 mois avant candidature.",
+            "5.1.c.i": "Période de cinq ans avant candidature.",
+            "5.1.d.i": "Période de douze mois avant candidature.",
+        }
+        for item in result["items"]:
+            item["statement_fr"] = statements.get(item["unit_id"], "Autre règle.")
+        self.assertEqual(check_article_5_thresholds(result), [])
 
 
 if __name__ == "__main__":
