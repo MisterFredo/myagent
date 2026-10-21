@@ -40,7 +40,7 @@ def normalize(text: str) -> str:
     return re.sub(r"\s+", " ", unicodedata.normalize("NFKC", text)).strip()
 
 
-def inventory(number: int, text: str) -> tuple[Unit, ...]:
+def inventory(number: int, text: str, include_parents: bool = False) -> tuple[Unit, ...]:
     markers = list(MARK.finditer(text))
     if not markers:
         raise ValueError(f"Article {number}: no paragraph markers; manual review required.")
@@ -67,7 +67,7 @@ def inventory(number: int, text: str) -> tuple[Unit, ...]:
         raise ValueError("Duplicate clause markers; manual review required.")
     units = []
     for path, own_text in nodes:
-        if any(len(p) > len(path) and p[:len(path)] == path for p in paths):
+        if not include_parents and any(len(p) > len(path) and p[:len(path)] == path for p in paths):
             continue
         context = tuple(
             parent_text for parent, parent_text in nodes
@@ -120,12 +120,14 @@ EXPECTED_ARTICLE_5 = {
 }
 
 
-def prepare_article(pages: list[Fragment], number: int) -> Article:
+def prepare_article(pages: list[Fragment], number: int, include_parents: bool = False) -> Article:
     if number not in range(1, 29):
         raise ValueError("FFAR article number must be between 1 and 28.")
     block = segment_articles(pages)[number]
-    units = inventory(number, "\n".join(f.text for f in block.fragments))
-    if number == 5 and {u.unit_id for u in units} != EXPECTED_ARTICLE_5:
+    text = "\n".join(f.text for f in block.fragments)
+    leaves = inventory(number, text)
+    units = inventory(number, text, include_parents=include_parents)
+    if number == 5 and {u.unit_id for u in leaves} != EXPECTED_ARTICLE_5:
         raise ValueError("Article 5 inventory differs from the 11 expected clauses.")
     return Article(number, block.fragments, units)
 
@@ -252,6 +254,8 @@ def resolve_evidence(raw_result, spans, inventories):
     inventory_by_id = {u["unit_id"]: u for u in inventories}
     for item in result.get("items", []):
         key = item["unit_id"]
+        # Provision identifiers are deterministic metadata, never model prose.
+        item["disposition"] = f"Article {key}"
         entry = inventory_by_id.get(key)
         if entry is None:
             errors.append(f"{key}: unknown inventory unit.")
@@ -310,3 +314,34 @@ def check_article_5_thresholds(result):
             if not re.search(r"(?:au moins|minimum|ou plus|sup[ée]rieure? ou [ée]gale?)", content):
                 errors.append(f"{key}: inclusive suspension threshold not explicit.")
     return errors
+
+
+def check_source_coverage(audit, spans, inventories):
+    """Check audit bookkeeping, not whether the model found every legal fact."""
+    expected = {sid for u in inventories for sid in u['own_span_ids']}
+    known_units = {u['unit_id'] for u in inventories}
+    rows = audit.get('source_checks', [])
+    ids = [r['span_id'] for r in rows]
+    errors = []
+    if len(ids) != len(set(ids)) or set(ids) != expected:
+        errors.append('AUDIT: couverture des fragments propres absente, dupliquée ou inattendue.')
+    for row in rows:
+        sid = row['span_id']
+        if sid not in expected or sid not in spans:
+            errors.append(f'AUDIT: fragment inconnu {sid}.')
+        if not row.get('details'):
+            errors.append(f'AUDIT {sid}: aucun détail source examiné.')
+        for detail in row.get('details', []):
+            if not detail.get('source_detail_fr', '').strip() or not detail.get('reason_fr', '').strip():
+                errors.append(f'AUDIT {sid}: justification vide.')
+            targets = detail.get('target_unit_ids', [])
+            if any(u not in known_units for u in targets):
+                errors.append(f'AUDIT {sid}: cible inconnue.')
+            status = detail.get('status')
+            if status == 'COVERED' and not targets:
+                errors.append(f'AUDIT {sid}: détail couvert sans cible.')
+            elif status == 'MISSING':
+                errors.append(f"AUDIT {sid}: détail absent : {detail.get('source_detail_fr', '')}")
+            elif status not in ('COVERED', 'NON_NORMATIVE'):
+                errors.append(f'AUDIT {sid}: statut inconnu.')
+    return sorted(set(errors))
