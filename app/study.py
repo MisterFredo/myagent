@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import json
 import logging
+from urllib.parse import urlencode
 
 from app.review import safe, claims, strings, official_link, parse_item
 
@@ -56,6 +57,9 @@ def render_unit(row, sources):
 
 
 def render_study_page(card, reviews, sources):
+    review_url = '/reviews'
+    if reviews and reviews[0].get('ID_RUN'):
+        review_url += '?' + urlencode({'run_id': reviews[0]['ID_RUN']})
     supplements = json.loads(card.get('SUPPLEMENTS_JSON') or '[]')
     if not isinstance(supplements, list):
         raise ValueError('Invalid study-card supplements.')
@@ -93,15 +97,15 @@ li{{margin:7px 0}}.toc{{display:flex;flex-wrap:wrap;gap:10px 24px;margin:24px 0}
 @media(max-width:550px){{.card{{padding:20px}}.ref{{display:block}}}}
 @media print{{body{{background:white}}main{{max-width:none;padding:0}}nav,.toc{{display:none}}.card{{border:0;padding:10px 0}}}}
 </style></head><body><main>
-<nav><a href="/">Informations</a><a href="/reviews">Revue des extractions</a>
-<a href="/study/eligibility" aria-current="page">Fiche éligibilité</a></nav>
+<nav><a href="/">Informations</a><a href="{safe(review_url)}">Revue des extractions</a>
+<a href="/study/eligibility">Éligibilité</a><a href="/study/minors">Mineurs</a></nav>
 <div class="label">MYAGENT / FICHE DE RÉVISION</div>
 <h1>{safe(card['TITLE'])}</h1><span class="badge">{status}</span>
 <p>{safe(card.get('INTRODUCTION'))}</p>
 <p class="muted small">La fiche référence {len(reviews)} informations revues. Les versions sources sont conservées ; le statut juridique actuel et le programme 2027 restent à confirmer.</p>
 <div class="toc"><a href="#conditions">Conditions d’éligibilité</a>
 <a href="#definitions">Définitions et renvois</a><a href="#pending">Points ouverts</a></div>
-<section class="card" id="conditions"><h2>Les conditions d’éligibilité</h2>
+<section class="card" id="conditions"><h2>Les informations à connaître</h2>
 <p class="muted">Ouvre une information pour étudier son énoncé, sa portée et ses sources.</p>
 {unit_html}</section>
 <section class="card" id="definitions"><h2>Définitions et renvois</h2>
@@ -127,17 +131,21 @@ def build_study_router(require_admin, get_bigquery_client):
             )
         ).result(timeout=45))
 
-    @router.get('/study/eligibility', response_class=HTMLResponse)
-    def eligibility_card():
+    @router.get('/study/{topic}', response_class=HTMLResponse)
+    def study_card(topic: str):
+        card_keys = {'eligibility': 'FFAR_ELIGIBILITY', 'minors': 'FFAR_MINORS'}
+        card_key = card_keys.get(topic)
+        if card_key is None:
+            raise HTTPException(404, 'Fiche inconnue.')
         try:
             cards = query(f"""
                 SELECT * FROM `{DATASET}.FIFA_STUDY_CARD`
-                WHERE CARD_KEY='FFAR_ELIGIBILITY'
+                WHERE CARD_KEY=@card_key
                 ORDER BY VERSION_NUMBER DESC, CREATED_AT DESC, ID_CARD DESC
                 LIMIT 1
-            """)
+            """, [bigquery.ScalarQueryParameter('card_key','STRING',card_key)])
             if not cards:
-                raise HTTPException(404, 'Fiche non créée. Exécuter le script 01_create_study_card.sql dans BigQuery.')
+                raise HTTPException(404, 'Fiche non créée. Exécuter le script SQL de création de cette fiche dans BigQuery.')
             card = dict(cards[0].items())
             review_ids = card.get('SOURCE_REVIEW_IDS') or []
             if not review_ids or len(review_ids) != len(set(review_ids)):
