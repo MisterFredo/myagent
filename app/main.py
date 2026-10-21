@@ -387,3 +387,9 @@ def home(q: str = Query(default="", max_length=150)):
         content=render_page(query, rows),
         headers={"Cache-Control": "no-store"},
     )
+
+    from app.review import build_review_router
+
+app.include_router(
+    build_review_router(require_admin, get_bigquery_client)
+)
