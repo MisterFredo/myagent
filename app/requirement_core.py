@@ -4,10 +4,10 @@ from copy import deepcopy
 
 def source_input(payload):
     article=payload.get('article') or {}
-    spans=[deepcopy(s) for s in article.get('source_spans',[]) if s.get('role')=='OWN']
-    if not spans:raise ValueError('Le run ne contient pas de fragments propres V5.')
+    spans=[deepcopy(s) for s in article.get('source_spans',[]) if s.get('role')=='OWN' or s.get('role','').startswith('SHARED')]
+    if not spans:raise ValueError('Le run ne contient pas de fragments sources V5.')
     span_ids=[s['span_id'] for s in spans]
-    if len(span_ids)!=len(set(span_ids)):raise ValueError('Fragments propres dupliqués.')
+    if len(span_ids)!=len(set(span_ids)):raise ValueError('Fragments sources dupliqués.')
     fragments={f['passage_id']:f['text'] for f in article.get('fragments',[])}
     for s in spans:
         text=fragments.get(s['passage_id'])
