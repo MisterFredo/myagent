@@ -109,7 +109,7 @@ li{{margin:7px 0}}.toc{{display:flex;flex-wrap:wrap;gap:10px 24px;margin:24px 0}
 @media print{{body{{background:white}}main{{max-width:none;padding:0}}nav,.toc{{display:none}}.card{{border:0;padding:10px 0}}}}
 </style></head><body><main>
 <nav><a href="/">Informations</a><a href="{safe(review_url)}">Revue des extractions</a>
-<a href="/study/eligibility">Éligibilité</a><a href="/study/minors">Mineurs</a><a href="/study/representation">Représentation</a></nav>
+<a href="/study/eligibility">Éligibilité</a><a href="/study/minors">Mineurs</a><a href="/study/representation">Représentation</a><a href="/study/licensing">Maintien de la licence</a></nav>
 <div class="label">MYAGENT / FICHE DE RÉVISION</div>
 <h1>{safe(card['TITLE'])}</h1><span class="badge">{status}</span>
 <p class="muted small">{safe(reference_label)}</p>
@@ -169,11 +169,14 @@ def reference_as_card(row):
         reviews.append({'UNIT_ID':requirement['requirement_id'],
                         'REVIEW_STATUS':row['STATUS'],
                         'PROPOSED_ITEM_JSON':json.dumps(item,ensure_ascii=False)})
-    card = {'TITLE':'Accord de représentation', 'STATUS':row['STATUS'],
+    is_licensing = row['ID_REFERENCE'] == 'REF_FFAR_ARTICLE_17_V1'
+    card = {'TITLE':'Maintien de la licence' if is_licensing else 'Accord de représentation', 'STATUS':row['STATUS'],
             'INTRODUCTION':'Article 12 : conclusion de l’accord, durée, mentions minimales, représentation des parties et résiliation. Les paragraphes 8 à 10 nécessitent une vérification séparée de leur applicabilité et de leur inclusion au programme de la session visée.',
             'REFERENCE_LABEL':row['ID_REFERENCE'] + ' · version ' + str(row['VERSION_NUMBER']),
             'SUPPLEMENTS_JSON':'[]', 'OPEN_POINTS':reference.get('open_points') or [],
             'SOURCE_PASSAGE_IDS':sorted(passage_ids)}
+    if is_licensing:
+        card['INTRODUCTION'] = 'Article 17 : suspension provisoire automatique, contrôle des exigences et procédures distinctes pour l’éligibilité et les autres manquements.'
     return card, reviews
 
 
@@ -194,20 +197,20 @@ def build_study_router(require_admin, get_bigquery_client):
 
     @router.get('/study/{topic}', response_class=HTMLResponse)
     def study_card(topic: str):
-        card_keys = {'eligibility': 'FFAR_ELIGIBILITY', 'minors': 'FFAR_MINORS', 'representation': 'FFAR_REPRESENTATION'}
+        card_keys = {'eligibility': 'FFAR_ELIGIBILITY', 'minors': 'FFAR_MINORS', 'representation': 'FFAR_REPRESENTATION', 'licensing': 'FFAR_LICENSING'}
         card_key = card_keys.get(topic)
         if card_key is None:
             raise HTTPException(404, 'Fiche inconnue.')
         try:
-            if topic == 'representation':
+            if topic in ('representation','licensing'):
                 rows = query(f"""
                     SELECT ID_REFERENCE, VERSION_NUMBER, STATUS, CONTENT_JSON
                     FROM `{DATASET}.FIFA_REQUIREMENT_REFERENCE`
                     WHERE ID_REFERENCE=@reference_id
                     LIMIT 2
-                """, [bigquery.ScalarQueryParameter('reference_id','STRING','REF_FFAR_ARTICLE_12_V1')])
+                """, [bigquery.ScalarQueryParameter('reference_id','STRING',{'representation':'REF_FFAR_ARTICLE_12_V1','licensing':'REF_FFAR_ARTICLE_17_V1'}[topic])])
                 if not rows:
-                    raise HTTPException(404, 'Référence de l’article 12 absente. Exécuter le script SQL de référence.')
+                    raise HTTPException(404, 'Référence de la fiche absente. Exécuter le script SQL de référence.')
                 if len(rows) != 1:
                     raise ValueError('Duplicate reference rows.')
                 card, reviews = reference_as_card(dict(rows[0].items()))
