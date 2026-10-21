@@ -136,7 +136,7 @@ def render_page(q, run_id, rows, source_info):
     if not cards:
         cards = """<article><h2>Aucun résultat</h2>
         <p>Aucune revue ne correspond à cette recherche. Si la recherche est vide,
-        vérifier que le script de revue de l’article 5 a été exécuté dans BigQuery.</p></article>"""
+        vérifier que le script de revue de l’extraction concernée a été exécuté dans BigQuery.</p></article>"""
     return f"""<!doctype html>
 <html lang="fr"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
@@ -144,7 +144,7 @@ def render_page(q, run_id, rows, source_info):
 <style>
 * {{box-sizing:border-box}} body {{margin:0;background:#f5f6f8;color:#172033;
 font:16px/1.7 system-ui,sans-serif}} main {{max-width:1050px;margin:auto;padding:34px 20px 80px}}
-nav {{display:flex;gap:22px;margin-bottom:34px}} a {{color:#284f9b;text-underline-offset:3px}}
+nav {{display:flex;flex-wrap:wrap;gap:22px;margin-bottom:34px}} a {{color:#284f9b;text-underline-offset:3px}}
 .label {{font-size:12px;font-weight:750;letter-spacing:.13em;color:#53627a}}
 h1 {{font-size:clamp(30px,5vw,44px);line-height:1.2;letter-spacing:-.035em;margin:12px 0 18px}}
 h2 {{font-size:22px;line-height:1.4;margin:14px 0}} h3 {{font-size:16px;margin:22px 0 8px}}
@@ -164,9 +164,9 @@ li {{margin:7px 0}} @media(max-width:550px){{article{{padding:19px}}form{{flex-d
 </style></head><body><main>
 <nav><a href="/">Informations</a><a href="/reviews">Revue des extractions</a></nav>
 <div class="label">MYAGENT / REVUE</div>
-<h1>Éligibilité à la licence</h1>
-<p class="intro muted">Article 5 du Règlement sur les agents, édition janvier 2025.
-Les propositions ci-dessous conservent l’extraction originale et ses sources.
+<h1>Revue des extractions</h1>
+<p class="intro muted">Propositions liées à l’extraction sélectionnée.
+L’extraction originale et ses sources sont conservées.
 Elles sont en cours de revue ; leur applicabilité actuelle et le programme 2027 restent à confirmer.</p>
 <form method="get" action="/reviews">
 <input type="hidden" name="run_id" value="{safe(run_id)}">
