@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Configuration et identifiants locaux
+.env
+.env.*
+!.env.example
+credentials/
+service-account*.json
+google-credentials*.json
+
+# Outils
+.pytest_cache/
+.ruff_cache/
+.DS_Store
