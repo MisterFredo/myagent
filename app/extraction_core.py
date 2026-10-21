@@ -4,6 +4,7 @@ from __future__ import annotations
 import re
 import unicodedata
 from dataclasses import dataclass
+from copy import deepcopy
 
 
 @dataclass(frozen=True)
@@ -173,3 +174,121 @@ def check_result(result: dict, article: Article) -> list[str]:
     if result.get("review_notes"):
         errors.append("Extraction contains review notes.")
     return sorted(set(errors))
+
+
+def build_source_spans(article: Article):
+    """Select evidence in code, preserving every original source character.
+
+    Model outputs select span identifiers, never type or reconstruct quotations.
+    Offsets below are relative to an article fragment, not to the whole PDF page.
+    """
+    joined = "\n".join(f.text for f in article.fragments)
+    fragments = []
+    offset = 0
+    for f in article.fragments:
+        fragments.append((offset, offset + len(f.text), f))
+        offset += len(f.text) + 1
+    spans, inventories = {}, []
+    for unit in article.units:
+        own_ids, context_ids = [], []
+        segments = [("OWN", unit.text)] + [
+            (f"PARENT{i}", text)
+            for i, text in enumerate(unit.inherited_context, 1)
+        ]
+        for role, text in segments:
+            start = joined.find(text)
+            if start < 0 or joined.find(text, start + 1) >= 0:
+                raise ValueError(f"{unit.unit_id}: non-unique source span.")
+            end = start + len(text)
+            piece = 0
+            for left, right, fragment in fragments:
+                first, last = max(left, start), min(right, end)
+                if last <= first or not joined[first:last].strip():
+                    continue
+                piece += 1
+                span_id = f"S_{unit.unit_id.replace('.', '_')}_{role}_{piece}"
+                spans[span_id] = {
+                    "span_id": span_id,
+                    "unit_id": unit.unit_id,
+                    "role": role,
+                    "passage_id": fragment.passage_id,
+                    "fragment_start": first-left,
+                    "fragment_end": last-left,
+                    "quote": fragment.text[first-left:last-left],
+                }
+                (own_ids if role == "OWN" else context_ids).append(span_id)
+        if not own_ids:
+            raise ValueError(f"{unit.unit_id}: no primary source.")
+        inventories.append({
+            "unit_id": unit.unit_id,
+            "own_span_ids": own_ids,
+            "parent_span_ids": context_ids,
+        })
+    return spans, inventories
+
+
+def resolve_evidence(raw_result, spans, inventories):
+    """Hydrate selected IDs from the source; never repair an invented quote."""
+    result = deepcopy(raw_result)
+    errors = []
+    inventory_by_id = {u["unit_id"]: u for u in inventories}
+    for item in result.get("items", []):
+        key = item["unit_id"]
+        entry = inventory_by_id.get(key)
+        if entry is None:
+            errors.append(f"{key}: unknown inventory unit.")
+            allowed = set()
+        else:
+            allowed = set(entry["own_span_ids"] + entry["parent_span_ids"])
+        claims = [item] + [
+            claim for field in ("conditions", "exceptions", "consequences")
+            for claim in item[field]
+        ]
+        for claim in claims:
+            hydrated = []
+            for selected in claim["evidence"]:
+                span_id = selected["span_id"]
+                span = spans.get(span_id)
+                if span is None or span_id not in allowed:
+                    errors.append(f"{key}: invalid source span {span_id}.")
+                    continue
+                hydrated.append(deepcopy(span))
+            claim["evidence"] = hydrated
+        if entry:
+            selected = {p["span_id"] for p in item["evidence"]}
+            required = set(entry["own_span_ids"] + entry["parent_span_ids"])
+            if not required <= selected:
+                errors.append(f"{key}: missing own or inherited source references.")
+        if not item.get("statement_fr", "").strip():
+            errors.append(f"{key}: detailed statement missing.")
+    return result, sorted(set(errors))
+
+
+def check_article_5_thresholds(result):
+    """Independent pilot checks for four explicit temporal thresholds.
+
+    These checks are intentionally narrow and do not certify legal completeness.
+    Source strings, quotations and provision identifiers are not searched here.
+    """
+    patterns = {
+        "5.1.a.iii": r"\b(?:2|deux)\s+ans\b",
+        "5.1.b": r"\b(?:24|vingt[- ]quatre)\s+mois\b",
+        "5.1.c.i": r"\b(?:5|cinq)\s+ans\b",
+        "5.1.d.i": r"\b(?:12|douze)\s+mois\b",
+    }
+    errors = []
+    for item in result.get("items", []):
+        key = item["unit_id"]
+        pattern = patterns.get(key)
+        content = normalize(" ".join(
+            [item.get("statement_fr", "")] + [
+                c["text_fr"] for field in ("conditions", "exceptions", "consequences")
+                for c in item[field]
+            ]
+        )).lower()
+        if pattern and not re.search(pattern, content):
+            errors.append(f"{key}: temporal threshold missing from French details.")
+        if key == "5.1.a.iii":
+            if not re.search(r"(?:au moins|minimum|ou plus|sup[ée]rieure? ou [ée]gale?)", content):
+                errors.append(f"{key}: inclusive suspension threshold not explicit.")
+    return errors
