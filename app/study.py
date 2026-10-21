@@ -4,12 +4,43 @@ from __future__ import annotations
 import json
 import logging
 from urllib.parse import urlencode
+import re
+from app.batch_core import parse_articles
 
 from app.review import safe, claims, strings, official_link, parse_item
 
 
 DATASET = "myagent-512316.MYAGENT"
 logger = logging.getLogger("myagent.study")
+
+
+REFERENCE_TOPICS = {'representation': ('REF_FFAR_ARTICLE_12_V1', 'Accord de représentation'), 'licensing': ('REF_FFAR_ARTICLE_17_V1', 'Maintien de la licence'), 'becoming-agent': ('REF_FFAR_BECOMING_AGENT_V1', 'Devenir agent'), 'agency-clients': ('REF_FFAR_AGENCY_CLIENTS_V1', 'Agents, agences et clients'), 'fees': ('REF_FFAR_FEES_V1', 'Honoraires'), 'agent-duties': ('REF_FFAR_AGENT_DUTIES_V1', 'Droits et obligations des agents'), 'disputes-discipline': ('REF_FFAR_DISCLOSURE_DISPUTES_DISCIPLINE_V1', 'Publication, litiges et discipline')}
+
+
+def reference_identity(row):
+    reference = json.loads(row['CONTENT_JSON'])
+    meta = reference.get('card') or {}
+    slug, title = meta.get('slug'), meta.get('title')
+    if not slug:
+        match = next(((k,v) for k,v in REFERENCE_TOPICS.items() if v[0] == row['ID_REFERENCE']), None)
+        if match:
+            slug, (_, fallback_title) = match
+            title = title or fallback_title
+    if not isinstance(slug,str) or not re.fullmatch(r'[a-z0-9]+(?:-[a-z0-9]+)*',slug) or len(slug)>80:
+        raise ValueError('Reference card slug missing or invalid.')
+    if slug in ('eligibility','minors'):
+        raise ValueError('Reference slug conflicts with legacy card.')
+    if not isinstance(title,str) or not title.strip():
+        raise ValueError('Reference card title missing.')
+    return slug,title
+
+
+def render_catalog(entries):
+    cards=''.join('<article><h2><a href="/study/'+safe(e['slug'])+'">'+safe(e['title'])+'</a></h2><p>'+safe(e['status'])+' · '+safe(e['count'])+' informations</p></article>' for e in entries)
+    return ('<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>MYAGENT — Fiches</title>'
+            '<style>body{font:16px/1.65 system-ui;background:#f5f6f8;color:#172033;margin:0}main{max-width:1050px;margin:auto;padding:32px 20px}article,section{background:white;border:1px solid #e1e5ec;border-radius:12px;padding:24px;margin:16px 0}a{color:#284f9b}input,button{font:inherit;padding:10px;max-width:100%;box-sizing:border-box}h2{font-size:21px}</style></head><body><main>'
+            '<nav><a href="/">Informations</a></nav><h1>Mes fiches</h1><p>Supports de travail et sources. Le statut de chaque fiche indique sa revue ; leur nombre ne mesure pas la couverture du programme.</p>'+cards+
+            '<section><h2>Exporter des extractions</h2><p>Télécharger les derniers résultats des articles choisis pour les faire relire, sans requête SQL.</p><form action="/exports/extractions" method="get"><label>Articles <input name="articles" value="1-3,22-28" maxlength="200" required></label> <button>Télécharger le JSON</button></form></section></main></body></html>')
 
 
 def render_sources(passage_ids, sources):
@@ -128,7 +159,7 @@ table{{border-collapse:collapse;width:100%;font-size:14px}}th,td{{border:1px sol
 @media(max-width:550px){{.card{{padding:20px}}.ref{{display:block}}}}
 @media print{{body{{background:white}}main{{max-width:none;padding:0}}nav,.toc{{display:none}}.card{{border:0;padding:10px 0}}}}
 </style></head><body><main>
-<nav><a href="/">Informations</a><a href="{safe(review_url)}">Revue des extractions</a>
+<nav><a href="/study">Toutes les fiches</a><a href="/">Informations</a><a href="{safe(review_url)}">Revue des extractions</a>
 <a href="/study/eligibility">Éligibilité</a><a href="/study/minors">Mineurs</a><a href="/study/representation">Représentation</a><a href="/study/licensing">Maintien de la licence</a><a href="/study/becoming-agent">Devenir agent</a><a href="/study/agency-clients">Agents et clients</a><a href="/study/fees">Honoraires</a><a href="/study/agent-duties">Obligations des agents</a><a href="/study/disputes-discipline">Litiges et discipline</a></nav>
 <div class="label">MYAGENT / FICHE DE RÉVISION</div>
 <h1>{safe(card['TITLE'])}</h1><span class="badge">{status}</span>
@@ -216,12 +247,18 @@ def reference_as_card(row):
     if row['ID_REFERENCE'] == 'REF_FFAR_DISCLOSURE_DISPUTES_DISCIPLINE_V1':
         card['TITLE'] = 'Publication, litiges et discipline'
         card['INTRODUCTION'] = 'Articles 19 à 21 du corpus : informations mises à disposition, compétence pour les litiges, sanctions et coopération. Applicabilité actuelle et périmètre d’examen à vérifier séparément.'
+    metadata = reference.get('card') or {}
+    if metadata:
+        _, card['TITLE'] = reference_identity(row)
+        card['INTRODUCTION'] = metadata.get('introduction') or ''
+        card['FEE_CAP_TABLE'] = reference.get('fee_cap_table') or []
+        card['DEADLINE_TABLE'] = reference.get('deadline_table') or []
     return card, reviews
 
 
 def build_study_router(require_admin, get_bigquery_client):
     from fastapi import APIRouter, Depends, HTTPException
-    from fastapi.responses import HTMLResponse
+    from fastapi.responses import HTMLResponse, Response
     from google.cloud import bigquery
 
     router = APIRouter(dependencies=[Depends(require_admin)])
@@ -234,24 +271,97 @@ def build_study_router(require_admin, get_bigquery_client):
             )
         ).result(timeout=45))
 
+    @router.get('/study', response_class=HTMLResponse)
+    def study_catalog():
+        try:
+            rows=query(f"""SELECT ID_REFERENCE,VERSION_NUMBER,STATUS,CONTENT_JSON
+                FROM `{DATASET}.FIFA_REQUIREMENT_REFERENCE`
+                ORDER BY VERSION_NUMBER DESC, CREATED_AT DESC, ID_REFERENCE DESC""")
+            entries=[]
+            seen=set()
+            for row in rows:
+                row=dict(row.items())
+                # References without any card metadata and without an old mapping
+                # are data-only and deliberately not listed as study cards.
+                ref=json.loads(row['CONTENT_JSON'])
+                if not ref.get('card') and row['ID_REFERENCE'] not in {v[0] for v in REFERENCE_TOPICS.values()}:
+                    continue
+                slug,title=reference_identity(row)
+                if slug in seen:
+                    continue
+                seen.add(slug)
+                entries.append({'slug':slug,'title':title,'status':row['STATUS'],
+                                'count':len(ref.get('requirements') or [])})
+            legacy=query(f"""SELECT CARD_KEY,TITLE,STATUS,SOURCE_REVIEW_IDS
+                FROM `{DATASET}.FIFA_STUDY_CARD`
+                WHERE CARD_KEY IN ('FFAR_ELIGIBILITY','FFAR_MINORS')
+                QUALIFY ROW_NUMBER() OVER(PARTITION BY CARD_KEY ORDER BY VERSION_NUMBER DESC,CREATED_AT DESC,ID_CARD DESC)=1""")
+            for row in legacy:
+                entries.append({'slug':{'FFAR_ELIGIBILITY':'eligibility','FFAR_MINORS':'minors'}[row.CARD_KEY],
+                                'title':row.TITLE,'status':row.STATUS,'count':len(row.SOURCE_REVIEW_IDS or [])})
+            return HTMLResponse(render_catalog(sorted(entries,key=lambda e:e['title'])),headers={'Cache-Control':'no-store'})
+        except Exception as exc:
+            logger.error('Study catalogue failed (%s)',type(exc).__name__)
+            raise HTTPException(503,'Catalogue indisponible. Vérifier les logs Render.') from None
+
+    @router.get('/exports/extractions')
+    def export_extractions(articles: str = '1-3,22-28'):
+        try:
+            numbers=parse_articles(articles)
+        except ValueError as exc:
+            raise HTTPException(400,str(exc)) from None
+        try:
+            rows=query(f"""WITH candidates AS (
+                SELECT ID_RUN,STATUS,CHECK_ERRORS,MODEL,STARTED_AT,
+                SAFE_CAST(JSON_VALUE(RESULT_JSON,'$.article.article') AS INT64) AS ARTICLE,
+                JSON_QUERY(RESULT_JSON,'$.article.source_spans') AS SOURCE_SPANS,
+                JSON_QUERY(RESULT_JSON,'$.extraction') AS EXTRACTION,
+                JSON_QUERY(RESULT_JSON,'$.extraction_selected_spans') AS EXTRACTION_SELECTED_SPANS,
+                JSON_QUERY(RESULT_JSON,'$.audit') AS AUDIT
+                FROM `{DATASET}.FIFA_EXTRACTION_RUN`
+                WHERE PROMPT_VERSION='FFAR_ARTICLE_SOURCE_SPANS_V5'
+                  AND SAFE_CAST(JSON_VALUE(RESULT_JSON,'$.article.article') AS INT64) IN UNNEST(@articles)
+                ) SELECT * FROM candidates
+                QUALIFY ROW_NUMBER() OVER(PARTITION BY ARTICLE ORDER BY STARTED_AT DESC,ID_RUN DESC)=1
+                ORDER BY ARTICLE""",[bigquery.ArrayQueryParameter('articles','INT64',numbers)])
+            found=[]
+            for row in rows:
+                item=dict(row.items())
+                for field in ('SOURCE_SPANS','EXTRACTION','EXTRACTION_SELECTED_SPANS','AUDIT'):
+                    item[field]=json.loads(item[field]) if item.get(field) else None
+                item['STARTED_AT']=item['STARTED_AT'].isoformat() if item.get('STARTED_AT') else None
+                found.append(item)
+            payload={'format_version':1,'requested_articles':numbers,
+                     'missing_articles':sorted(set(numbers)-{r['ARTICLE'] for r in found}),
+                     'runs':found}
+            return Response(content=json.dumps(payload,ensure_ascii=False,indent=2),media_type='application/json',headers={
+                'Cache-Control':'no-store','Content-Disposition':'attachment; filename="MYAGENT_extractions.json"'})
+        except Exception as exc:
+            logger.error('Extraction export failed (%s)',type(exc).__name__)
+            raise HTTPException(503,'Export indisponible. Vérifier les logs Render.') from None
+
     @router.get('/study/{topic}', response_class=HTMLResponse)
     def study_card(topic: str):
-        card_keys = {'eligibility': 'FFAR_ELIGIBILITY', 'minors': 'FFAR_MINORS', 'representation': 'FFAR_REPRESENTATION', 'licensing': 'FFAR_LICENSING', 'becoming-agent': 'FFAR_BECOMING_AGENT', 'agency-clients': 'FFAR_AGENCY_CLIENTS', 'fees': 'FFAR_FEES', 'agent-duties': 'FFAR_AGENT_DUTIES', 'disputes-discipline': 'FFAR_DISCLOSURE_DISPUTES_DISCIPLINE'}
-        card_key = card_keys.get(topic)
-        if card_key is None:
-            raise HTTPException(404, 'Fiche inconnue.')
+        if not re.fullmatch(r'[a-z0-9]+(?:-[a-z0-9]+)*',topic) or len(topic)>80:
+            raise HTTPException(404,'Fiche inconnue.')
+        card_key={'eligibility':'FFAR_ELIGIBILITY','minors':'FFAR_MINORS'}.get(topic)
         try:
-            if topic in ('representation','licensing','becoming-agent','agency-clients','fees','agent-duties','disputes-discipline'):
-                rows = query(f"""
-                    SELECT ID_REFERENCE, VERSION_NUMBER, STATUS, CONTENT_JSON
+            if card_key is None:
+                known=REFERENCE_TOPICS.get(topic)
+                reference_id=known[0] if known else None
+                rows=query(f"""
+                    SELECT ID_REFERENCE,VERSION_NUMBER,STATUS,CONTENT_JSON
                     FROM `{DATASET}.FIFA_REQUIREMENT_REFERENCE`
                     WHERE ID_REFERENCE=@reference_id
+                       OR JSON_VALUE(CONTENT_JSON,'$.card.slug')=@topic
+                    ORDER BY VERSION_NUMBER DESC,CREATED_AT DESC,ID_REFERENCE DESC
                     LIMIT 2
-                """, [bigquery.ScalarQueryParameter('reference_id','STRING',{'representation':'REF_FFAR_ARTICLE_12_V1','licensing':'REF_FFAR_ARTICLE_17_V1','becoming-agent':'REF_FFAR_BECOMING_AGENT_V1','agency-clients':'REF_FFAR_AGENCY_CLIENTS_V1','fees':'REF_FFAR_FEES_V1','agent-duties':'REF_FFAR_AGENT_DUTIES_V1','disputes-discipline':'REF_FFAR_DISCLOSURE_DISPUTES_DISCIPLINE_V1'}[topic])])
+                """,[bigquery.ScalarQueryParameter('reference_id','STRING',reference_id),
+                      bigquery.ScalarQueryParameter('topic','STRING',topic)])
                 if not rows:
-                    raise HTTPException(404, 'Référence de la fiche absente. Exécuter le script SQL de référence.')
-                if len(rows) != 1:
-                    raise ValueError('Duplicate reference rows.')
+                    raise HTTPException(404,'Fiche absente.')
+                if len(rows)>1 and rows[0].VERSION_NUMBER==rows[1].VERSION_NUMBER:
+                    raise ValueError('Ambiguous reference version.')
                 card, reviews = reference_as_card(dict(rows[0].items()))
                 passage_ids = card['SOURCE_PASSAGE_IDS']
                 result = query(f"""
