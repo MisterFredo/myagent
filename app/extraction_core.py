@@ -19,6 +19,7 @@ class Unit:
     unit_id: str
     text: str
     inherited_context: tuple[str, ...]
+    shared_context: tuple[str, ...] = ()
 
 
 @dataclass(frozen=True)
@@ -30,7 +31,7 @@ class Article:
 
 HEAD = re.compile(r"(?m)^[ \t]*Article[ \t]+(\d+)[ \t]*:")
 MARK = re.compile(
-    r"(?m)^[ \t]*(?:(?P<number>\d+)\.|(?P<letter>[a-z])\)|"
+    r"(?m)^[ \t]*(?:(?P<number>\d+)\.|(?P<letter>[a-z])[ \t\r\n]*\)|"
     r"(?P<roman>[ivxlcdm]+)\.)[ \t\r\n]+"
 )
 
@@ -129,6 +130,28 @@ def prepare_article(pages: list[Fragment], number: int, include_parents: bool = 
     units = inventory(number, text, include_parents=include_parents)
     if number == 5 and {u.unit_id for u in leaves} != EXPECTED_ARTICLE_5:
         raise ValueError("Article 5 inventory differs from the 11 expected clauses.")
+    if number == 17:
+        expected = {'17.1','17.1.a','17.1.b','17.1.c','17.1.d',
+                    '17.2','17.3','17.3.a','17.3.b','17.4','17.4.a','17.4.b'}
+        expected_leaves = expected - {'17.1','17.3','17.4'}
+        if {u.unit_id for u in units} != (expected if include_parents else expected_leaves):
+            raise ValueError('Article 17 inventory differs from expected paragraphs and letters.')
+        # The unnumbered consequence closes 17.1 as a whole, not only point d.
+        matches = list(re.finditer(
+            r'their\s+licence\s+shall\s+automatically\s+be\s+provisionally\s+suspended\.', text))
+        if len(matches) != 1:
+            raise ValueError('Article 17 shared suspension sentence not uniquely located.')
+        shared = matches[0].group(0)
+        rebuilt = []
+        for unit in units:
+            own = unit.text
+            if unit.unit_id == '17.1.d':
+                if shared not in own:
+                    raise ValueError('Article 17 consequence is outside paragraph 1.d source block.')
+                own = own.split(shared, 1)[0].strip()
+            context = (shared,) if unit.unit_id == '17.1' or unit.unit_id.startswith('17.1.') else ()
+            rebuilt.append(Unit(unit.unit_id, own, unit.inherited_context, context))
+        units = tuple(rebuilt)
     return Article(number, block.fragments, units)
 
 
@@ -196,7 +219,7 @@ def build_source_spans(article: Article):
         segments = [("OWN", unit.text)] + [
             (f"PARENT{i}", text)
             for i, text in enumerate(unit.inherited_context, 1)
-        ]
+        ] + [(f"SHARED{i}", text) for i, text in enumerate(unit.shared_context, 1)]
         for role, text in segments:
             start = joined.find(text)
             if start < 0 or joined.find(text, start + 1) >= 0:
