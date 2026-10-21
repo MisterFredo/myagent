@@ -285,6 +285,11 @@ def resolve_evidence(raw_result, spans, inventories):
             allowed = set()
         else:
             allowed = set(entry["own_span_ids"] + entry["parent_span_ids"])
+            # A parent may describe requirements in its own descendants.
+            # Siblings and unrelated branches remain forbidden.
+            for descendant in inventories:
+                if descendant['unit_id'].startswith(key + '.'):
+                    allowed.update(descendant['own_span_ids'] + descendant['parent_span_ids'])
         claims = [item] + [
             claim for field in ("conditions", "exceptions", "consequences")
             for claim in item[field]
@@ -339,15 +344,51 @@ def check_article_5_thresholds(result):
     return errors
 
 
+def is_layout_only(text):
+    """Known FFAR furniture only; never strip a substantive source sentence."""
+    labels = {'ACTING AS A FOOTBALL AGENT', 'BECOMING A FOOTBALL AGENT',
+              'GENERAL RULES', 'FINAL PROVISIONS', 'DEFINITIONS',
+              'RIGHTS AND', 'OBLIGATIONS OF', 'CLIENTS',
+              'RIGHTS AND OBLIGATIONS OF CLIENTS'}
+    lines = [line.strip() for line in text.splitlines() if line.strip()]
+    return bool(lines) and all(
+        line in labels or re.fullmatch(r'\d+|[IVX]+\.|\d+ of \d+',line)
+        or line.startswith('FIFA Football Agent Exam Study Materials')
+        for line in lines
+    )
+
+
 def check_source_coverage(audit, spans, inventories):
-    """Check audit bookkeeping, not whether the model found every legal fact."""
-    expected = {sid for u in inventories for sid in u['own_span_ids']}
+    """Check bookkeeping; it cannot certify that every legal detail was found."""
+    expected = {sid for u in inventories for sid in u['own_span_ids']
+                if sid in spans and not is_layout_only(spans[sid]['quote'])}
+    # A shared sentence may have one evidence alias for each affected unit.
+    # Audit it once, accepting any exact alias of the same source interval.
+    shared_groups = {}
+    aliases = {}
+    for sid, span in spans.items():
+        if not span.get('role','').startswith('SHARED'):
+            continue
+        fingerprint = (span['passage_id'], span['fragment_start'],
+                       span['fragment_end'], span['quote'])
+        canonical = shared_groups.setdefault(fingerprint, sid)
+        aliases[sid] = canonical
+        expected.add(canonical)
     known_units = {u['unit_id'] for u in inventories}
-    rows = audit.get('source_checks', [])
+    rows = []
+    for original in audit.get('source_checks', []):
+        sid = original['span_id']
+        if sid in spans and is_layout_only(spans[sid]['quote']):
+            continue
+        row = deepcopy(original)
+        row['span_id'] = aliases.get(sid, sid)
+        rows.append(row)
     ids = [r['span_id'] for r in rows]
     errors = []
     if len(ids) != len(set(ids)) or set(ids) != expected:
-        errors.append('AUDIT: couverture des fragments propres absente, dupliquée ou inattendue.')
+        errors.append('AUDIT: couverture source absente, dupliquée ou inattendue; '
+                      + 'manquants=' + str(sorted(expected-set(ids)))
+                      + '; inattendus=' + str(sorted(set(ids)-expected)))
     for row in rows:
         sid = row['span_id']
         if sid not in expected or sid not in spans:
