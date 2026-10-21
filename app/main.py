@@ -390,7 +390,12 @@ def home(q: str = Query(default="", max_length=150)):
 
 
 from app.review import build_review_router
+from app.study import build_study_router
 
 app.include_router(
     build_review_router(require_admin, get_bigquery_client)
+)
+
+app.include_router(
+    build_study_router(require_admin, get_bigquery_client)
 )
