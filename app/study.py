@@ -77,6 +77,13 @@ def render_fee_table(rows):
             '<p>Les extraits exacts du tableau sont consultables dans les informations sur les plafonds ci-dessous.</p></section>')
 
 
+def render_deadline_table(rows):
+    if not rows:
+        return ''
+    body = ''.join('<tr>' + ''.join('<td>' + safe(row.get(k)) + '</td>' for k in ('EVENT','DEADLINE','PROVISION')) + '</tr>' for row in rows)
+    return ('<section class="card"><h2>Délais et points de départ dans le texte source</h2><p>Lire avec les conditions détaillées ci-dessous. Applicabilité et périmètre d’examen à vérifier.</p><div style="overflow-x:auto"><table><thead><tr><th>Situation</th><th>Délai ou déclencheur</th><th>Référence</th></tr></thead><tbody>' + body + '</tbody></table></div></section>')
+
+
 def render_study_page(card, reviews, sources):
     review_url = '/reviews'
     if reviews and reviews[0].get('ID_RUN'):
@@ -97,6 +104,7 @@ def render_study_page(card, reviews, sources):
           </details>
         </section>""")
     fee_table = render_fee_table(card.get('FEE_CAP_TABLE'))
+    deadline_table = render_deadline_table(card.get('DEADLINE_TABLE'))
     reference_label = card.get('REFERENCE_LABEL') or ''
     status = 'Fiche en brouillon' if card.get('STATUS') == 'DRAFT' else 'Statut à examiner'
     return f"""<!doctype html>
@@ -121,7 +129,7 @@ table{{border-collapse:collapse;width:100%;font-size:14px}}th,td{{border:1px sol
 @media print{{body{{background:white}}main{{max-width:none;padding:0}}nav,.toc{{display:none}}.card{{border:0;padding:10px 0}}}}
 </style></head><body><main>
 <nav><a href="/">Informations</a><a href="{safe(review_url)}">Revue des extractions</a>
-<a href="/study/eligibility">Éligibilité</a><a href="/study/minors">Mineurs</a><a href="/study/representation">Représentation</a><a href="/study/licensing">Maintien de la licence</a><a href="/study/becoming-agent">Devenir agent</a><a href="/study/agency-clients">Agents et clients</a><a href="/study/fees">Honoraires</a></nav>
+<a href="/study/eligibility">Éligibilité</a><a href="/study/minors">Mineurs</a><a href="/study/representation">Représentation</a><a href="/study/licensing">Maintien de la licence</a><a href="/study/becoming-agent">Devenir agent</a><a href="/study/agency-clients">Agents et clients</a><a href="/study/fees">Honoraires</a><a href="/study/agent-duties">Obligations des agents</a></nav>
 <div class="label">MYAGENT / FICHE DE RÉVISION</div>
 <h1>{safe(card['TITLE'])}</h1><span class="badge">{status}</span>
 <p class="muted small">{safe(reference_label)}</p>
@@ -130,6 +138,7 @@ table{{border-collapse:collapse;width:100%;font-size:14px}}th,td{{border:1px sol
 <div class="toc"><a href="#conditions">Informations à connaître</a>
 <a href="#definitions">Définitions et renvois</a><a href="#pending">Points ouverts</a></div>
 {fee_table}
+{deadline_table}
 <section class="card" id="conditions"><h2>Les informations à connaître</h2>
 <p class="muted">Ouvre une information pour étudier son énoncé, sa portée et ses sources.</p>
 {unit_html}</section>
@@ -200,6 +209,10 @@ def reference_as_card(row):
         card['TITLE'] = 'Honoraires'
         card['INTRODUCTION'] = 'Articles 14 et 15 du corpus : principes de paiement, exceptions, assiettes et plafonds. Applicabilité actuelle et inclusion au programme de la session à vérifier séparément.'
         card['FEE_CAP_TABLE'] = reference.get('fee_cap_table') or []
+    if row['ID_REFERENCE'] == 'REF_FFAR_AGENT_DUTIES_V1':
+        card['TITLE'] = 'Droits et obligations des agents'
+        card['INTRODUCTION'] = 'Article 16 : approche et exclusivité, obligations professionnelles, déclarations sur la plateforme, comportements interdits et information du client.'
+        card['DEADLINE_TABLE'] = reference.get('deadline_table') or []
     return card, reviews
 
 
@@ -220,18 +233,18 @@ def build_study_router(require_admin, get_bigquery_client):
 
     @router.get('/study/{topic}', response_class=HTMLResponse)
     def study_card(topic: str):
-        card_keys = {'eligibility': 'FFAR_ELIGIBILITY', 'minors': 'FFAR_MINORS', 'representation': 'FFAR_REPRESENTATION', 'licensing': 'FFAR_LICENSING', 'becoming-agent': 'FFAR_BECOMING_AGENT', 'agency-clients': 'FFAR_AGENCY_CLIENTS', 'fees': 'FFAR_FEES'}
+        card_keys = {'eligibility': 'FFAR_ELIGIBILITY', 'minors': 'FFAR_MINORS', 'representation': 'FFAR_REPRESENTATION', 'licensing': 'FFAR_LICENSING', 'becoming-agent': 'FFAR_BECOMING_AGENT', 'agency-clients': 'FFAR_AGENCY_CLIENTS', 'fees': 'FFAR_FEES', 'agent-duties': 'FFAR_AGENT_DUTIES'}
         card_key = card_keys.get(topic)
         if card_key is None:
             raise HTTPException(404, 'Fiche inconnue.')
         try:
-            if topic in ('representation','licensing','becoming-agent','agency-clients','fees'):
+            if topic in ('representation','licensing','becoming-agent','agency-clients','fees','agent-duties'):
                 rows = query(f"""
                     SELECT ID_REFERENCE, VERSION_NUMBER, STATUS, CONTENT_JSON
                     FROM `{DATASET}.FIFA_REQUIREMENT_REFERENCE`
                     WHERE ID_REFERENCE=@reference_id
                     LIMIT 2
-                """, [bigquery.ScalarQueryParameter('reference_id','STRING',{'representation':'REF_FFAR_ARTICLE_12_V1','licensing':'REF_FFAR_ARTICLE_17_V1','becoming-agent':'REF_FFAR_BECOMING_AGENT_V1','agency-clients':'REF_FFAR_AGENCY_CLIENTS_V1','fees':'REF_FFAR_FEES_V1'}[topic])])
+                """, [bigquery.ScalarQueryParameter('reference_id','STRING',{'representation':'REF_FFAR_ARTICLE_12_V1','licensing':'REF_FFAR_ARTICLE_17_V1','becoming-agent':'REF_FFAR_BECOMING_AGENT_V1','agency-clients':'REF_FFAR_AGENCY_CLIENTS_V1','fees':'REF_FFAR_FEES_V1','agent-duties':'REF_FFAR_AGENT_DUTIES_V1'}[topic])])
                 if not rows:
                     raise HTTPException(404, 'Référence de la fiche absente. Exécuter le script SQL de référence.')
                 if len(rows) != 1:
