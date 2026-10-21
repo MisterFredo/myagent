@@ -98,12 +98,12 @@ li{{margin:7px 0}}.toc{{display:flex;flex-wrap:wrap;gap:10px 24px;margin:24px 0}
 @media print{{body{{background:white}}main{{max-width:none;padding:0}}nav,.toc{{display:none}}.card{{border:0;padding:10px 0}}}}
 </style></head><body><main>
 <nav><a href="/">Informations</a><a href="{safe(review_url)}">Revue des extractions</a>
-<a href="/study/eligibility">Éligibilité</a><a href="/study/minors">Mineurs</a></nav>
+<a href="/study/eligibility">Éligibilité</a><a href="/study/minors">Mineurs</a><a href="/study/representation">Représentation</a></nav>
 <div class="label">MYAGENT / FICHE DE RÉVISION</div>
 <h1>{safe(card['TITLE'])}</h1><span class="badge">{status}</span>
 <p>{safe(card.get('INTRODUCTION'))}</p>
 <p class="muted small">La fiche référence {len(reviews)} informations revues. Les versions sources sont conservées ; le statut juridique actuel et le programme 2027 restent à confirmer.</p>
-<div class="toc"><a href="#conditions">Conditions d’éligibilité</a>
+<div class="toc"><a href="#conditions">Informations à connaître</a>
 <a href="#definitions">Définitions et renvois</a><a href="#pending">Points ouverts</a></div>
 <section class="card" id="conditions"><h2>Les informations à connaître</h2>
 <p class="muted">Ouvre une information pour étudier son énoncé, sa portée et ses sources.</p>
@@ -133,7 +133,7 @@ def build_study_router(require_admin, get_bigquery_client):
 
     @router.get('/study/{topic}', response_class=HTMLResponse)
     def study_card(topic: str):
-        card_keys = {'eligibility': 'FFAR_ELIGIBILITY', 'minors': 'FFAR_MINORS'}
+        card_keys = {'eligibility': 'FFAR_ELIGIBILITY', 'minors': 'FFAR_MINORS', 'representation': 'FFAR_REPRESENTATION'}
         card_key = card_keys.get(topic)
         if card_key is None:
             raise HTTPException(404, 'Fiche inconnue.')
