@@ -36,6 +36,13 @@ def render_unit(row, sources):
     exceptions = claims(item.get('exceptions'))
     consequences = claims(item.get('consequences'))
     dependencies = item.get('unresolved_references') or []
+    time_block = strings(item.get('temporal_scope_fr') or [])
+    notes_block = strings(item.get('review_notes') or [])
+    source_quotes = ''.join(
+        '<details class="source"><summary>Extrait exact — ' + safe(e.get('unit_id')) +
+        '</summary><pre>' + safe(e.get('quote')) + '</pre></details>'
+        for e in item.get('evidence', []) if e.get('quote')
+    )
     passage_ids = [p['passage_id'] for p in item.get('evidence', [])]
     raw_status = row.get('REVIEW_STATUS')
     status = 'Brouillon de revue' if raw_status == 'DRAFT' else 'Statut à examiner'
@@ -48,9 +55,12 @@ def render_unit(row, sources):
       {'<h4>Conditions et portée</h4>' + conditions if conditions else ''}
       {'<h4>Exceptions renseignées</h4>' + exceptions if exceptions else ''}
       {'<h4>Conséquences renseignées</h4>' + consequences if consequences else ''}
+      {'<h4>Temps et délais</h4>' + time_block if time_block else ''}
+      {'<h4>Précisions de lecture</h4>' + notes_block if notes_block else ''}
       {'<h4>Renvois à étudier</h4>' + strings(dependencies) if dependencies else ''}
       <p class="muted small">{status}. Une liste d’exceptions vide n’établit pas leur absence.</p>
       <details class="evidence"><summary>Vérifier les textes sources</summary>
+      {source_quotes}
       {render_sources(passage_ids, sources)}
       </details>
     </details>"""
@@ -75,6 +85,7 @@ def render_study_page(card, reviews, sources):
           {render_sources(section.get('SOURCE_PASSAGE_IDS') or [], sources)}
           </details>
         </section>""")
+    reference_label = card.get('REFERENCE_LABEL') or ''
     status = 'Fiche en brouillon' if card.get('STATUS') == 'DRAFT' else 'Statut à examiner'
     return f"""<!doctype html>
 <html lang="fr"><head><meta charset="utf-8">
@@ -101,8 +112,9 @@ li{{margin:7px 0}}.toc{{display:flex;flex-wrap:wrap;gap:10px 24px;margin:24px 0}
 <a href="/study/eligibility">Éligibilité</a><a href="/study/minors">Mineurs</a><a href="/study/representation">Représentation</a></nav>
 <div class="label">MYAGENT / FICHE DE RÉVISION</div>
 <h1>{safe(card['TITLE'])}</h1><span class="badge">{status}</span>
+<p class="muted small">{safe(reference_label)}</p>
 <p>{safe(card.get('INTRODUCTION'))}</p>
-<p class="muted small">La fiche référence {len(reviews)} informations revues. Les versions sources sont conservées ; le statut juridique actuel et le programme 2027 restent à confirmer.</p>
+<p class="muted small">La fiche présente {len(reviews)} informations de travail. Aucune validation juridique experte n’est enregistrée. Les versions sources sont conservées ; le statut juridique actuel et le programme 2027 restent à confirmer.</p>
 <div class="toc"><a href="#conditions">Informations à connaître</a>
 <a href="#definitions">Définitions et renvois</a><a href="#pending">Points ouverts</a></div>
 <section class="card" id="conditions"><h2>Les informations à connaître</h2>
@@ -114,6 +126,55 @@ li{{margin:7px 0}}.toc{{display:flex;flex-wrap:wrap;gap:10px 24px;margin:24px 0}
 <section class="card pending" id="pending"><h2>Points restant à vérifier</h2>
 {strings(card.get('OPEN_POINTS'))}</section>
 </main></body></html>"""
+
+
+def reference_as_card(row):
+    """Adapt the stored reference for display without changing database contents."""
+    reference = json.loads(row['CONTENT_JSON'])
+    if (reference.get('reference_id') != row['ID_REFERENCE']
+        or reference.get('version') != row['VERSION_NUMBER']
+        or reference.get('status') != row['STATUS']):
+        raise ValueError('Reference metadata mismatch.')
+    requirements = reference.get('requirements')
+    if not isinstance(requirements, list) or not requirements:
+        raise ValueError('Reference requirements missing.')
+    ids = [r['requirement_id'] for r in requirements]
+    if len(ids) != len(set(ids)):
+        raise ValueError('Duplicate reference requirements.')
+    reviews = []
+    passage_ids = set()
+    for requirement in requirements:
+        evidence = requirement.get('evidence') or []
+        if not evidence or any(not e.get('quote') or not e.get('passage_id') for e in evidence):
+            raise ValueError('Requirement evidence missing.')
+        passage_ids.update(e['passage_id'] for e in evidence)
+        actors = requirement.get('actors_fr') or []
+        logic = requirement.get('condition_logic')
+        logic_labels = {'ALL':'Conditions cumulatives', 'ANY':'Conditions alternatives',
+                        'COMPLEX':'Logique à lire avec les précisions',
+                        'NOT_APPLICABLE':'Aucune logique de conditions spécifiée'}
+        if logic not in logic_labels:
+            raise ValueError('Unknown condition logic.')
+        item = {
+            'title_fr':requirement['title_fr'],
+            'summary_fr':' · '.join(requirement['provisions']) + ' — ' + ', '.join(actors),
+            'statement_fr':requirement['action_fr'],
+            'evidence':evidence,
+            'temporal_scope_fr':requirement.get('temporal_scope_fr') or [],
+            'review_notes':([logic_labels[logic]] if requirement.get('conditions_fr') else []) + (requirement.get('review_notes') or []),
+            'unresolved_references':requirement.get('unresolved_references') or [],
+        }
+        for src, dest in [('conditions_fr','conditions'),('exceptions_fr','exceptions'),('consequences_fr','consequences')]:
+            item[dest] = [{'text_fr':t} for t in requirement.get(src,[])]
+        reviews.append({'UNIT_ID':requirement['requirement_id'],
+                        'REVIEW_STATUS':row['STATUS'],
+                        'PROPOSED_ITEM_JSON':json.dumps(item,ensure_ascii=False)})
+    card = {'TITLE':'Accord de représentation', 'STATUS':row['STATUS'],
+            'INTRODUCTION':'Article 12 : conclusion de l’accord, durée, mentions minimales, représentation des parties et résiliation. Les paragraphes 8 à 10 nécessitent une vérification séparée de leur applicabilité et de leur inclusion au programme de la session visée.',
+            'REFERENCE_LABEL':row['ID_REFERENCE'] + ' · version ' + str(row['VERSION_NUMBER']),
+            'SUPPLEMENTS_JSON':'[]', 'OPEN_POINTS':reference.get('open_points') or [],
+            'SOURCE_PASSAGE_IDS':sorted(passage_ids)}
+    return card, reviews
 
 
 def build_study_router(require_admin, get_bigquery_client):
@@ -138,6 +199,34 @@ def build_study_router(require_admin, get_bigquery_client):
         if card_key is None:
             raise HTTPException(404, 'Fiche inconnue.')
         try:
+            if topic == 'representation':
+                rows = query(f"""
+                    SELECT ID_REFERENCE, VERSION_NUMBER, STATUS, CONTENT_JSON
+                    FROM `{DATASET}.FIFA_REQUIREMENT_REFERENCE`
+                    WHERE ID_REFERENCE=@reference_id
+                    LIMIT 2
+                """, [bigquery.ScalarQueryParameter('reference_id','STRING','REF_FFAR_ARTICLE_12_V1')])
+                if not rows:
+                    raise HTTPException(404, 'Référence de l’article 12 absente. Exécuter le script SQL de référence.')
+                if len(rows) != 1:
+                    raise ValueError('Duplicate reference rows.')
+                card, reviews = reference_as_card(dict(rows[0].items()))
+                passage_ids = card['SOURCE_PASSAGE_IDS']
+                result = query(f"""
+                    SELECT p.ID_PASSAGE, p.PAGE_START, p.EXACT_TEXT,
+                           d.TITLE, d.EDITION, d.SOURCE_URL
+                    FROM `{DATASET}.FIFA_PASSAGE` p
+                    JOIN `{DATASET}.FIFA_DOCUMENT` d ON d.ID_DOCUMENT=p.ID_DOCUMENT
+                    WHERE p.ID_PASSAGE IN UNNEST(@passage_ids)
+                """, [bigquery.ArrayQueryParameter('passage_ids','STRING',passage_ids)])
+                sources = {r.ID_PASSAGE:dict(r.items()) for r in result}
+                if len(result) != len(passage_ids) or set(sources) != set(passage_ids):
+                    raise ValueError('Reference source pages missing or duplicated.')
+                for review in reviews:
+                    for proof in parse_item(review['PROPOSED_ITEM_JSON'])['evidence']:
+                        if proof['quote'] not in sources[proof['passage_id']]['EXACT_TEXT']:
+                            raise ValueError('Reference quote differs from stored passage.')
+                return HTMLResponse(render_study_page(card,reviews,sources),headers={'Cache-Control':'no-store'})
             cards = query(f"""
                 SELECT * FROM `{DATASET}.FIFA_STUDY_CARD`
                 WHERE CARD_KEY=@card_key
