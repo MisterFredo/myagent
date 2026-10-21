@@ -129,7 +129,7 @@ table{{border-collapse:collapse;width:100%;font-size:14px}}th,td{{border:1px sol
 @media print{{body{{background:white}}main{{max-width:none;padding:0}}nav,.toc{{display:none}}.card{{border:0;padding:10px 0}}}}
 </style></head><body><main>
 <nav><a href="/">Informations</a><a href="{safe(review_url)}">Revue des extractions</a>
-<a href="/study/eligibility">Éligibilité</a><a href="/study/minors">Mineurs</a><a href="/study/representation">Représentation</a><a href="/study/licensing">Maintien de la licence</a><a href="/study/becoming-agent">Devenir agent</a><a href="/study/agency-clients">Agents et clients</a><a href="/study/fees">Honoraires</a><a href="/study/agent-duties">Obligations des agents</a></nav>
+<a href="/study/eligibility">Éligibilité</a><a href="/study/minors">Mineurs</a><a href="/study/representation">Représentation</a><a href="/study/licensing">Maintien de la licence</a><a href="/study/becoming-agent">Devenir agent</a><a href="/study/agency-clients">Agents et clients</a><a href="/study/fees">Honoraires</a><a href="/study/agent-duties">Obligations des agents</a><a href="/study/disputes-discipline">Litiges et discipline</a></nav>
 <div class="label">MYAGENT / FICHE DE RÉVISION</div>
 <h1>{safe(card['TITLE'])}</h1><span class="badge">{status}</span>
 <p class="muted small">{safe(reference_label)}</p>
@@ -213,6 +213,9 @@ def reference_as_card(row):
         card['TITLE'] = 'Droits et obligations des agents'
         card['INTRODUCTION'] = 'Article 16 : approche et exclusivité, obligations professionnelles, déclarations sur la plateforme, comportements interdits et information du client.'
         card['DEADLINE_TABLE'] = reference.get('deadline_table') or []
+    if row['ID_REFERENCE'] == 'REF_FFAR_DISCLOSURE_DISPUTES_DISCIPLINE_V1':
+        card['TITLE'] = 'Publication, litiges et discipline'
+        card['INTRODUCTION'] = 'Articles 19 à 21 du corpus : informations mises à disposition, compétence pour les litiges, sanctions et coopération. Applicabilité actuelle et périmètre d’examen à vérifier séparément.'
     return card, reviews
 
 
@@ -233,18 +236,18 @@ def build_study_router(require_admin, get_bigquery_client):
 
     @router.get('/study/{topic}', response_class=HTMLResponse)
     def study_card(topic: str):
-        card_keys = {'eligibility': 'FFAR_ELIGIBILITY', 'minors': 'FFAR_MINORS', 'representation': 'FFAR_REPRESENTATION', 'licensing': 'FFAR_LICENSING', 'becoming-agent': 'FFAR_BECOMING_AGENT', 'agency-clients': 'FFAR_AGENCY_CLIENTS', 'fees': 'FFAR_FEES', 'agent-duties': 'FFAR_AGENT_DUTIES'}
+        card_keys = {'eligibility': 'FFAR_ELIGIBILITY', 'minors': 'FFAR_MINORS', 'representation': 'FFAR_REPRESENTATION', 'licensing': 'FFAR_LICENSING', 'becoming-agent': 'FFAR_BECOMING_AGENT', 'agency-clients': 'FFAR_AGENCY_CLIENTS', 'fees': 'FFAR_FEES', 'agent-duties': 'FFAR_AGENT_DUTIES', 'disputes-discipline': 'FFAR_DISCLOSURE_DISPUTES_DISCIPLINE'}
         card_key = card_keys.get(topic)
         if card_key is None:
             raise HTTPException(404, 'Fiche inconnue.')
         try:
-            if topic in ('representation','licensing','becoming-agent','agency-clients','fees','agent-duties'):
+            if topic in ('representation','licensing','becoming-agent','agency-clients','fees','agent-duties','disputes-discipline'):
                 rows = query(f"""
                     SELECT ID_REFERENCE, VERSION_NUMBER, STATUS, CONTENT_JSON
                     FROM `{DATASET}.FIFA_REQUIREMENT_REFERENCE`
                     WHERE ID_REFERENCE=@reference_id
                     LIMIT 2
-                """, [bigquery.ScalarQueryParameter('reference_id','STRING',{'representation':'REF_FFAR_ARTICLE_12_V1','licensing':'REF_FFAR_ARTICLE_17_V1','becoming-agent':'REF_FFAR_BECOMING_AGENT_V1','agency-clients':'REF_FFAR_AGENCY_CLIENTS_V1','fees':'REF_FFAR_FEES_V1','agent-duties':'REF_FFAR_AGENT_DUTIES_V1'}[topic])])
+                """, [bigquery.ScalarQueryParameter('reference_id','STRING',{'representation':'REF_FFAR_ARTICLE_12_V1','licensing':'REF_FFAR_ARTICLE_17_V1','becoming-agent':'REF_FFAR_BECOMING_AGENT_V1','agency-clients':'REF_FFAR_AGENCY_CLIENTS_V1','fees':'REF_FFAR_FEES_V1','agent-duties':'REF_FFAR_AGENT_DUTIES_V1','disputes-discipline':'REF_FFAR_DISCLOSURE_DISPUTES_DISCIPLINE_V1'}[topic])])
                 if not rows:
                     raise HTTPException(404, 'Référence de la fiche absente. Exécuter le script SQL de référence.')
                 if len(rows) != 1:
