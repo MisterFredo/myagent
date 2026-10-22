@@ -80,13 +80,30 @@ def inventory(number: int, text: str, include_parents: bool = False) -> tuple[Un
 
 def prepare_article(pages: list[Fragment], number: int, include_parents: bool = False) -> Article:
     """Pilot 2–4, checked against the supplied January 2026 source export."""
-    if number not in (2,3,4):
-        raise ValueError("Pilote RSTP limité aux articles 2, 3 et 4.")
+    if number not in (2,3,4,5,"5bis"):
+        raise ValueError("RSTP : articles 2 à 5 et 5bis uniquement.")
     pages = sorted(pages,key=lambda p:p.page)
     if [p.page for p in pages] != list(range(159,210)):
         raise ValueError("RSTP: pages 159 à 209 attendues exactement une fois.")
     if len({p.passage_id for p in pages}) != 51:
         raise ValueError("RSTP: identifiants sources dupliqués.")
+    if number in (5,"5bis"):
+        page=next(p for p in pages if p.page==168)
+        patterns=[r"(?m)^5\. Registration[ \t]*$",r"(?m)^5bis Bridge transfer[ \t]*$"]
+        matches=[list(re.finditer(pattern,page.text)) for pattern in patterns]
+        if any(len(m)!=1 for m in matches):raise ValueError("RSTP 5/5bis : titres ambigus ou absents.")
+        h5,hbis=matches[0][0],matches[1][0]
+        if h5.start()>=hbis.start():raise ValueError("RSTP : titres désordonnés.")
+        footer=re.search(r"(?m)^FIFA Football Agent Exam Study Materials",page.text)
+        if not footer or footer.start()<=hbis.end():raise ValueError("RSTP : fin de 5bis non reconnue.")
+        head=h5 if number==5 else hbis
+        end=hbis.start() if number==5 else footer.start()
+        text=page.text[head.end():end].strip()
+        units=inventory(number,text,include_parents=include_parents)
+        expected=({f"5.{i}" for i in range(1,7)}|{f"5.6.{c}" for c in "abcd"}) if number==5 else {f"5bis.{i}" for i in range(1,4)}
+        leaves=expected-({'5.6'} if number==5 else set())
+        if {u.unit_id for u in units}!=(expected if include_parents else leaves):raise ValueError("RSTP 5/5bis : inventaire inattendu.")
+        return Article(number,(Fragment(page.passage_id,page.page,page.text[head.start():end]),),units)
     page = next(p for p in pages if p.page==167)
     titles = {
         2: r"(?m)^2\. Status of players: amateur and professional players[ \t]*$",
