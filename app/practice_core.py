@@ -19,7 +19,14 @@ def pick_quiz(bank,limit=10):
 
 def public_question(q):return {k:q[k] for k in ('id','question','choices')}
 
-def model_input(q,corpus):return {'question':public_question(q),'corpus':corpus}
+TARGETED_PROMPT_VERSION='CLOSED_CORPUS_TARGETED_V2'
+def targeted_context(q,corpus):
+ if q.get('family')!='minor-signature':raise ValueError('Targeted pilot unavailable')
+ return [x for x in corpus if x['card_id']=='FFAR_MINORS' or (x['card_id']=='REF_FFAR_ARTICLE_12_V1' and '12.7' in str(x['content'].get('provisions',[])))]
+def model_input(q,corpus,targeted=False):
+ result={'question':public_question(q),'corpus':corpus}
+ if targeted:result['question']['answer_mode']='SINGLE_CHOICE'
+ return result
 
 def score(bank,ids,answers):
  by={q['id']:q for q in bank};result=[]
@@ -50,10 +57,11 @@ def strings(obj):
  if isinstance(obj,list):return [s for v in obj for s in strings(v)]
  return []
 
-def validate_result(result,q,corpus):
+def validate_result(result,q,corpus,single_choice=False):
  known={x['information_id']:x for x in corpus};errors=[]
  if result.get('status') not in ('ANSWERABLE','PARTIAL','INSUFFICIENT'):errors.append('Statut inconnu')
  selected=result.get('selected',[])
+ if single_choice and len(selected)>1:errors.append('Question à choix unique : plusieurs réponses sélectionnées')
  if len(selected)!=len(set(selected)) or any(x not in q['choices'] for x in selected):errors.append('Choix invalides')
  if result.get('status')=='INSUFFICIENT' and selected:errors.append('Abstention incohérente')
  if result.get('status')=='ANSWERABLE' and not selected:errors.append('Réponse manquante')
