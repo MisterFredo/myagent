@@ -17,6 +17,19 @@ logger = logging.getLogger("myagent.study")
 REFERENCE_TOPICS = {'representation': ('REF_FFAR_ARTICLE_12_V1', 'Accord de représentation'), 'licensing': ('REF_FFAR_ARTICLE_17_V1', 'Maintien de la licence'), 'becoming-agent': ('REF_FFAR_BECOMING_AGENT_V1', 'Devenir agent'), 'agency-clients': ('REF_FFAR_AGENCY_CLIENTS_V1', 'Agents, agences et clients'), 'fees': ('REF_FFAR_FEES_V1', 'Honoraires'), 'agent-duties': ('REF_FFAR_AGENT_DUTIES_V1', 'Droits et obligations des agents'), 'disputes-discipline': ('REF_FFAR_DISCLOSURE_DISPUTES_DISCIPLINE_V1', 'Publication, litiges et discipline')}
 
 
+# Stable learning order; unknown future cards follow the numbered core.
+STUDY_ORDER = {'framework': 1, 'becoming-agent': 2, 'eligibility': 3, 'licensing': 4, 'agency-clients': 5, 'representation': 6, 'minors': 7, 'agent-duties': 8, 'fees': 9, 'disputes-discipline': 10, 'final-provisions': 11, 'rstp-status-registration': 12, 'rstp-contracts': 13, 'rstp-minors': 14, 'rstp-third-parties': 15, 'rstp-training-solidarity': 16, 'clearing-house': 17, 'safeguarding-risks': 18, 'safeguarding-response': 19, 'ethical-recruitment': 20, 'ethics-core': 21, 'discipline-core': 22, 'tribunal-procedure': 23, 'fifa-institutions': 24}
+
+
+def numbered_title(slug, title):
+    number = STUDY_ORDER.get(slug)
+    return f"{number:02d}. {title}" if number is not None else title
+
+
+def study_sort_key(entry):
+    return (STUDY_ORDER.get(entry['slug'], 10000), entry['title'].casefold())
+
+
 def reference_identity(row):
     reference = json.loads(row['CONTENT_JSON'])
     meta = reference.get('card') or {}
@@ -36,7 +49,8 @@ def reference_identity(row):
 
 
 def render_catalog(entries):
-    cards=''.join('<article><h2><a href="/study/'+safe(e['slug'])+'">'+safe(e['title'])+'</a></h2><p>'+safe(e['status'])+' · '+safe(e['count'])+' informations</p></article>' for e in entries)
+    entries = sorted(entries, key=study_sort_key)
+    cards=''.join('<article><h2><a href="/study/'+safe(e['slug'])+'">'+safe(numbered_title(e['slug'], e['title']))+'</a></h2><p>'+safe(e['status'])+' · '+safe(e['count'])+' informations</p></article>' for e in entries)
     return ('<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>MYAGENT — Fiches</title>'
             '<style>body{font:16px/1.65 system-ui;background:#f5f6f8;color:#172033;margin:0}main{max-width:1050px;margin:auto;padding:32px 20px}article,section{background:white;border:1px solid #e1e5ec;border-radius:12px;padding:24px;margin:16px 0}a{color:#284f9b}input,button{font:inherit;padding:10px;max-width:100%;box-sizing:border-box}h2{font-size:21px}</style></head><body><main>'
             '<nav><a href="/">Informations</a></nav><h1>Mes fiches</h1><p>Supports de travail et sources. Le statut de chaque fiche indique sa revue ; leur nombre ne mesure pas la couverture du programme.</p>'+cards+
@@ -299,7 +313,7 @@ def build_study_router(require_admin, get_bigquery_client):
             for row in legacy:
                 entries.append({'slug':{'FFAR_ELIGIBILITY':'eligibility','FFAR_MINORS':'minors'}[row.CARD_KEY],
                                 'title':row.TITLE,'status':row.STATUS,'count':len(row.SOURCE_REVIEW_IDS or [])})
-            return HTMLResponse(render_catalog(sorted(entries,key=lambda e:e['title'])),headers={'Cache-Control':'no-store'})
+            return HTMLResponse(render_catalog(entries),headers={'Cache-Control':'no-store'})
         except Exception as exc:
             logger.error('Study catalogue failed (%s)',type(exc).__name__)
             raise HTTPException(503,'Catalogue indisponible. Vérifier les logs Render.') from None
@@ -378,6 +392,7 @@ def build_study_router(require_admin, get_bigquery_client):
                     for proof in parse_item(review['PROPOSED_ITEM_JSON'])['evidence']:
                         if proof['quote'] not in sources[proof['passage_id']]['EXACT_TEXT']:
                             raise ValueError('Reference quote differs from stored passage.')
+                card = dict(card, TITLE=numbered_title(topic, card['TITLE']))
                 return HTMLResponse(render_study_page(card,reviews,sources),headers={'Cache-Control':'no-store'})
             cards = query(f"""
                 SELECT * FROM `{DATASET}.FIFA_STUDY_CARD`
@@ -419,6 +434,7 @@ def build_study_router(require_admin, get_bigquery_client):
                 sources = {r.ID_PASSAGE:dict(r.items()) for r in result}
             if set(sources) != passage_ids:
                 raise ValueError('Referenced passages missing.')
+            card = dict(card, TITLE=numbered_title(topic, card['TITLE']))
             html = render_study_page(card, reviews, sources)
         except HTTPException:
             raise
