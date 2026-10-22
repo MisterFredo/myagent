@@ -1,0 +1,4662 @@
+[
+  {
+    "id": "Q_bf8f3af96480f23b0961",
+    "source": "PDF_100",
+    "number": 1,
+    "question": "Who must co-sign a Representation Agreement involving a minor (under 18)?",
+    "choices": {
+      "A": "The minor's legal guardian",
+      "B": "FIFA",
+      "C": "The minor’s school",
+      "D": "The club"
+    },
+    "source_answer": "A",
+    "occurrences": [
+      {
+        "source": "PDF_100",
+        "number": 1,
+        "source_answer": "A",
+        "source_answer_text": "The minor's legal guardian",
+        "pdf_page": 1
+      },
+      {
+        "source": "PDF_100",
+        "number": 11,
+        "source_answer": "A",
+        "source_answer_text": "The minor's legal guardian",
+        "pdf_page": 3
+      },
+      {
+        "source": "PDF_100",
+        "number": 21,
+        "source_answer": "B",
+        "source_answer_text": "The minor's legal guardian",
+        "pdf_page": 6
+      },
+      {
+        "source": "PDF_100",
+        "number": 31,
+        "source_answer": "D",
+        "source_answer_text": "The minor's legal guardian",
+        "pdf_page": 9
+      },
+      {
+        "source": "PDF_100",
+        "number": 41,
+        "source_answer": "D",
+        "source_answer_text": "The minor's legal guardian",
+        "pdf_page": 11
+      },
+      {
+        "source": "PDF_100",
+        "number": 51,
+        "source_answer": "B",
+        "source_answer_text": "The minor's legal guardian",
+        "pdf_page": 14
+      },
+      {
+        "source": "PDF_100",
+        "number": 61,
+        "source_answer": "B",
+        "source_answer_text": "The minor's legal guardian",
+        "pdf_page": 16
+      },
+      {
+        "source": "PDF_100",
+        "number": 71,
+        "source_answer": "D",
+        "source_answer_text": "The minor's legal guardian",
+        "pdf_page": 19
+      },
+      {
+        "source": "PDF_100",
+        "number": 81,
+        "source_answer": "A",
+        "source_answer_text": "The minor's legal guardian",
+        "pdf_page": 22
+      },
+      {
+        "source": "PDF_100",
+        "number": 91,
+        "source_answer": "D",
+        "source_answer_text": "The minor's legal guardian",
+        "pdf_page": 24
+      }
+    ],
+    "source_conflict": false,
+    "status": "REVIEWED_CORPUS",
+    "approved_answers": [
+      "A"
+    ],
+    "review_note": "Signature du mineur et de son représentant légal ; ce n’est pas l’unique condition de validité.",
+    "information_ids": [
+      "13.3.c"
+    ],
+    "family": "minor-signature",
+    "source_disagrees": false
+  },
+  {
+    "id": "Q_4b585e2815a1ac0e666b",
+    "source": "PDF_100",
+    "number": 2,
+    "question": "Which FIFA body is responsible for handling disputes arising from Representation Agreements?",
+    "choices": {
+      "A": "Court of Arbitration for Sport",
+      "B": "FIFA Disciplinary Committee",
+      "C": "National FA",
+      "D": "FIFA Football Agent Chamber"
+    },
+    "source_answer": "D",
+    "occurrences": [
+      {
+        "source": "PDF_100",
+        "number": 2,
+        "source_answer": "D",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 1
+      },
+      {
+        "source": "PDF_100",
+        "number": 12,
+        "source_answer": "A",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 4
+      },
+      {
+        "source": "PDF_100",
+        "number": 22,
+        "source_answer": "B",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 6
+      },
+      {
+        "source": "PDF_100",
+        "number": 32,
+        "source_answer": "C",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 9
+      },
+      {
+        "source": "PDF_100",
+        "number": 42,
+        "source_answer": "A",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 11
+      },
+      {
+        "source": "PDF_100",
+        "number": 52,
+        "source_answer": "D",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 14
+      },
+      {
+        "source": "PDF_100",
+        "number": 62,
+        "source_answer": "D",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 17
+      },
+      {
+        "source": "PDF_100",
+        "number": 72,
+        "source_answer": "C",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 19
+      },
+      {
+        "source": "PDF_100",
+        "number": 82,
+        "source_answer": "A",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 22
+      },
+      {
+        "source": "PDF_100",
+        "number": 92,
+        "source_answer": "B",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 24
+      }
+    ],
+    "source_conflict": false,
+    "status": "UNREVIEWED",
+    "approved_answers": [],
+    "review_note": "Exclue des scores : règle absente du corpus, portée trop générale, options ambiguës ou statut d’applicabilité à vérifier.",
+    "information_ids": [],
+    "family": "disputes"
+  },
+  {
+    "id": "Q_529101ac6679cc8ebc29",
+    "source": "PDF_100",
+    "number": 3,
+    "question": "When is dual representation allowed under the FFAR?",
+    "choices": {
+      "A": "Only for international transfers",
+      "B": "Always",
+      "C": "Never",
+      "D": "With prior written consent of all parties"
+    },
+    "source_answer": "D",
+    "occurrences": [
+      {
+        "source": "PDF_100",
+        "number": 3,
+        "source_answer": "D",
+        "source_answer_text": "With prior written consent of all parties",
+        "pdf_page": 1
+      },
+      {
+        "source": "PDF_100",
+        "number": 13,
+        "source_answer": "A",
+        "source_answer_text": "With prior written consent of all parties",
+        "pdf_page": 4
+      },
+      {
+        "source": "PDF_100",
+        "number": 23,
+        "source_answer": "B",
+        "source_answer_text": "With prior written consent of all parties",
+        "pdf_page": 6
+      },
+      {
+        "source": "PDF_100",
+        "number": 33,
+        "source_answer": "D",
+        "source_answer_text": "With prior written consent of all parties",
+        "pdf_page": 9
+      },
+      {
+        "source": "PDF_100",
+        "number": 43,
+        "source_answer": "D",
+        "source_answer_text": "With prior written consent of all parties",
+        "pdf_page": 12
+      },
+      {
+        "source": "PDF_100",
+        "number": 53,
+        "source_answer": "A",
+        "source_answer_text": "With prior written consent of all parties",
+        "pdf_page": 14
+      },
+      {
+        "source": "PDF_100",
+        "number": 63,
+        "source_answer": "A",
+        "source_answer_text": "With prior written consent of all parties",
+        "pdf_page": 17
+      },
+      {
+        "source": "PDF_100",
+        "number": 73,
+        "source_answer": "A",
+        "source_answer_text": "With prior written consent of all parties",
+        "pdf_page": 20
+      },
+      {
+        "source": "PDF_100",
+        "number": 83,
+        "source_answer": "C",
+        "source_answer_text": "With prior written consent of all parties",
+        "pdf_page": 22
+      },
+      {
+        "source": "PDF_100",
+        "number": 93,
+        "source_answer": "C",
+        "source_answer_text": "With prior written consent of all parties",
+        "pdf_page": 25
+      }
+    ],
+    "source_conflict": false,
+    "status": "UNREVIEWED",
+    "approved_answers": [],
+    "review_note": "Exclue des scores : règle absente du corpus, portée trop générale, options ambiguës ou statut d’applicabilité à vérifier.",
+    "information_ids": [],
+    "family": "dual"
+  },
+  {
+    "id": "Q_f293c3b409e0204c1030",
+    "source": "PDF_100",
+    "number": 4,
+    "question": "Which platform must agents use to register their Representation Agreements?",
+    "choices": {
+      "A": "FIFA Connect",
+      "B": "FIFA MyAgent",
+      "C": "FIFA TMS",
+      "D": "FIFA Agent Platform"
+    },
+    "source_answer": "D",
+    "occurrences": [
+      {
+        "source": "PDF_100",
+        "number": 4,
+        "source_answer": "D",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 2
+      },
+      {
+        "source": "PDF_100",
+        "number": 14,
+        "source_answer": "C",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 4
+      },
+      {
+        "source": "PDF_100",
+        "number": 24,
+        "source_answer": "C",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 7
+      },
+      {
+        "source": "PDF_100",
+        "number": 34,
+        "source_answer": "B",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 9
+      },
+      {
+        "source": "PDF_100",
+        "number": 44,
+        "source_answer": "B",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 12
+      },
+      {
+        "source": "PDF_100",
+        "number": 54,
+        "source_answer": "B",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 15
+      },
+      {
+        "source": "PDF_100",
+        "number": 64,
+        "source_answer": "A",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 17
+      },
+      {
+        "source": "PDF_100",
+        "number": 74,
+        "source_answer": "D",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 20
+      },
+      {
+        "source": "PDF_100",
+        "number": 84,
+        "source_answer": "D",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 22
+      },
+      {
+        "source": "PDF_100",
+        "number": 94,
+        "source_answer": "A",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 25
+      }
+    ],
+    "source_conflict": false,
+    "status": "REVIEWED_CORPUS",
+    "approved_answers": [
+      "D"
+    ],
+    "review_note": "Accords à transmettre sur la Plateforme, dans les délais réglementaires.",
+    "information_ids": [
+      "REFDUTY_013"
+    ],
+    "family": "platform",
+    "source_disagrees": false
+  },
+  {
+    "id": "Q_4ff678c442f928403aaa",
+    "source": "PDF_100",
+    "number": 5,
+    "question": "What is the minimum age required to apply for a FIFA agent license?",
+    "choices": {
+      "A": "18",
+      "B": "21",
+      "C": "16",
+      "D": "25"
+    },
+    "source_answer": "A",
+    "occurrences": [
+      {
+        "source": "PDF_100",
+        "number": 5,
+        "source_answer": "A",
+        "source_answer_text": "18",
+        "pdf_page": 2
+      },
+      {
+        "source": "PDF_100",
+        "number": 15,
+        "source_answer": "C",
+        "source_answer_text": "18",
+        "pdf_page": 4
+      },
+      {
+        "source": "PDF_100",
+        "number": 25,
+        "source_answer": "A",
+        "source_answer_text": "18",
+        "pdf_page": 7
+      },
+      {
+        "source": "PDF_100",
+        "number": 35,
+        "source_answer": "D",
+        "source_answer_text": "18",
+        "pdf_page": 10
+      },
+      {
+        "source": "PDF_100",
+        "number": 45,
+        "source_answer": "A",
+        "source_answer_text": "18",
+        "pdf_page": 12
+      },
+      {
+        "source": "PDF_100",
+        "number": 55,
+        "source_answer": "C",
+        "source_answer_text": "18",
+        "pdf_page": 15
+      },
+      {
+        "source": "PDF_100",
+        "number": 65,
+        "source_answer": "C",
+        "source_answer_text": "18",
+        "pdf_page": 17
+      },
+      {
+        "source": "PDF_100",
+        "number": 75,
+        "source_answer": "C",
+        "source_answer_text": "18",
+        "pdf_page": 20
+      },
+      {
+        "source": "PDF_100",
+        "number": 85,
+        "source_answer": "B",
+        "source_answer_text": "18",
+        "pdf_page": 23
+      },
+      {
+        "source": "PDF_100",
+        "number": 95,
+        "source_answer": "C",
+        "source_answer_text": "18",
+        "pdf_page": 25
+      }
+    ],
+    "source_conflict": false,
+    "status": "UNREVIEWED",
+    "approved_answers": [],
+    "review_note": "Exclue des scores : règle absente du corpus, portée trop générale, options ambiguës ou statut d’applicabilité à vérifier.",
+    "information_ids": [],
+    "family": "age"
+  },
+  {
+    "id": "Q_b2ac0f0f15ec97ea0e40",
+    "source": "PDF_100",
+    "number": 6,
+    "question": "What article of the RSTP regulates the international transfer of minors?",
+    "choices": {
+      "A": "Article 22",
+      "B": "Article 19",
+      "C": "Article 10",
+      "D": "Article 5"
+    },
+    "source_answer": "B",
+    "occurrences": [
+      {
+        "source": "PDF_100",
+        "number": 6,
+        "source_answer": "B",
+        "source_answer_text": "Article 19",
+        "pdf_page": 2
+      },
+      {
+        "source": "PDF_100",
+        "number": 16,
+        "source_answer": "A",
+        "source_answer_text": "Article 19",
+        "pdf_page": 5
+      },
+      {
+        "source": "PDF_100",
+        "number": 26,
+        "source_answer": "A",
+        "source_answer_text": "Article 19",
+        "pdf_page": 7
+      },
+      {
+        "source": "PDF_100",
+        "number": 36,
+        "source_answer": "C",
+        "source_answer_text": "Article 19",
+        "pdf_page": 10
+      },
+      {
+        "source": "PDF_100",
+        "number": 46,
+        "source_answer": "C",
+        "source_answer_text": "Article 19",
+        "pdf_page": 12
+      },
+      {
+        "source": "PDF_100",
+        "number": 56,
+        "source_answer": "D",
+        "source_answer_text": "Article 19",
+        "pdf_page": 15
+      },
+      {
+        "source": "PDF_100",
+        "number": 66,
+        "source_answer": "A",
+        "source_answer_text": "Article 19",
+        "pdf_page": 18
+      },
+      {
+        "source": "PDF_100",
+        "number": 76,
+        "source_answer": "B",
+        "source_answer_text": "Article 19",
+        "pdf_page": 20
+      },
+      {
+        "source": "PDF_100",
+        "number": 86,
+        "source_answer": "C",
+        "source_answer_text": "Article 19",
+        "pdf_page": 23
+      },
+      {
+        "source": "PDF_100",
+        "number": 96,
+        "source_answer": "B",
+        "source_answer_text": "Article 19",
+        "pdf_page": 25
+      }
+    ],
+    "source_conflict": false,
+    "status": "REVIEWED_CORPUS",
+    "approved_answers": [
+      "B"
+    ],
+    "review_note": "Article 19 du RSTP : principe et exceptions.",
+    "information_ids": [
+      "REF_RSTP_MINORS_V1_001"
+    ],
+    "family": "rstp-minors",
+    "source_disagrees": false
+  },
+  {
+    "id": "Q_90f0c8e592cf2e68c30e",
+    "source": "PDF_100",
+    "number": 7,
+    "question": "How long must a licensed agent keep transaction records and agreements?",
+    "choices": {
+      "A": "1 year",
+      "B": "3 years",
+      "C": "10 years",
+      "D": "5 years"
+    },
+    "source_answer": "D",
+    "occurrences": [
+      {
+        "source": "PDF_100",
+        "number": 7,
+        "source_answer": "D",
+        "source_answer_text": "5 years",
+        "pdf_page": 2
+      },
+      {
+        "source": "PDF_100",
+        "number": 17,
+        "source_answer": "B",
+        "source_answer_text": "5 years",
+        "pdf_page": 5
+      },
+      {
+        "source": "PDF_100",
+        "number": 27,
+        "source_answer": "D",
+        "source_answer_text": "5 years",
+        "pdf_page": 7
+      },
+      {
+        "source": "PDF_100",
+        "number": 37,
+        "source_answer": "A",
+        "source_answer_text": "5 years",
+        "pdf_page": 10
+      },
+      {
+        "source": "PDF_100",
+        "number": 47,
+        "source_answer": "D",
+        "source_answer_text": "5 years",
+        "pdf_page": 13
+      },
+      {
+        "source": "PDF_100",
+        "number": 57,
+        "source_answer": "B",
+        "source_answer_text": "5 years",
+        "pdf_page": 15
+      },
+      {
+        "source": "PDF_100",
+        "number": 67,
+        "source_answer": "D",
+        "source_answer_text": "5 years",
+        "pdf_page": 18
+      },
+      {
+        "source": "PDF_100",
+        "number": 77,
+        "source_answer": "A",
+        "source_answer_text": "5 years",
+        "pdf_page": 21
+      },
+      {
+        "source": "PDF_100",
+        "number": 87,
+        "source_answer": "D",
+        "source_answer_text": "5 years",
+        "pdf_page": 23
+      },
+      {
+        "source": "PDF_100",
+        "number": 97,
+        "source_answer": "B",
+        "source_answer_text": "5 years",
+        "pdf_page": 26
+      }
+    ],
+    "source_conflict": false,
+    "status": "UNREVIEWED",
+    "approved_answers": [],
+    "review_note": "Exclue des scores : règle absente du corpus, portée trop générale, options ambiguës ou statut d’applicabilité à vérifier.",
+    "information_ids": [],
+    "family": "retention"
+  },
+  {
+    "id": "Q_6b45956b49d1af4beaa3",
+    "source": "PDF_100",
+    "number": 8,
+    "question": "Which organization is responsible for collecting and forwarding agent fees through centralized payments?",
+    "choices": {
+      "A": "Player's Club",
+      "B": "FIFA Clearing House",
+      "C": "FIFA Legal Affairs",
+      "D": "National FA"
+    },
+    "source_answer": "B",
+    "occurrences": [
+      {
+        "source": "PDF_100",
+        "number": 8,
+        "source_answer": "B",
+        "source_answer_text": "FIFA Clearing House",
+        "pdf_page": 3
+      },
+      {
+        "source": "PDF_100",
+        "number": 18,
+        "source_answer": "A",
+        "source_answer_text": "FIFA Clearing House",
+        "pdf_page": 5
+      },
+      {
+        "source": "PDF_100",
+        "number": 28,
+        "source_answer": "D",
+        "source_answer_text": "FIFA Clearing House",
+        "pdf_page": 8
+      },
+      {
+        "source": "PDF_100",
+        "number": 38,
+        "source_answer": "C",
+        "source_answer_text": "FIFA Clearing House",
+        "pdf_page": 10
+      },
+      {
+        "source": "PDF_100",
+        "number": 48,
+        "source_answer": "C",
+        "source_answer_text": "FIFA Clearing House",
+        "pdf_page": 13
+      },
+      {
+        "source": "PDF_100",
+        "number": 58,
+        "source_answer": "D",
+        "source_answer_text": "FIFA Clearing House",
+        "pdf_page": 16
+      },
+      {
+        "source": "PDF_100",
+        "number": 68,
+        "source_answer": "B",
+        "source_answer_text": "FIFA Clearing House",
+        "pdf_page": 18
+      },
+      {
+        "source": "PDF_100",
+        "number": 78,
+        "source_answer": "A",
+        "source_answer_text": "FIFA Clearing House",
+        "pdf_page": 21
+      },
+      {
+        "source": "PDF_100",
+        "number": 88,
+        "source_answer": "D",
+        "source_answer_text": "FIFA Clearing House",
+        "pdf_page": 23
+      },
+      {
+        "source": "PDF_100",
+        "number": 98,
+        "source_answer": "A",
+        "source_answer_text": "FIFA Clearing House",
+        "pdf_page": 26
+      }
+    ],
+    "source_conflict": false,
+    "status": "UNREVIEWED",
+    "approved_answers": [],
+    "review_note": "Exclue des scores : règle absente du corpus, portée trop générale, options ambiguës ou statut d’applicabilité à vérifier.",
+    "information_ids": [],
+    "family": "fees"
+  },
+  {
+    "id": "Q_5a508be49e88925f6fed",
+    "source": "PDF_100",
+    "number": 9,
+    "question": "What is the maximum percentage fee an agent may charge a player earning under USD 200,000 per year?",
+    "choices": {
+      "A": "10%",
+      "B": "5%",
+      "C": "15%",
+      "D": "7%"
+    },
+    "source_answer": "B",
+    "occurrences": [
+      {
+        "source": "PDF_100",
+        "number": 9,
+        "source_answer": "B",
+        "source_answer_text": "5%",
+        "pdf_page": 3
+      },
+      {
+        "source": "PDF_100",
+        "number": 19,
+        "source_answer": "C",
+        "source_answer_text": "5%",
+        "pdf_page": 5
+      },
+      {
+        "source": "PDF_100",
+        "number": 29,
+        "source_answer": "C",
+        "source_answer_text": "5%",
+        "pdf_page": 8
+      },
+      {
+        "source": "PDF_100",
+        "number": 39,
+        "source_answer": "A",
+        "source_answer_text": "5%",
+        "pdf_page": 11
+      },
+      {
+        "source": "PDF_100",
+        "number": 49,
+        "source_answer": "C",
+        "source_answer_text": "5%",
+        "pdf_page": 13
+      },
+      {
+        "source": "PDF_100",
+        "number": 59,
+        "source_answer": "A",
+        "source_answer_text": "5%",
+        "pdf_page": 16
+      },
+      {
+        "source": "PDF_100",
+        "number": 69,
+        "source_answer": "D",
+        "source_answer_text": "5%",
+        "pdf_page": 18
+      },
+      {
+        "source": "PDF_100",
+        "number": 79,
+        "source_answer": "B",
+        "source_answer_text": "5%",
+        "pdf_page": 21
+      },
+      {
+        "source": "PDF_100",
+        "number": 89,
+        "source_answer": "D",
+        "source_answer_text": "5%",
+        "pdf_page": 24
+      },
+      {
+        "source": "PDF_100",
+        "number": 99,
+        "source_answer": "A",
+        "source_answer_text": "5%",
+        "pdf_page": 26
+      }
+    ],
+    "source_conflict": false,
+    "status": "UNREVIEWED",
+    "approved_answers": [],
+    "review_note": "Exclue des scores : règle absente du corpus, portée trop générale, options ambiguës ou statut d’applicabilité à vérifier.",
+    "information_ids": [],
+    "family": "fees"
+  },
+  {
+    "id": "Q_b93a9b94dbddd4ebf92b",
+    "source": "PDF_100",
+    "number": 10,
+    "question": "What is the maximum duration of a Representation Agreement between an agent and a player under FFAR?",
+    "choices": {
+      "A": "4 years",
+      "B": "1 year",
+      "C": "2 years",
+      "D": "3 years"
+    },
+    "source_answer": "D",
+    "occurrences": [
+      {
+        "source": "PDF_100",
+        "number": 10,
+        "source_answer": "D",
+        "source_answer_text": "3 years",
+        "pdf_page": 3
+      },
+      {
+        "source": "PDF_100",
+        "number": 20,
+        "source_answer": "C",
+        "source_answer_text": "3 years",
+        "pdf_page": 6
+      },
+      {
+        "source": "PDF_100",
+        "number": 30,
+        "source_answer": "B",
+        "source_answer_text": "3 years",
+        "pdf_page": 8
+      },
+      {
+        "source": "PDF_100",
+        "number": 40,
+        "source_answer": "D",
+        "source_answer_text": "3 years",
+        "pdf_page": 11
+      },
+      {
+        "source": "PDF_100",
+        "number": 50,
+        "source_answer": "C",
+        "source_answer_text": "3 years",
+        "pdf_page": 14
+      },
+      {
+        "source": "PDF_100",
+        "number": 60,
+        "source_answer": "B",
+        "source_answer_text": "3 years",
+        "pdf_page": 16
+      },
+      {
+        "source": "PDF_100",
+        "number": 70,
+        "source_answer": "A",
+        "source_answer_text": "3 years",
+        "pdf_page": 19
+      },
+      {
+        "source": "PDF_100",
+        "number": 80,
+        "source_answer": "A",
+        "source_answer_text": "3 years",
+        "pdf_page": 21
+      },
+      {
+        "source": "PDF_100",
+        "number": 90,
+        "source_answer": "A",
+        "source_answer_text": "3 years",
+        "pdf_page": 24
+      },
+      {
+        "source": "PDF_100",
+        "number": 100,
+        "source_answer": "C",
+        "source_answer_text": "3 years",
+        "pdf_page": 27
+      }
+    ],
+    "source_conflict": false,
+    "status": "REVIEWED_CORPUS",
+    "approved_answers": [
+      "C"
+    ],
+    "review_note": "Article 12.3 : deux ans au maximum avec un individu ; nouvel accord requis pour prolonger.",
+    "information_ids": [
+      "REF12_003"
+    ],
+    "family": "duration",
+    "source_disagrees": true
+  },
+  {
+    "id": "Q_2ec53b3b6b60e4d6811e",
+    "source": "PDF_500",
+    "number": 1,
+    "question": "What article of the RSTP governs transfers of minors?",
+    "choices": {
+      "A": "Article 5",
+      "B": "Article 10",
+      "C": "Article 19",
+      "D": "Article 21"
+    },
+    "source_answer": "C",
+    "occurrences": [
+      {
+        "source": "PDF_500",
+        "number": 1,
+        "source_answer": "C",
+        "source_answer_text": "Article 19",
+        "pdf_page": 1
+      },
+      {
+        "source": "PDF_500",
+        "number": 4,
+        "source_answer": "B",
+        "source_answer_text": "Article 19",
+        "pdf_page": 2
+      },
+      {
+        "source": "PDF_500",
+        "number": 10,
+        "source_answer": "B",
+        "source_answer_text": "Article 19",
+        "pdf_page": 3
+      },
+      {
+        "source": "PDF_500",
+        "number": 18,
+        "source_answer": "A",
+        "source_answer_text": "Article 19",
+        "pdf_page": 5
+      },
+      {
+        "source": "PDF_500",
+        "number": 37,
+        "source_answer": "B",
+        "source_answer_text": "Article 19",
+        "pdf_page": 10
+      },
+      {
+        "source": "PDF_500",
+        "number": 42,
+        "source_answer": "D",
+        "source_answer_text": "Article 19",
+        "pdf_page": 11
+      },
+      {
+        "source": "PDF_500",
+        "number": 59,
+        "source_answer": "A",
+        "source_answer_text": "Article 19",
+        "pdf_page": 16
+      },
+      {
+        "source": "PDF_500",
+        "number": 76,
+        "source_answer": "A",
+        "source_answer_text": "Article 19",
+        "pdf_page": 20
+      },
+      {
+        "source": "PDF_500",
+        "number": 103,
+        "source_answer": "A",
+        "source_answer_text": "Article 19",
+        "pdf_page": 27
+      },
+      {
+        "source": "PDF_500",
+        "number": 118,
+        "source_answer": "A",
+        "source_answer_text": "Article 19",
+        "pdf_page": 31
+      },
+      {
+        "source": "PDF_500",
+        "number": 127,
+        "source_answer": "C",
+        "source_answer_text": "Article 19",
+        "pdf_page": 33
+      },
+      {
+        "source": "PDF_500",
+        "number": 132,
+        "source_answer": "A",
+        "source_answer_text": "Article 19",
+        "pdf_page": 34
+      },
+      {
+        "source": "PDF_500",
+        "number": 148,
+        "source_answer": "C",
+        "source_answer_text": "Article 19",
+        "pdf_page": 39
+      },
+      {
+        "source": "PDF_500",
+        "number": 173,
+        "source_answer": "A",
+        "source_answer_text": "Article 19",
+        "pdf_page": 45
+      },
+      {
+        "source": "PDF_500",
+        "number": 179,
+        "source_answer": "C",
+        "source_answer_text": "Article 19",
+        "pdf_page": 46
+      },
+      {
+        "source": "PDF_500",
+        "number": 203,
+        "source_answer": "C",
+        "source_answer_text": "Article 19",
+        "pdf_page": 53
+      },
+      {
+        "source": "PDF_500",
+        "number": 211,
+        "source_answer": "D",
+        "source_answer_text": "Article 19",
+        "pdf_page": 55
+      },
+      {
+        "source": "PDF_500",
+        "number": 216,
+        "source_answer": "D",
+        "source_answer_text": "Article 19",
+        "pdf_page": 56
+      },
+      {
+        "source": "PDF_500",
+        "number": 218,
+        "source_answer": "C",
+        "source_answer_text": "Article 19",
+        "pdf_page": 57
+      },
+      {
+        "source": "PDF_500",
+        "number": 219,
+        "source_answer": "A",
+        "source_answer_text": "Article 19",
+        "pdf_page": 57
+      },
+      {
+        "source": "PDF_500",
+        "number": 254,
+        "source_answer": "B",
+        "source_answer_text": "Article 19",
+        "pdf_page": 66
+      },
+      {
+        "source": "PDF_500",
+        "number": 262,
+        "source_answer": "B",
+        "source_answer_text": "Article 19",
+        "pdf_page": 68
+      },
+      {
+        "source": "PDF_500",
+        "number": 279,
+        "source_answer": "B",
+        "source_answer_text": "Article 19",
+        "pdf_page": 72
+      },
+      {
+        "source": "PDF_500",
+        "number": 296,
+        "source_answer": "B",
+        "source_answer_text": "Article 19",
+        "pdf_page": 77
+      },
+      {
+        "source": "PDF_500",
+        "number": 337,
+        "source_answer": "C",
+        "source_answer_text": "Article 19",
+        "pdf_page": 87
+      },
+      {
+        "source": "PDF_500",
+        "number": 376,
+        "source_answer": "C",
+        "source_answer_text": "Article 19",
+        "pdf_page": 97
+      },
+      {
+        "source": "PDF_500",
+        "number": 418,
+        "source_answer": "C",
+        "source_answer_text": "Article 19",
+        "pdf_page": 108
+      },
+      {
+        "source": "PDF_500",
+        "number": 439,
+        "source_answer": "A",
+        "source_answer_text": "Article 19",
+        "pdf_page": 113
+      },
+      {
+        "source": "PDF_500",
+        "number": 444,
+        "source_answer": "A",
+        "source_answer_text": "Article 19",
+        "pdf_page": 115
+      },
+      {
+        "source": "PDF_500",
+        "number": 448,
+        "source_answer": "B",
+        "source_answer_text": "Article 19",
+        "pdf_page": 116
+      },
+      {
+        "source": "PDF_500",
+        "number": 451,
+        "source_answer": "C",
+        "source_answer_text": "Article 19",
+        "pdf_page": 117
+      },
+      {
+        "source": "PDF_500",
+        "number": 455,
+        "source_answer": "D",
+        "source_answer_text": "Article 19",
+        "pdf_page": 118
+      },
+      {
+        "source": "PDF_500",
+        "number": 487,
+        "source_answer": "D",
+        "source_answer_text": "Article 19",
+        "pdf_page": 126
+      },
+      {
+        "source": "PDF_500",
+        "number": 488,
+        "source_answer": "C",
+        "source_answer_text": "Article 19",
+        "pdf_page": 126
+      }
+    ],
+    "source_conflict": false,
+    "status": "REVIEWED_CORPUS",
+    "approved_answers": [
+      "C"
+    ],
+    "review_note": "Article 19 du RSTP : principe et exceptions.",
+    "information_ids": [
+      "REF_RSTP_MINORS_V1_001"
+    ],
+    "family": "rstp-minors",
+    "source_disagrees": false
+  },
+  {
+    "id": "Q_6a93bcfda779dde8659c",
+    "source": "PDF_500",
+    "number": 2,
+    "question": "Who must co-sign a Representation Agreement involving a minor?",
+    "choices": {
+      "A": "FIFA",
+      "B": "Player’s agent",
+      "C": "Legal guardian",
+      "D": "National association"
+    },
+    "source_answer": "C",
+    "occurrences": [
+      {
+        "source": "PDF_500",
+        "number": 2,
+        "source_answer": "C",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 1
+      },
+      {
+        "source": "PDF_500",
+        "number": 6,
+        "source_answer": "D",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 2
+      },
+      {
+        "source": "PDF_500",
+        "number": 24,
+        "source_answer": "D",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 7
+      },
+      {
+        "source": "PDF_500",
+        "number": 47,
+        "source_answer": "C",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 13
+      },
+      {
+        "source": "PDF_500",
+        "number": 72,
+        "source_answer": "D",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 19
+      },
+      {
+        "source": "PDF_500",
+        "number": 75,
+        "source_answer": "B",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 20
+      },
+      {
+        "source": "PDF_500",
+        "number": 99,
+        "source_answer": "B",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 26
+      },
+      {
+        "source": "PDF_500",
+        "number": 101,
+        "source_answer": "A",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 26
+      },
+      {
+        "source": "PDF_500",
+        "number": 145,
+        "source_answer": "B",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 38
+      },
+      {
+        "source": "PDF_500",
+        "number": 149,
+        "source_answer": "D",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 39
+      },
+      {
+        "source": "PDF_500",
+        "number": 161,
+        "source_answer": "A",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 42
+      },
+      {
+        "source": "PDF_500",
+        "number": 167,
+        "source_answer": "B",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 43
+      },
+      {
+        "source": "PDF_500",
+        "number": 171,
+        "source_answer": "C",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 44
+      },
+      {
+        "source": "PDF_500",
+        "number": 178,
+        "source_answer": "C",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 46
+      },
+      {
+        "source": "PDF_500",
+        "number": 181,
+        "source_answer": "D",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 47
+      },
+      {
+        "source": "PDF_500",
+        "number": 188,
+        "source_answer": "C",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 49
+      },
+      {
+        "source": "PDF_500",
+        "number": 202,
+        "source_answer": "A",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 52
+      },
+      {
+        "source": "PDF_500",
+        "number": 205,
+        "source_answer": "B",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 53
+      },
+      {
+        "source": "PDF_500",
+        "number": 214,
+        "source_answer": "B",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 56
+      },
+      {
+        "source": "PDF_500",
+        "number": 221,
+        "source_answer": "B",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 57
+      },
+      {
+        "source": "PDF_500",
+        "number": 222,
+        "source_answer": "B",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 58
+      },
+      {
+        "source": "PDF_500",
+        "number": 224,
+        "source_answer": "C",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 58
+      },
+      {
+        "source": "PDF_500",
+        "number": 225,
+        "source_answer": "C",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 58
+      },
+      {
+        "source": "PDF_500",
+        "number": 242,
+        "source_answer": "D",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 63
+      },
+      {
+        "source": "PDF_500",
+        "number": 255,
+        "source_answer": "A",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 66
+      },
+      {
+        "source": "PDF_500",
+        "number": 263,
+        "source_answer": "C",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 68
+      },
+      {
+        "source": "PDF_500",
+        "number": 267,
+        "source_answer": "B",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 69
+      },
+      {
+        "source": "PDF_500",
+        "number": 297,
+        "source_answer": "A",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 77
+      },
+      {
+        "source": "PDF_500",
+        "number": 301,
+        "source_answer": "D",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 78
+      },
+      {
+        "source": "PDF_500",
+        "number": 308,
+        "source_answer": "B",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 80
+      },
+      {
+        "source": "PDF_500",
+        "number": 316,
+        "source_answer": "A",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 82
+      },
+      {
+        "source": "PDF_500",
+        "number": 317,
+        "source_answer": "B",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 82
+      },
+      {
+        "source": "PDF_500",
+        "number": 319,
+        "source_answer": "D",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 83
+      },
+      {
+        "source": "PDF_500",
+        "number": 321,
+        "source_answer": "A",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 83
+      },
+      {
+        "source": "PDF_500",
+        "number": 325,
+        "source_answer": "C",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 84
+      },
+      {
+        "source": "PDF_500",
+        "number": 332,
+        "source_answer": "D",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 86
+      },
+      {
+        "source": "PDF_500",
+        "number": 348,
+        "source_answer": "D",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 90
+      },
+      {
+        "source": "PDF_500",
+        "number": 352,
+        "source_answer": "B",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 91
+      },
+      {
+        "source": "PDF_500",
+        "number": 357,
+        "source_answer": "C",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 92
+      },
+      {
+        "source": "PDF_500",
+        "number": 365,
+        "source_answer": "A",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 94
+      },
+      {
+        "source": "PDF_500",
+        "number": 372,
+        "source_answer": "A",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 96
+      },
+      {
+        "source": "PDF_500",
+        "number": 377,
+        "source_answer": "D",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 97
+      },
+      {
+        "source": "PDF_500",
+        "number": 398,
+        "source_answer": "D",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 103
+      },
+      {
+        "source": "PDF_500",
+        "number": 402,
+        "source_answer": "D",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 104
+      },
+      {
+        "source": "PDF_500",
+        "number": 435,
+        "source_answer": "A",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 112
+      },
+      {
+        "source": "PDF_500",
+        "number": 436,
+        "source_answer": "C",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 113
+      },
+      {
+        "source": "PDF_500",
+        "number": 443,
+        "source_answer": "D",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 115
+      },
+      {
+        "source": "PDF_500",
+        "number": 449,
+        "source_answer": "A",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 116
+      },
+      {
+        "source": "PDF_500",
+        "number": 473,
+        "source_answer": "A",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 122
+      },
+      {
+        "source": "PDF_500",
+        "number": 475,
+        "source_answer": "C",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 123
+      },
+      {
+        "source": "PDF_500",
+        "number": 489,
+        "source_answer": "C",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 126
+      },
+      {
+        "source": "PDF_500",
+        "number": 496,
+        "source_answer": "D",
+        "source_answer_text": "Legal guardian",
+        "pdf_page": 128
+      }
+    ],
+    "source_conflict": false,
+    "status": "REVIEWED_CORPUS",
+    "approved_answers": [
+      "C"
+    ],
+    "review_note": "Signature du mineur et de son représentant légal ; ce n’est pas l’unique condition de validité.",
+    "information_ids": [
+      "13.3.c"
+    ],
+    "family": "minor-signature",
+    "source_disagrees": false
+  },
+  {
+    "id": "Q_658afdec7d662a3ae2ee",
+    "source": "PDF_500",
+    "number": 3,
+    "question": "How long must a licensed agent keep transaction records?",
+    "choices": {
+      "A": "10 years",
+      "B": "1 year",
+      "C": "3 years",
+      "D": "5 years"
+    },
+    "source_answer": "D",
+    "occurrences": [
+      {
+        "source": "PDF_500",
+        "number": 3,
+        "source_answer": "D",
+        "source_answer_text": "5 years",
+        "pdf_page": 1
+      },
+      {
+        "source": "PDF_500",
+        "number": 8,
+        "source_answer": "C",
+        "source_answer_text": "5 years",
+        "pdf_page": 3
+      },
+      {
+        "source": "PDF_500",
+        "number": 14,
+        "source_answer": "D",
+        "source_answer_text": "5 years",
+        "pdf_page": 4
+      },
+      {
+        "source": "PDF_500",
+        "number": 35,
+        "source_answer": "D",
+        "source_answer_text": "5 years",
+        "pdf_page": 10
+      },
+      {
+        "source": "PDF_500",
+        "number": 54,
+        "source_answer": "B",
+        "source_answer_text": "5 years",
+        "pdf_page": 14
+      },
+      {
+        "source": "PDF_500",
+        "number": 57,
+        "source_answer": "A",
+        "source_answer_text": "5 years",
+        "pdf_page": 15
+      },
+      {
+        "source": "PDF_500",
+        "number": 60,
+        "source_answer": "C",
+        "source_answer_text": "5 years",
+        "pdf_page": 16
+      },
+      {
+        "source": "PDF_500",
+        "number": 61,
+        "source_answer": "C",
+        "source_answer_text": "5 years",
+        "pdf_page": 16
+      },
+      {
+        "source": "PDF_500",
+        "number": 66,
+        "source_answer": "A",
+        "source_answer_text": "5 years",
+        "pdf_page": 17
+      },
+      {
+        "source": "PDF_500",
+        "number": 67,
+        "source_answer": "C",
+        "source_answer_text": "5 years",
+        "pdf_page": 18
+      },
+      {
+        "source": "PDF_500",
+        "number": 92,
+        "source_answer": "A",
+        "source_answer_text": "5 years",
+        "pdf_page": 24
+      },
+      {
+        "source": "PDF_500",
+        "number": 104,
+        "source_answer": "B",
+        "source_answer_text": "5 years",
+        "pdf_page": 27
+      },
+      {
+        "source": "PDF_500",
+        "number": 115,
+        "source_answer": "D",
+        "source_answer_text": "5 years",
+        "pdf_page": 30
+      },
+      {
+        "source": "PDF_500",
+        "number": 122,
+        "source_answer": "C",
+        "source_answer_text": "5 years",
+        "pdf_page": 32
+      },
+      {
+        "source": "PDF_500",
+        "number": 143,
+        "source_answer": "B",
+        "source_answer_text": "5 years",
+        "pdf_page": 37
+      },
+      {
+        "source": "PDF_500",
+        "number": 147,
+        "source_answer": "D",
+        "source_answer_text": "5 years",
+        "pdf_page": 38
+      },
+      {
+        "source": "PDF_500",
+        "number": 150,
+        "source_answer": "C",
+        "source_answer_text": "5 years",
+        "pdf_page": 39
+      },
+      {
+        "source": "PDF_500",
+        "number": 153,
+        "source_answer": "C",
+        "source_answer_text": "5 years",
+        "pdf_page": 40
+      },
+      {
+        "source": "PDF_500",
+        "number": 154,
+        "source_answer": "B",
+        "source_answer_text": "5 years",
+        "pdf_page": 40
+      },
+      {
+        "source": "PDF_500",
+        "number": 168,
+        "source_answer": "B",
+        "source_answer_text": "5 years",
+        "pdf_page": 44
+      },
+      {
+        "source": "PDF_500",
+        "number": 182,
+        "source_answer": "B",
+        "source_answer_text": "5 years",
+        "pdf_page": 47
+      },
+      {
+        "source": "PDF_500",
+        "number": 192,
+        "source_answer": "D",
+        "source_answer_text": "5 years",
+        "pdf_page": 50
+      },
+      {
+        "source": "PDF_500",
+        "number": 199,
+        "source_answer": "B",
+        "source_answer_text": "5 years",
+        "pdf_page": 52
+      },
+      {
+        "source": "PDF_500",
+        "number": 226,
+        "source_answer": "A",
+        "source_answer_text": "5 years",
+        "pdf_page": 59
+      },
+      {
+        "source": "PDF_500",
+        "number": 231,
+        "source_answer": "B",
+        "source_answer_text": "5 years",
+        "pdf_page": 60
+      },
+      {
+        "source": "PDF_500",
+        "number": 241,
+        "source_answer": "B",
+        "source_answer_text": "5 years",
+        "pdf_page": 63
+      },
+      {
+        "source": "PDF_500",
+        "number": 243,
+        "source_answer": "D",
+        "source_answer_text": "5 years",
+        "pdf_page": 63
+      },
+      {
+        "source": "PDF_500",
+        "number": 245,
+        "source_answer": "D",
+        "source_answer_text": "5 years",
+        "pdf_page": 64
+      },
+      {
+        "source": "PDF_500",
+        "number": 258,
+        "source_answer": "A",
+        "source_answer_text": "5 years",
+        "pdf_page": 67
+      },
+      {
+        "source": "PDF_500",
+        "number": 259,
+        "source_answer": "D",
+        "source_answer_text": "5 years",
+        "pdf_page": 67
+      },
+      {
+        "source": "PDF_500",
+        "number": 261,
+        "source_answer": "C",
+        "source_answer_text": "5 years",
+        "pdf_page": 68
+      },
+      {
+        "source": "PDF_500",
+        "number": 265,
+        "source_answer": "C",
+        "source_answer_text": "5 years",
+        "pdf_page": 69
+      },
+      {
+        "source": "PDF_500",
+        "number": 266,
+        "source_answer": "C",
+        "source_answer_text": "5 years",
+        "pdf_page": 69
+      },
+      {
+        "source": "PDF_500",
+        "number": 269,
+        "source_answer": "B",
+        "source_answer_text": "5 years",
+        "pdf_page": 70
+      },
+      {
+        "source": "PDF_500",
+        "number": 272,
+        "source_answer": "A",
+        "source_answer_text": "5 years",
+        "pdf_page": 71
+      },
+      {
+        "source": "PDF_500",
+        "number": 282,
+        "source_answer": "D",
+        "source_answer_text": "5 years",
+        "pdf_page": 73
+      },
+      {
+        "source": "PDF_500",
+        "number": 290,
+        "source_answer": "B",
+        "source_answer_text": "5 years",
+        "pdf_page": 75
+      },
+      {
+        "source": "PDF_500",
+        "number": 293,
+        "source_answer": "C",
+        "source_answer_text": "5 years",
+        "pdf_page": 76
+      },
+      {
+        "source": "PDF_500",
+        "number": 307,
+        "source_answer": "B",
+        "source_answer_text": "5 years",
+        "pdf_page": 80
+      },
+      {
+        "source": "PDF_500",
+        "number": 320,
+        "source_answer": "D",
+        "source_answer_text": "5 years",
+        "pdf_page": 83
+      },
+      {
+        "source": "PDF_500",
+        "number": 323,
+        "source_answer": "A",
+        "source_answer_text": "5 years",
+        "pdf_page": 84
+      },
+      {
+        "source": "PDF_500",
+        "number": 324,
+        "source_answer": "A",
+        "source_answer_text": "5 years",
+        "pdf_page": 84
+      },
+      {
+        "source": "PDF_500",
+        "number": 328,
+        "source_answer": "B",
+        "source_answer_text": "5 years",
+        "pdf_page": 85
+      },
+      {
+        "source": "PDF_500",
+        "number": 343,
+        "source_answer": "A",
+        "source_answer_text": "5 years",
+        "pdf_page": 89
+      },
+      {
+        "source": "PDF_500",
+        "number": 371,
+        "source_answer": "B",
+        "source_answer_text": "5 years",
+        "pdf_page": 96
+      },
+      {
+        "source": "PDF_500",
+        "number": 381,
+        "source_answer": "D",
+        "source_answer_text": "5 years",
+        "pdf_page": 98
+      },
+      {
+        "source": "PDF_500",
+        "number": 384,
+        "source_answer": "C",
+        "source_answer_text": "5 years",
+        "pdf_page": 99
+      },
+      {
+        "source": "PDF_500",
+        "number": 389,
+        "source_answer": "C",
+        "source_answer_text": "5 years",
+        "pdf_page": 101
+      },
+      {
+        "source": "PDF_500",
+        "number": 390,
+        "source_answer": "A",
+        "source_answer_text": "5 years",
+        "pdf_page": 101
+      },
+      {
+        "source": "PDF_500",
+        "number": 394,
+        "source_answer": "A",
+        "source_answer_text": "5 years",
+        "pdf_page": 102
+      },
+      {
+        "source": "PDF_500",
+        "number": 399,
+        "source_answer": "B",
+        "source_answer_text": "5 years",
+        "pdf_page": 103
+      },
+      {
+        "source": "PDF_500",
+        "number": 424,
+        "source_answer": "D",
+        "source_answer_text": "5 years",
+        "pdf_page": 110
+      },
+      {
+        "source": "PDF_500",
+        "number": 425,
+        "source_answer": "A",
+        "source_answer_text": "5 years",
+        "pdf_page": 110
+      },
+      {
+        "source": "PDF_500",
+        "number": 429,
+        "source_answer": "D",
+        "source_answer_text": "5 years",
+        "pdf_page": 111
+      },
+      {
+        "source": "PDF_500",
+        "number": 431,
+        "source_answer": "A",
+        "source_answer_text": "5 years",
+        "pdf_page": 111
+      },
+      {
+        "source": "PDF_500",
+        "number": 437,
+        "source_answer": "C",
+        "source_answer_text": "5 years",
+        "pdf_page": 113
+      },
+      {
+        "source": "PDF_500",
+        "number": 441,
+        "source_answer": "C",
+        "source_answer_text": "5 years",
+        "pdf_page": 114
+      },
+      {
+        "source": "PDF_500",
+        "number": 456,
+        "source_answer": "B",
+        "source_answer_text": "5 years",
+        "pdf_page": 118
+      },
+      {
+        "source": "PDF_500",
+        "number": 457,
+        "source_answer": "B",
+        "source_answer_text": "5 years",
+        "pdf_page": 118
+      },
+      {
+        "source": "PDF_500",
+        "number": 467,
+        "source_answer": "B",
+        "source_answer_text": "5 years",
+        "pdf_page": 121
+      },
+      {
+        "source": "PDF_500",
+        "number": 478,
+        "source_answer": "D",
+        "source_answer_text": "5 years",
+        "pdf_page": 124
+      }
+    ],
+    "source_conflict": false,
+    "status": "UNREVIEWED",
+    "approved_answers": [],
+    "review_note": "Exclue des scores : règle absente du corpus, portée trop générale, options ambiguës ou statut d’applicabilité à vérifier.",
+    "information_ids": [],
+    "family": "retention"
+  },
+  {
+    "id": "Q_c6a1a288db463f7f690b",
+    "source": "PDF_500",
+    "number": 5,
+    "question": "Who may be sanctioned for operating without a FIFA license?",
+    "choices": {
+      "A": "Only the player",
+      "B": "Only the agent",
+      "C": "The unlicensed agent",
+      "D": "Only the club"
+    },
+    "source_answer": "C",
+    "occurrences": [
+      {
+        "source": "PDF_500",
+        "number": 5,
+        "source_answer": "C",
+        "source_answer_text": "The unlicensed agent",
+        "pdf_page": 2
+      },
+      {
+        "source": "PDF_500",
+        "number": 9,
+        "source_answer": "B",
+        "source_answer_text": "The unlicensed agent",
+        "pdf_page": 3
+      },
+      {
+        "source": "PDF_500",
+        "number": 32,
+        "source_answer": "D",
+        "source_answer_text": "The unlicensed agent",
+        "pdf_page": 9
+      },
+      {
+        "source": "PDF_500",
+        "number": 33,
+        "source_answer": "B",
+        "source_answer_text": "The unlicensed agent",
+        "pdf_page": 9
+      },
+      {
+        "source": "PDF_500",
+        "number": 80,
+        "source_answer": "D",
+        "source_answer_text": "The unlicensed agent",
+        "pdf_page": 21
+      },
+      {
+        "source": "PDF_500",
+        "number": 83,
+        "source_answer": "C",
+        "source_answer_text": "The unlicensed agent",
+        "pdf_page": 22
+      },
+      {
+        "source": "PDF_500",
+        "number": 102,
+        "source_answer": "C",
+        "source_answer_text": "The unlicensed agent",
+        "pdf_page": 27
+      },
+      {
+        "source": "PDF_500",
+        "number": 117,
+        "source_answer": "D",
+        "source_answer_text": "The unlicensed agent",
+        "pdf_page": 31
+      },
+      {
+        "source": "PDF_500",
+        "number": 136,
+        "source_answer": "D",
+        "source_answer_text": "The unlicensed agent",
+        "pdf_page": 35
+      },
+      {
+        "source": "PDF_500",
+        "number": 137,
+        "source_answer": "B",
+        "source_answer_text": "The unlicensed agent",
+        "pdf_page": 36
+      },
+      {
+        "source": "PDF_500",
+        "number": 138,
+        "source_answer": "C",
+        "source_answer_text": "The unlicensed agent",
+        "pdf_page": 36
+      },
+      {
+        "source": "PDF_500",
+        "number": 157,
+        "source_answer": "C",
+        "source_answer_text": "The unlicensed agent",
+        "pdf_page": 41
+      },
+      {
+        "source": "PDF_500",
+        "number": 160,
+        "source_answer": "A",
+        "source_answer_text": "The unlicensed agent",
+        "pdf_page": 42
+      },
+      {
+        "source": "PDF_500",
+        "number": 174,
+        "source_answer": "B",
+        "source_answer_text": "The unlicensed agent",
+        "pdf_page": 45
+      },
+      {
+        "source": "PDF_500",
+        "number": 187,
+        "source_answer": "C",
+        "source_answer_text": "The unlicensed agent",
+        "pdf_page": 49
+      },
+      {
+        "source": "PDF_500",
+        "number": 193,
+        "source_answer": "D",
+        "source_answer_text": "The unlicensed agent",
+        "pdf_page": 50
+      },
+      {
+        "source": "PDF_500",
+        "number": 212,
+        "source_answer": "D",
+        "source_answer_text": "The unlicensed agent",
+        "pdf_page": 55
+      },
+      {
+        "source": "PDF_500",
+        "number": 217,
+        "source_answer": "C",
+        "source_answer_text": "The unlicensed agent",
+        "pdf_page": 56
+      },
+      {
+        "source": "PDF_500",
+        "number": 223,
+        "source_answer": "D",
+        "source_answer_text": "The unlicensed agent",
+        "pdf_page": 58
+      },
+      {
+        "source": "PDF_500",
+        "number": 237,
+        "source_answer": "A",
+        "source_answer_text": "The unlicensed agent",
+        "pdf_page": 62
+      },
+      {
+        "source": "PDF_500",
+        "number": 247,
+        "source_answer": "C",
+        "source_answer_text": "The unlicensed agent",
+        "pdf_page": 64
+      },
+      {
+        "source": "PDF_500",
+        "number": 249,
+        "source_answer": "B",
+        "source_answer_text": "The unlicensed agent",
+        "pdf_page": 65
+      },
+      {
+        "source": "PDF_500",
+        "number": 281,
+        "source_answer": "C",
+        "source_answer_text": "The unlicensed agent",
+        "pdf_page": 73
+      },
+      {
+        "source": "PDF_500",
+        "number": 283,
+        "source_answer": "C",
+        "source_answer_text": "The unlicensed agent",
+        "pdf_page": 73
+      },
+      {
+        "source": "PDF_500",
+        "number": 287,
+        "source_answer": "B",
+        "source_answer_text": "The unlicensed agent",
+        "pdf_page": 74
+      },
+      {
+        "source": "PDF_500",
+        "number": 304,
+        "source_answer": "C",
+        "source_answer_text": "The unlicensed agent",
+        "pdf_page": 79
+      },
+      {
+        "source": "PDF_500",
+        "number": 312,
+        "source_answer": "C",
+        "source_answer_text": "The unlicensed agent",
+        "pdf_page": 81
+      },
+      {
+        "source": "PDF_500",
+        "number": 322,
+        "source_answer": "C",
+        "source_answer_text": "The unlicensed agent",
+        "pdf_page": 83
+      },
+      {
+        "source": "PDF_500",
+        "number": 326,
+        "source_answer": "C",
+        "source_answer_text": "The unlicensed agent",
+        "pdf_page": 84
+      },
+      {
+        "source": "PDF_500",
+        "number": 349,
+        "source_answer": "C",
+        "source_answer_text": "The unlicensed agent",
+        "pdf_page": 90
+      },
+      {
+        "source": "PDF_500",
+        "number": 350,
+        "source_answer": "C",
+        "source_answer_text": "The unlicensed agent",
+        "pdf_page": 91
+      },
+      {
+        "source": "PDF_500",
+        "number": 362,
+        "source_answer": "A",
+        "source_answer_text": "The unlicensed agent",
+        "pdf_page": 94
+      },
+      {
+        "source": "PDF_500",
+        "number": 367,
+        "source_answer": "B",
+        "source_answer_text": "The unlicensed agent",
+        "pdf_page": 95
+      },
+      {
+        "source": "PDF_500",
+        "number": 368,
+        "source_answer": "A",
+        "source_answer_text": "The unlicensed agent",
+        "pdf_page": 95
+      },
+      {
+        "source": "PDF_500",
+        "number": 382,
+        "source_answer": "B",
+        "source_answer_text": "The unlicensed agent",
+        "pdf_page": 99
+      },
+      {
+        "source": "PDF_500",
+        "number": 397,
+        "source_answer": "D",
+        "source_answer_text": "The unlicensed agent",
+        "pdf_page": 103
+      },
+      {
+        "source": "PDF_500",
+        "number": 401,
+        "source_answer": "A",
+        "source_answer_text": "The unlicensed agent",
+        "pdf_page": 104
+      },
+      {
+        "source": "PDF_500",
+        "number": 412,
+        "source_answer": "D",
+        "source_answer_text": "The unlicensed agent",
+        "pdf_page": 107
+      },
+      {
+        "source": "PDF_500",
+        "number": 427,
+        "source_answer": "C",
+        "source_answer_text": "The unlicensed agent",
+        "pdf_page": 110
+      },
+      {
+        "source": "PDF_500",
+        "number": 432,
+        "source_answer": "D",
+        "source_answer_text": "The unlicensed agent",
+        "pdf_page": 112
+      },
+      {
+        "source": "PDF_500",
+        "number": 442,
+        "source_answer": "C",
+        "source_answer_text": "The unlicensed agent",
+        "pdf_page": 114
+      },
+      {
+        "source": "PDF_500",
+        "number": 446,
+        "source_answer": "B",
+        "source_answer_text": "The unlicensed agent",
+        "pdf_page": 115
+      },
+      {
+        "source": "PDF_500",
+        "number": 452,
+        "source_answer": "C",
+        "source_answer_text": "The unlicensed agent",
+        "pdf_page": 117
+      },
+      {
+        "source": "PDF_500",
+        "number": 453,
+        "source_answer": "B",
+        "source_answer_text": "The unlicensed agent",
+        "pdf_page": 117
+      },
+      {
+        "source": "PDF_500",
+        "number": 454,
+        "source_answer": "B",
+        "source_answer_text": "The unlicensed agent",
+        "pdf_page": 117
+      },
+      {
+        "source": "PDF_500",
+        "number": 461,
+        "source_answer": "C",
+        "source_answer_text": "The unlicensed agent",
+        "pdf_page": 119
+      },
+      {
+        "source": "PDF_500",
+        "number": 472,
+        "source_answer": "C",
+        "source_answer_text": "The unlicensed agent",
+        "pdf_page": 122
+      },
+      {
+        "source": "PDF_500",
+        "number": 484,
+        "source_answer": "D",
+        "source_answer_text": "The unlicensed agent",
+        "pdf_page": 125
+      },
+      {
+        "source": "PDF_500",
+        "number": 497,
+        "source_answer": "C",
+        "source_answer_text": "The unlicensed agent",
+        "pdf_page": 128
+      },
+      {
+        "source": "PDF_500",
+        "number": 499,
+        "source_answer": "A",
+        "source_answer_text": "The unlicensed agent",
+        "pdf_page": 129
+      },
+      {
+        "source": "PDF_500",
+        "number": 500,
+        "source_answer": "C",
+        "source_answer_text": "The unlicensed agent",
+        "pdf_page": 129
+      }
+    ],
+    "source_conflict": false,
+    "status": "UNREVIEWED",
+    "approved_answers": [],
+    "review_note": "Exclue des scores : règle absente du corpus, portée trop générale, options ambiguës ou statut d’applicabilité à vérifier.",
+    "information_ids": [],
+    "family": "unlicensed"
+  },
+  {
+    "id": "Q_079f8b423abbaf0f7145",
+    "source": "PDF_500",
+    "number": 7,
+    "question": "Who handles disputes between players and agents?",
+    "choices": {
+      "A": "FIFA DRC",
+      "B": "FIFA Football Agent Chamber",
+      "C": "CAS",
+      "D": "FIFA PSC"
+    },
+    "source_answer": "B",
+    "occurrences": [
+      {
+        "source": "PDF_500",
+        "number": 7,
+        "source_answer": "B",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 2
+      },
+      {
+        "source": "PDF_500",
+        "number": 21,
+        "source_answer": "B",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 6
+      },
+      {
+        "source": "PDF_500",
+        "number": 29,
+        "source_answer": "A",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 8
+      },
+      {
+        "source": "PDF_500",
+        "number": 31,
+        "source_answer": "A",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 8
+      },
+      {
+        "source": "PDF_500",
+        "number": 39,
+        "source_answer": "C",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 11
+      },
+      {
+        "source": "PDF_500",
+        "number": 48,
+        "source_answer": "D",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 13
+      },
+      {
+        "source": "PDF_500",
+        "number": 56,
+        "source_answer": "C",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 15
+      },
+      {
+        "source": "PDF_500",
+        "number": 87,
+        "source_answer": "C",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 23
+      },
+      {
+        "source": "PDF_500",
+        "number": 95,
+        "source_answer": "A",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 25
+      },
+      {
+        "source": "PDF_500",
+        "number": 100,
+        "source_answer": "C",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 26
+      },
+      {
+        "source": "PDF_500",
+        "number": 109,
+        "source_answer": "D",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 29
+      },
+      {
+        "source": "PDF_500",
+        "number": 133,
+        "source_answer": "A",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 35
+      },
+      {
+        "source": "PDF_500",
+        "number": 134,
+        "source_answer": "D",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 35
+      },
+      {
+        "source": "PDF_500",
+        "number": 135,
+        "source_answer": "D",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 35
+      },
+      {
+        "source": "PDF_500",
+        "number": 140,
+        "source_answer": "A",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 37
+      },
+      {
+        "source": "PDF_500",
+        "number": 144,
+        "source_answer": "D",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 38
+      },
+      {
+        "source": "PDF_500",
+        "number": 152,
+        "source_answer": "B",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 40
+      },
+      {
+        "source": "PDF_500",
+        "number": 170,
+        "source_answer": "D",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 44
+      },
+      {
+        "source": "PDF_500",
+        "number": 172,
+        "source_answer": "C",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 45
+      },
+      {
+        "source": "PDF_500",
+        "number": 175,
+        "source_answer": "C",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 45
+      },
+      {
+        "source": "PDF_500",
+        "number": 177,
+        "source_answer": "B",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 46
+      },
+      {
+        "source": "PDF_500",
+        "number": 200,
+        "source_answer": "C",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 52
+      },
+      {
+        "source": "PDF_500",
+        "number": 204,
+        "source_answer": "A",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 53
+      },
+      {
+        "source": "PDF_500",
+        "number": 207,
+        "source_answer": "A",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 54
+      },
+      {
+        "source": "PDF_500",
+        "number": 227,
+        "source_answer": "C",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 59
+      },
+      {
+        "source": "PDF_500",
+        "number": 233,
+        "source_answer": "C",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 60
+      },
+      {
+        "source": "PDF_500",
+        "number": 251,
+        "source_answer": "C",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 65
+      },
+      {
+        "source": "PDF_500",
+        "number": 256,
+        "source_answer": "D",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 66
+      },
+      {
+        "source": "PDF_500",
+        "number": 277,
+        "source_answer": "B",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 72
+      },
+      {
+        "source": "PDF_500",
+        "number": 288,
+        "source_answer": "C",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 75
+      },
+      {
+        "source": "PDF_500",
+        "number": 289,
+        "source_answer": "C",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 75
+      },
+      {
+        "source": "PDF_500",
+        "number": 291,
+        "source_answer": "B",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 75
+      },
+      {
+        "source": "PDF_500",
+        "number": 295,
+        "source_answer": "C",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 77
+      },
+      {
+        "source": "PDF_500",
+        "number": 300,
+        "source_answer": "A",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 78
+      },
+      {
+        "source": "PDF_500",
+        "number": 331,
+        "source_answer": "C",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 86
+      },
+      {
+        "source": "PDF_500",
+        "number": 335,
+        "source_answer": "A",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 87
+      },
+      {
+        "source": "PDF_500",
+        "number": 338,
+        "source_answer": "B",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 87
+      },
+      {
+        "source": "PDF_500",
+        "number": 360,
+        "source_answer": "B",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 93
+      },
+      {
+        "source": "PDF_500",
+        "number": 364,
+        "source_answer": "B",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 94
+      },
+      {
+        "source": "PDF_500",
+        "number": 374,
+        "source_answer": "B",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 97
+      },
+      {
+        "source": "PDF_500",
+        "number": 378,
+        "source_answer": "B",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 98
+      },
+      {
+        "source": "PDF_500",
+        "number": 383,
+        "source_answer": "D",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 99
+      },
+      {
+        "source": "PDF_500",
+        "number": 385,
+        "source_answer": "B",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 99
+      },
+      {
+        "source": "PDF_500",
+        "number": 396,
+        "source_answer": "C",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 102
+      },
+      {
+        "source": "PDF_500",
+        "number": 403,
+        "source_answer": "D",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 104
+      },
+      {
+        "source": "PDF_500",
+        "number": 419,
+        "source_answer": "C",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 108
+      },
+      {
+        "source": "PDF_500",
+        "number": 438,
+        "source_answer": "A",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 113
+      },
+      {
+        "source": "PDF_500",
+        "number": 460,
+        "source_answer": "B",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 119
+      },
+      {
+        "source": "PDF_500",
+        "number": 469,
+        "source_answer": "C",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 121
+      },
+      {
+        "source": "PDF_500",
+        "number": 481,
+        "source_answer": "C",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 124
+      },
+      {
+        "source": "PDF_500",
+        "number": 486,
+        "source_answer": "C",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 126
+      },
+      {
+        "source": "PDF_500",
+        "number": 495,
+        "source_answer": "B",
+        "source_answer_text": "FIFA Football Agent Chamber",
+        "pdf_page": 128
+      }
+    ],
+    "source_conflict": false,
+    "status": "UNREVIEWED",
+    "approved_answers": [],
+    "review_note": "Exclue des scores : règle absente du corpus, portée trop générale, options ambiguës ou statut d’applicabilité à vérifier.",
+    "information_ids": [],
+    "family": "disputes"
+  },
+  {
+    "id": "Q_a02287c5338459e0fb46",
+    "source": "PDF_500",
+    "number": 11,
+    "question": "What is the maximum duration of a Representation Agreement between a player and an agent?",
+    "choices": {
+      "A": "3 years",
+      "B": "2 years",
+      "C": "1 year",
+      "D": "5 years"
+    },
+    "source_answer": "A",
+    "occurrences": [
+      {
+        "source": "PDF_500",
+        "number": 11,
+        "source_answer": "A",
+        "source_answer_text": "3 years",
+        "pdf_page": 3
+      },
+      {
+        "source": "PDF_500",
+        "number": 26,
+        "source_answer": "D",
+        "source_answer_text": "3 years",
+        "pdf_page": 7
+      },
+      {
+        "source": "PDF_500",
+        "number": 52,
+        "source_answer": "C",
+        "source_answer_text": "3 years",
+        "pdf_page": 14
+      },
+      {
+        "source": "PDF_500",
+        "number": 62,
+        "source_answer": "D",
+        "source_answer_text": "3 years",
+        "pdf_page": 16
+      },
+      {
+        "source": "PDF_500",
+        "number": 65,
+        "source_answer": "D",
+        "source_answer_text": "3 years",
+        "pdf_page": 17
+      },
+      {
+        "source": "PDF_500",
+        "number": 69,
+        "source_answer": "A",
+        "source_answer_text": "3 years",
+        "pdf_page": 18
+      },
+      {
+        "source": "PDF_500",
+        "number": 77,
+        "source_answer": "B",
+        "source_answer_text": "3 years",
+        "pdf_page": 20
+      },
+      {
+        "source": "PDF_500",
+        "number": 79,
+        "source_answer": "A",
+        "source_answer_text": "3 years",
+        "pdf_page": 21
+      },
+      {
+        "source": "PDF_500",
+        "number": 82,
+        "source_answer": "A",
+        "source_answer_text": "3 years",
+        "pdf_page": 22
+      },
+      {
+        "source": "PDF_500",
+        "number": 86,
+        "source_answer": "D",
+        "source_answer_text": "3 years",
+        "pdf_page": 23
+      },
+      {
+        "source": "PDF_500",
+        "number": 88,
+        "source_answer": "D",
+        "source_answer_text": "3 years",
+        "pdf_page": 23
+      },
+      {
+        "source": "PDF_500",
+        "number": 93,
+        "source_answer": "C",
+        "source_answer_text": "3 years",
+        "pdf_page": 24
+      },
+      {
+        "source": "PDF_500",
+        "number": 106,
+        "source_answer": "A",
+        "source_answer_text": "3 years",
+        "pdf_page": 28
+      },
+      {
+        "source": "PDF_500",
+        "number": 121,
+        "source_answer": "A",
+        "source_answer_text": "3 years",
+        "pdf_page": 32
+      },
+      {
+        "source": "PDF_500",
+        "number": 124,
+        "source_answer": "A",
+        "source_answer_text": "3 years",
+        "pdf_page": 32
+      },
+      {
+        "source": "PDF_500",
+        "number": 139,
+        "source_answer": "C",
+        "source_answer_text": "3 years",
+        "pdf_page": 36
+      },
+      {
+        "source": "PDF_500",
+        "number": 142,
+        "source_answer": "C",
+        "source_answer_text": "3 years",
+        "pdf_page": 37
+      },
+      {
+        "source": "PDF_500",
+        "number": 155,
+        "source_answer": "A",
+        "source_answer_text": "3 years",
+        "pdf_page": 40
+      },
+      {
+        "source": "PDF_500",
+        "number": 169,
+        "source_answer": "A",
+        "source_answer_text": "3 years",
+        "pdf_page": 44
+      },
+      {
+        "source": "PDF_500",
+        "number": 194,
+        "source_answer": "D",
+        "source_answer_text": "3 years",
+        "pdf_page": 50
+      },
+      {
+        "source": "PDF_500",
+        "number": 206,
+        "source_answer": "C",
+        "source_answer_text": "3 years",
+        "pdf_page": 53
+      },
+      {
+        "source": "PDF_500",
+        "number": 210,
+        "source_answer": "B",
+        "source_answer_text": "3 years",
+        "pdf_page": 55
+      },
+      {
+        "source": "PDF_500",
+        "number": 215,
+        "source_answer": "C",
+        "source_answer_text": "3 years",
+        "pdf_page": 56
+      },
+      {
+        "source": "PDF_500",
+        "number": 220,
+        "source_answer": "A",
+        "source_answer_text": "3 years",
+        "pdf_page": 57
+      },
+      {
+        "source": "PDF_500",
+        "number": 232,
+        "source_answer": "A",
+        "source_answer_text": "3 years",
+        "pdf_page": 60
+      },
+      {
+        "source": "PDF_500",
+        "number": 252,
+        "source_answer": "D",
+        "source_answer_text": "3 years",
+        "pdf_page": 65
+      },
+      {
+        "source": "PDF_500",
+        "number": 253,
+        "source_answer": "B",
+        "source_answer_text": "3 years",
+        "pdf_page": 66
+      },
+      {
+        "source": "PDF_500",
+        "number": 260,
+        "source_answer": "B",
+        "source_answer_text": "3 years",
+        "pdf_page": 67
+      },
+      {
+        "source": "PDF_500",
+        "number": 264,
+        "source_answer": "B",
+        "source_answer_text": "3 years",
+        "pdf_page": 68
+      },
+      {
+        "source": "PDF_500",
+        "number": 275,
+        "source_answer": "C",
+        "source_answer_text": "3 years",
+        "pdf_page": 71
+      },
+      {
+        "source": "PDF_500",
+        "number": 278,
+        "source_answer": "B",
+        "source_answer_text": "3 years",
+        "pdf_page": 72
+      },
+      {
+        "source": "PDF_500",
+        "number": 340,
+        "source_answer": "A",
+        "source_answer_text": "3 years",
+        "pdf_page": 88
+      },
+      {
+        "source": "PDF_500",
+        "number": 341,
+        "source_answer": "D",
+        "source_answer_text": "3 years",
+        "pdf_page": 88
+      },
+      {
+        "source": "PDF_500",
+        "number": 358,
+        "source_answer": "D",
+        "source_answer_text": "3 years",
+        "pdf_page": 93
+      },
+      {
+        "source": "PDF_500",
+        "number": 359,
+        "source_answer": "A",
+        "source_answer_text": "3 years",
+        "pdf_page": 93
+      },
+      {
+        "source": "PDF_500",
+        "number": 379,
+        "source_answer": "D",
+        "source_answer_text": "3 years",
+        "pdf_page": 98
+      },
+      {
+        "source": "PDF_500",
+        "number": 388,
+        "source_answer": "A",
+        "source_answer_text": "3 years",
+        "pdf_page": 100
+      },
+      {
+        "source": "PDF_500",
+        "number": 391,
+        "source_answer": "B",
+        "source_answer_text": "3 years",
+        "pdf_page": 101
+      },
+      {
+        "source": "PDF_500",
+        "number": 406,
+        "source_answer": "B",
+        "source_answer_text": "3 years",
+        "pdf_page": 105
+      },
+      {
+        "source": "PDF_500",
+        "number": 407,
+        "source_answer": "D",
+        "source_answer_text": "3 years",
+        "pdf_page": 105
+      },
+      {
+        "source": "PDF_500",
+        "number": 416,
+        "source_answer": "A",
+        "source_answer_text": "3 years",
+        "pdf_page": 108
+      },
+      {
+        "source": "PDF_500",
+        "number": 422,
+        "source_answer": "C",
+        "source_answer_text": "3 years",
+        "pdf_page": 109
+      },
+      {
+        "source": "PDF_500",
+        "number": 440,
+        "source_answer": "C",
+        "source_answer_text": "3 years",
+        "pdf_page": 114
+      },
+      {
+        "source": "PDF_500",
+        "number": 463,
+        "source_answer": "C",
+        "source_answer_text": "3 years",
+        "pdf_page": 120
+      },
+      {
+        "source": "PDF_500",
+        "number": 468,
+        "source_answer": "D",
+        "source_answer_text": "3 years",
+        "pdf_page": 121
+      },
+      {
+        "source": "PDF_500",
+        "number": 471,
+        "source_answer": "B",
+        "source_answer_text": "3 years",
+        "pdf_page": 122
+      },
+      {
+        "source": "PDF_500",
+        "number": 474,
+        "source_answer": "C",
+        "source_answer_text": "3 years",
+        "pdf_page": 122
+      },
+      {
+        "source": "PDF_500",
+        "number": 476,
+        "source_answer": "D",
+        "source_answer_text": "3 years",
+        "pdf_page": 123
+      },
+      {
+        "source": "PDF_500",
+        "number": 480,
+        "source_answer": "A",
+        "source_answer_text": "3 years",
+        "pdf_page": 124
+      },
+      {
+        "source": "PDF_500",
+        "number": 483,
+        "source_answer": "D",
+        "source_answer_text": "3 years",
+        "pdf_page": 125
+      },
+      {
+        "source": "PDF_500",
+        "number": 494,
+        "source_answer": "A",
+        "source_answer_text": "3 years",
+        "pdf_page": 128
+      }
+    ],
+    "source_conflict": false,
+    "status": "REVIEWED_CORPUS",
+    "approved_answers": [
+      "B"
+    ],
+    "review_note": "Article 12.3 : deux ans au maximum avec un individu ; nouvel accord requis pour prolonger.",
+    "information_ids": [
+      "REF12_003"
+    ],
+    "family": "duration",
+    "source_disagrees": true
+  },
+  {
+    "id": "Q_cc5bbf782935f362c940",
+    "source": "PDF_500",
+    "number": 12,
+    "question": "What is the maximum agent service fee for a player earning under USD 200,000 per year?",
+    "choices": {
+      "A": "15%",
+      "B": "3%",
+      "C": "10%",
+      "D": "5%"
+    },
+    "source_answer": "D",
+    "occurrences": [
+      {
+        "source": "PDF_500",
+        "number": 12,
+        "source_answer": "D",
+        "source_answer_text": "5%",
+        "pdf_page": 4
+      },
+      {
+        "source": "PDF_500",
+        "number": 13,
+        "source_answer": "C",
+        "source_answer_text": "5%",
+        "pdf_page": 4
+      },
+      {
+        "source": "PDF_500",
+        "number": 16,
+        "source_answer": "A",
+        "source_answer_text": "5%",
+        "pdf_page": 5
+      },
+      {
+        "source": "PDF_500",
+        "number": 20,
+        "source_answer": "C",
+        "source_answer_text": "5%",
+        "pdf_page": 6
+      },
+      {
+        "source": "PDF_500",
+        "number": 34,
+        "source_answer": "D",
+        "source_answer_text": "5%",
+        "pdf_page": 9
+      },
+      {
+        "source": "PDF_500",
+        "number": 53,
+        "source_answer": "A",
+        "source_answer_text": "5%",
+        "pdf_page": 14
+      },
+      {
+        "source": "PDF_500",
+        "number": 71,
+        "source_answer": "C",
+        "source_answer_text": "5%",
+        "pdf_page": 19
+      },
+      {
+        "source": "PDF_500",
+        "number": 85,
+        "source_answer": "A",
+        "source_answer_text": "5%",
+        "pdf_page": 22
+      },
+      {
+        "source": "PDF_500",
+        "number": 89,
+        "source_answer": "A",
+        "source_answer_text": "5%",
+        "pdf_page": 23
+      },
+      {
+        "source": "PDF_500",
+        "number": 91,
+        "source_answer": "D",
+        "source_answer_text": "5%",
+        "pdf_page": 24
+      },
+      {
+        "source": "PDF_500",
+        "number": 111,
+        "source_answer": "B",
+        "source_answer_text": "5%",
+        "pdf_page": 29
+      },
+      {
+        "source": "PDF_500",
+        "number": 112,
+        "source_answer": "C",
+        "source_answer_text": "5%",
+        "pdf_page": 29
+      },
+      {
+        "source": "PDF_500",
+        "number": 119,
+        "source_answer": "C",
+        "source_answer_text": "5%",
+        "pdf_page": 31
+      },
+      {
+        "source": "PDF_500",
+        "number": 123,
+        "source_answer": "D",
+        "source_answer_text": "5%",
+        "pdf_page": 32
+      },
+      {
+        "source": "PDF_500",
+        "number": 128,
+        "source_answer": "C",
+        "source_answer_text": "5%",
+        "pdf_page": 33
+      },
+      {
+        "source": "PDF_500",
+        "number": 141,
+        "source_answer": "C",
+        "source_answer_text": "5%",
+        "pdf_page": 37
+      },
+      {
+        "source": "PDF_500",
+        "number": 151,
+        "source_answer": "B",
+        "source_answer_text": "5%",
+        "pdf_page": 39
+      },
+      {
+        "source": "PDF_500",
+        "number": 166,
+        "source_answer": "A",
+        "source_answer_text": "5%",
+        "pdf_page": 43
+      },
+      {
+        "source": "PDF_500",
+        "number": 180,
+        "source_answer": "C",
+        "source_answer_text": "5%",
+        "pdf_page": 47
+      },
+      {
+        "source": "PDF_500",
+        "number": 183,
+        "source_answer": "B",
+        "source_answer_text": "5%",
+        "pdf_page": 48
+      },
+      {
+        "source": "PDF_500",
+        "number": 184,
+        "source_answer": "A",
+        "source_answer_text": "5%",
+        "pdf_page": 48
+      },
+      {
+        "source": "PDF_500",
+        "number": 185,
+        "source_answer": "A",
+        "source_answer_text": "5%",
+        "pdf_page": 48
+      },
+      {
+        "source": "PDF_500",
+        "number": 186,
+        "source_answer": "C",
+        "source_answer_text": "5%",
+        "pdf_page": 48
+      },
+      {
+        "source": "PDF_500",
+        "number": 195,
+        "source_answer": "B",
+        "source_answer_text": "5%",
+        "pdf_page": 51
+      },
+      {
+        "source": "PDF_500",
+        "number": 229,
+        "source_answer": "D",
+        "source_answer_text": "5%",
+        "pdf_page": 59
+      },
+      {
+        "source": "PDF_500",
+        "number": 230,
+        "source_answer": "C",
+        "source_answer_text": "5%",
+        "pdf_page": 60
+      },
+      {
+        "source": "PDF_500",
+        "number": 236,
+        "source_answer": "C",
+        "source_answer_text": "5%",
+        "pdf_page": 61
+      },
+      {
+        "source": "PDF_500",
+        "number": 244,
+        "source_answer": "B",
+        "source_answer_text": "5%",
+        "pdf_page": 63
+      },
+      {
+        "source": "PDF_500",
+        "number": 268,
+        "source_answer": "C",
+        "source_answer_text": "5%",
+        "pdf_page": 70
+      },
+      {
+        "source": "PDF_500",
+        "number": 273,
+        "source_answer": "D",
+        "source_answer_text": "5%",
+        "pdf_page": 71
+      },
+      {
+        "source": "PDF_500",
+        "number": 276,
+        "source_answer": "C",
+        "source_answer_text": "5%",
+        "pdf_page": 72
+      },
+      {
+        "source": "PDF_500",
+        "number": 284,
+        "source_answer": "C",
+        "source_answer_text": "5%",
+        "pdf_page": 74
+      },
+      {
+        "source": "PDF_500",
+        "number": 285,
+        "source_answer": "B",
+        "source_answer_text": "5%",
+        "pdf_page": 74
+      },
+      {
+        "source": "PDF_500",
+        "number": 286,
+        "source_answer": "A",
+        "source_answer_text": "5%",
+        "pdf_page": 74
+      },
+      {
+        "source": "PDF_500",
+        "number": 292,
+        "source_answer": "D",
+        "source_answer_text": "5%",
+        "pdf_page": 76
+      },
+      {
+        "source": "PDF_500",
+        "number": 294,
+        "source_answer": "B",
+        "source_answer_text": "5%",
+        "pdf_page": 76
+      },
+      {
+        "source": "PDF_500",
+        "number": 305,
+        "source_answer": "D",
+        "source_answer_text": "5%",
+        "pdf_page": 79
+      },
+      {
+        "source": "PDF_500",
+        "number": 330,
+        "source_answer": "B",
+        "source_answer_text": "5%",
+        "pdf_page": 85
+      },
+      {
+        "source": "PDF_500",
+        "number": 336,
+        "source_answer": "C",
+        "source_answer_text": "5%",
+        "pdf_page": 87
+      },
+      {
+        "source": "PDF_500",
+        "number": 339,
+        "source_answer": "A",
+        "source_answer_text": "5%",
+        "pdf_page": 88
+      },
+      {
+        "source": "PDF_500",
+        "number": 347,
+        "source_answer": "D",
+        "source_answer_text": "5%",
+        "pdf_page": 90
+      },
+      {
+        "source": "PDF_500",
+        "number": 353,
+        "source_answer": "A",
+        "source_answer_text": "5%",
+        "pdf_page": 91
+      },
+      {
+        "source": "PDF_500",
+        "number": 354,
+        "source_answer": "B",
+        "source_answer_text": "5%",
+        "pdf_page": 92
+      },
+      {
+        "source": "PDF_500",
+        "number": 369,
+        "source_answer": "C",
+        "source_answer_text": "5%",
+        "pdf_page": 95
+      },
+      {
+        "source": "PDF_500",
+        "number": 386,
+        "source_answer": "B",
+        "source_answer_text": "5%",
+        "pdf_page": 100
+      },
+      {
+        "source": "PDF_500",
+        "number": 395,
+        "source_answer": "B",
+        "source_answer_text": "5%",
+        "pdf_page": 102
+      },
+      {
+        "source": "PDF_500",
+        "number": 400,
+        "source_answer": "B",
+        "source_answer_text": "5%",
+        "pdf_page": 103
+      },
+      {
+        "source": "PDF_500",
+        "number": 405,
+        "source_answer": "C",
+        "source_answer_text": "5%",
+        "pdf_page": 105
+      },
+      {
+        "source": "PDF_500",
+        "number": 410,
+        "source_answer": "D",
+        "source_answer_text": "5%",
+        "pdf_page": 106
+      },
+      {
+        "source": "PDF_500",
+        "number": 413,
+        "source_answer": "C",
+        "source_answer_text": "5%",
+        "pdf_page": 107
+      },
+      {
+        "source": "PDF_500",
+        "number": 420,
+        "source_answer": "B",
+        "source_answer_text": "5%",
+        "pdf_page": 109
+      },
+      {
+        "source": "PDF_500",
+        "number": 421,
+        "source_answer": "D",
+        "source_answer_text": "5%",
+        "pdf_page": 109
+      },
+      {
+        "source": "PDF_500",
+        "number": 433,
+        "source_answer": "D",
+        "source_answer_text": "5%",
+        "pdf_page": 112
+      },
+      {
+        "source": "PDF_500",
+        "number": 434,
+        "source_answer": "C",
+        "source_answer_text": "5%",
+        "pdf_page": 112
+      },
+      {
+        "source": "PDF_500",
+        "number": 447,
+        "source_answer": "B",
+        "source_answer_text": "5%",
+        "pdf_page": 116
+      },
+      {
+        "source": "PDF_500",
+        "number": 450,
+        "source_answer": "B",
+        "source_answer_text": "5%",
+        "pdf_page": 116
+      },
+      {
+        "source": "PDF_500",
+        "number": 458,
+        "source_answer": "B",
+        "source_answer_text": "5%",
+        "pdf_page": 118
+      },
+      {
+        "source": "PDF_500",
+        "number": 470,
+        "source_answer": "A",
+        "source_answer_text": "5%",
+        "pdf_page": 121
+      },
+      {
+        "source": "PDF_500",
+        "number": 493,
+        "source_answer": "B",
+        "source_answer_text": "5%",
+        "pdf_page": 127
+      }
+    ],
+    "source_conflict": false,
+    "status": "UNREVIEWED",
+    "approved_answers": [],
+    "review_note": "Exclue des scores : règle absente du corpus, portée trop générale, options ambiguës ou statut d’applicabilité à vérifier.",
+    "information_ids": [],
+    "family": "fees"
+  },
+  {
+    "id": "Q_3a0309731bc028bc1418",
+    "source": "PDF_500",
+    "number": 15,
+    "question": "Under what condition is dual representation allowed?",
+    "choices": {
+      "A": "Never",
+      "B": "Always",
+      "C": "If disclosed verbally",
+      "D": "With written consent"
+    },
+    "source_answer": "D",
+    "occurrences": [
+      {
+        "source": "PDF_500",
+        "number": 15,
+        "source_answer": "D",
+        "source_answer_text": "With written consent",
+        "pdf_page": 4
+      },
+      {
+        "source": "PDF_500",
+        "number": 30,
+        "source_answer": "D",
+        "source_answer_text": "With written consent",
+        "pdf_page": 8
+      },
+      {
+        "source": "PDF_500",
+        "number": 36,
+        "source_answer": "D",
+        "source_answer_text": "With written consent",
+        "pdf_page": 10
+      },
+      {
+        "source": "PDF_500",
+        "number": 45,
+        "source_answer": "B",
+        "source_answer_text": "With written consent",
+        "pdf_page": 12
+      },
+      {
+        "source": "PDF_500",
+        "number": 55,
+        "source_answer": "B",
+        "source_answer_text": "With written consent",
+        "pdf_page": 15
+      },
+      {
+        "source": "PDF_500",
+        "number": 63,
+        "source_answer": "C",
+        "source_answer_text": "With written consent",
+        "pdf_page": 17
+      },
+      {
+        "source": "PDF_500",
+        "number": 68,
+        "source_answer": "C",
+        "source_answer_text": "With written consent",
+        "pdf_page": 18
+      },
+      {
+        "source": "PDF_500",
+        "number": 70,
+        "source_answer": "A",
+        "source_answer_text": "With written consent",
+        "pdf_page": 18
+      },
+      {
+        "source": "PDF_500",
+        "number": 73,
+        "source_answer": "A",
+        "source_answer_text": "With written consent",
+        "pdf_page": 19
+      },
+      {
+        "source": "PDF_500",
+        "number": 90,
+        "source_answer": "D",
+        "source_answer_text": "With written consent",
+        "pdf_page": 24
+      },
+      {
+        "source": "PDF_500",
+        "number": 94,
+        "source_answer": "B",
+        "source_answer_text": "With written consent",
+        "pdf_page": 25
+      },
+      {
+        "source": "PDF_500",
+        "number": 96,
+        "source_answer": "A",
+        "source_answer_text": "With written consent",
+        "pdf_page": 25
+      },
+      {
+        "source": "PDF_500",
+        "number": 108,
+        "source_answer": "A",
+        "source_answer_text": "With written consent",
+        "pdf_page": 28
+      },
+      {
+        "source": "PDF_500",
+        "number": 110,
+        "source_answer": "D",
+        "source_answer_text": "With written consent",
+        "pdf_page": 29
+      },
+      {
+        "source": "PDF_500",
+        "number": 113,
+        "source_answer": "B",
+        "source_answer_text": "With written consent",
+        "pdf_page": 30
+      },
+      {
+        "source": "PDF_500",
+        "number": 114,
+        "source_answer": "A",
+        "source_answer_text": "With written consent",
+        "pdf_page": 30
+      },
+      {
+        "source": "PDF_500",
+        "number": 120,
+        "source_answer": "B",
+        "source_answer_text": "With written consent",
+        "pdf_page": 31
+      },
+      {
+        "source": "PDF_500",
+        "number": 129,
+        "source_answer": "A",
+        "source_answer_text": "With written consent",
+        "pdf_page": 34
+      },
+      {
+        "source": "PDF_500",
+        "number": 131,
+        "source_answer": "A",
+        "source_answer_text": "With written consent",
+        "pdf_page": 34
+      },
+      {
+        "source": "PDF_500",
+        "number": 156,
+        "source_answer": "C",
+        "source_answer_text": "With written consent",
+        "pdf_page": 41
+      },
+      {
+        "source": "PDF_500",
+        "number": 176,
+        "source_answer": "D",
+        "source_answer_text": "With written consent",
+        "pdf_page": 46
+      },
+      {
+        "source": "PDF_500",
+        "number": 197,
+        "source_answer": "C",
+        "source_answer_text": "With written consent",
+        "pdf_page": 51
+      },
+      {
+        "source": "PDF_500",
+        "number": 228,
+        "source_answer": "B",
+        "source_answer_text": "With written consent",
+        "pdf_page": 59
+      },
+      {
+        "source": "PDF_500",
+        "number": 234,
+        "source_answer": "C",
+        "source_answer_text": "With written consent",
+        "pdf_page": 61
+      },
+      {
+        "source": "PDF_500",
+        "number": 235,
+        "source_answer": "A",
+        "source_answer_text": "With written consent",
+        "pdf_page": 61
+      },
+      {
+        "source": "PDF_500",
+        "number": 238,
+        "source_answer": "A",
+        "source_answer_text": "With written consent",
+        "pdf_page": 62
+      },
+      {
+        "source": "PDF_500",
+        "number": 240,
+        "source_answer": "B",
+        "source_answer_text": "With written consent",
+        "pdf_page": 62
+      },
+      {
+        "source": "PDF_500",
+        "number": 271,
+        "source_answer": "D",
+        "source_answer_text": "With written consent",
+        "pdf_page": 70
+      },
+      {
+        "source": "PDF_500",
+        "number": 280,
+        "source_answer": "C",
+        "source_answer_text": "With written consent",
+        "pdf_page": 73
+      },
+      {
+        "source": "PDF_500",
+        "number": 299,
+        "source_answer": "C",
+        "source_answer_text": "With written consent",
+        "pdf_page": 78
+      },
+      {
+        "source": "PDF_500",
+        "number": 302,
+        "source_answer": "C",
+        "source_answer_text": "With written consent",
+        "pdf_page": 78
+      },
+      {
+        "source": "PDF_500",
+        "number": 306,
+        "source_answer": "B",
+        "source_answer_text": "With written consent",
+        "pdf_page": 79
+      },
+      {
+        "source": "PDF_500",
+        "number": 310,
+        "source_answer": "C",
+        "source_answer_text": "With written consent",
+        "pdf_page": 80
+      },
+      {
+        "source": "PDF_500",
+        "number": 315,
+        "source_answer": "C",
+        "source_answer_text": "With written consent",
+        "pdf_page": 82
+      },
+      {
+        "source": "PDF_500",
+        "number": 318,
+        "source_answer": "C",
+        "source_answer_text": "With written consent",
+        "pdf_page": 82
+      },
+      {
+        "source": "PDF_500",
+        "number": 327,
+        "source_answer": "A",
+        "source_answer_text": "With written consent",
+        "pdf_page": 85
+      },
+      {
+        "source": "PDF_500",
+        "number": 329,
+        "source_answer": "D",
+        "source_answer_text": "With written consent",
+        "pdf_page": 85
+      },
+      {
+        "source": "PDF_500",
+        "number": 333,
+        "source_answer": "A",
+        "source_answer_text": "With written consent",
+        "pdf_page": 86
+      },
+      {
+        "source": "PDF_500",
+        "number": 342,
+        "source_answer": "B",
+        "source_answer_text": "With written consent",
+        "pdf_page": 88
+      },
+      {
+        "source": "PDF_500",
+        "number": 355,
+        "source_answer": "B",
+        "source_answer_text": "With written consent",
+        "pdf_page": 92
+      },
+      {
+        "source": "PDF_500",
+        "number": 363,
+        "source_answer": "B",
+        "source_answer_text": "With written consent",
+        "pdf_page": 94
+      },
+      {
+        "source": "PDF_500",
+        "number": 370,
+        "source_answer": "B",
+        "source_answer_text": "With written consent",
+        "pdf_page": 96
+      },
+      {
+        "source": "PDF_500",
+        "number": 380,
+        "source_answer": "D",
+        "source_answer_text": "With written consent",
+        "pdf_page": 98
+      },
+      {
+        "source": "PDF_500",
+        "number": 408,
+        "source_answer": "C",
+        "source_answer_text": "With written consent",
+        "pdf_page": 105
+      },
+      {
+        "source": "PDF_500",
+        "number": 411,
+        "source_answer": "A",
+        "source_answer_text": "With written consent",
+        "pdf_page": 106
+      },
+      {
+        "source": "PDF_500",
+        "number": 417,
+        "source_answer": "A",
+        "source_answer_text": "With written consent",
+        "pdf_page": 108
+      },
+      {
+        "source": "PDF_500",
+        "number": 423,
+        "source_answer": "A",
+        "source_answer_text": "With written consent",
+        "pdf_page": 109
+      },
+      {
+        "source": "PDF_500",
+        "number": 430,
+        "source_answer": "D",
+        "source_answer_text": "With written consent",
+        "pdf_page": 111
+      },
+      {
+        "source": "PDF_500",
+        "number": 459,
+        "source_answer": "A",
+        "source_answer_text": "With written consent",
+        "pdf_page": 119
+      },
+      {
+        "source": "PDF_500",
+        "number": 462,
+        "source_answer": "D",
+        "source_answer_text": "With written consent",
+        "pdf_page": 119
+      },
+      {
+        "source": "PDF_500",
+        "number": 479,
+        "source_answer": "C",
+        "source_answer_text": "With written consent",
+        "pdf_page": 124
+      },
+      {
+        "source": "PDF_500",
+        "number": 485,
+        "source_answer": "B",
+        "source_answer_text": "With written consent",
+        "pdf_page": 125
+      },
+      {
+        "source": "PDF_500",
+        "number": 490,
+        "source_answer": "D",
+        "source_answer_text": "With written consent",
+        "pdf_page": 127
+      },
+      {
+        "source": "PDF_500",
+        "number": 492,
+        "source_answer": "C",
+        "source_answer_text": "With written consent",
+        "pdf_page": 127
+      }
+    ],
+    "source_conflict": false,
+    "status": "UNREVIEWED",
+    "approved_answers": [],
+    "review_note": "Exclue des scores : règle absente du corpus, portée trop générale, options ambiguës ou statut d’applicabilité à vérifier.",
+    "information_ids": [],
+    "family": "dual"
+  },
+  {
+    "id": "Q_2ab967f9869c03130426",
+    "source": "PDF_500",
+    "number": 17,
+    "question": "What is the minimum age to apply for a FIFA agent license?",
+    "choices": {
+      "A": "25",
+      "B": "16",
+      "C": "21",
+      "D": "18"
+    },
+    "source_answer": "D",
+    "occurrences": [
+      {
+        "source": "PDF_500",
+        "number": 17,
+        "source_answer": "D",
+        "source_answer_text": "18",
+        "pdf_page": 5
+      },
+      {
+        "source": "PDF_500",
+        "number": 19,
+        "source_answer": "D",
+        "source_answer_text": "18",
+        "pdf_page": 5
+      },
+      {
+        "source": "PDF_500",
+        "number": 23,
+        "source_answer": "C",
+        "source_answer_text": "18",
+        "pdf_page": 6
+      },
+      {
+        "source": "PDF_500",
+        "number": 38,
+        "source_answer": "A",
+        "source_answer_text": "18",
+        "pdf_page": 10
+      },
+      {
+        "source": "PDF_500",
+        "number": 41,
+        "source_answer": "B",
+        "source_answer_text": "18",
+        "pdf_page": 11
+      },
+      {
+        "source": "PDF_500",
+        "number": 44,
+        "source_answer": "B",
+        "source_answer_text": "18",
+        "pdf_page": 12
+      },
+      {
+        "source": "PDF_500",
+        "number": 58,
+        "source_answer": "B",
+        "source_answer_text": "18",
+        "pdf_page": 15
+      },
+      {
+        "source": "PDF_500",
+        "number": 74,
+        "source_answer": "B",
+        "source_answer_text": "18",
+        "pdf_page": 19
+      },
+      {
+        "source": "PDF_500",
+        "number": 78,
+        "source_answer": "B",
+        "source_answer_text": "18",
+        "pdf_page": 21
+      },
+      {
+        "source": "PDF_500",
+        "number": 81,
+        "source_answer": "A",
+        "source_answer_text": "18",
+        "pdf_page": 21
+      },
+      {
+        "source": "PDF_500",
+        "number": 84,
+        "source_answer": "B",
+        "source_answer_text": "18",
+        "pdf_page": 22
+      },
+      {
+        "source": "PDF_500",
+        "number": 98,
+        "source_answer": "C",
+        "source_answer_text": "18",
+        "pdf_page": 26
+      },
+      {
+        "source": "PDF_500",
+        "number": 105,
+        "source_answer": "A",
+        "source_answer_text": "18",
+        "pdf_page": 27
+      },
+      {
+        "source": "PDF_500",
+        "number": 126,
+        "source_answer": "D",
+        "source_answer_text": "18",
+        "pdf_page": 33
+      },
+      {
+        "source": "PDF_500",
+        "number": 130,
+        "source_answer": "C",
+        "source_answer_text": "18",
+        "pdf_page": 34
+      },
+      {
+        "source": "PDF_500",
+        "number": 164,
+        "source_answer": "B",
+        "source_answer_text": "18",
+        "pdf_page": 43
+      },
+      {
+        "source": "PDF_500",
+        "number": 165,
+        "source_answer": "B",
+        "source_answer_text": "18",
+        "pdf_page": 43
+      },
+      {
+        "source": "PDF_500",
+        "number": 213,
+        "source_answer": "C",
+        "source_answer_text": "18",
+        "pdf_page": 55
+      },
+      {
+        "source": "PDF_500",
+        "number": 250,
+        "source_answer": "D",
+        "source_answer_text": "18",
+        "pdf_page": 65
+      },
+      {
+        "source": "PDF_500",
+        "number": 270,
+        "source_answer": "B",
+        "source_answer_text": "18",
+        "pdf_page": 70
+      },
+      {
+        "source": "PDF_500",
+        "number": 303,
+        "source_answer": "C",
+        "source_answer_text": "18",
+        "pdf_page": 79
+      },
+      {
+        "source": "PDF_500",
+        "number": 309,
+        "source_answer": "C",
+        "source_answer_text": "18",
+        "pdf_page": 80
+      },
+      {
+        "source": "PDF_500",
+        "number": 311,
+        "source_answer": "C",
+        "source_answer_text": "18",
+        "pdf_page": 81
+      },
+      {
+        "source": "PDF_500",
+        "number": 313,
+        "source_answer": "C",
+        "source_answer_text": "18",
+        "pdf_page": 81
+      },
+      {
+        "source": "PDF_500",
+        "number": 314,
+        "source_answer": "D",
+        "source_answer_text": "18",
+        "pdf_page": 81
+      },
+      {
+        "source": "PDF_500",
+        "number": 344,
+        "source_answer": "D",
+        "source_answer_text": "18",
+        "pdf_page": 89
+      },
+      {
+        "source": "PDF_500",
+        "number": 345,
+        "source_answer": "D",
+        "source_answer_text": "18",
+        "pdf_page": 89
+      },
+      {
+        "source": "PDF_500",
+        "number": 346,
+        "source_answer": "A",
+        "source_answer_text": "18",
+        "pdf_page": 89
+      },
+      {
+        "source": "PDF_500",
+        "number": 351,
+        "source_answer": "C",
+        "source_answer_text": "18",
+        "pdf_page": 91
+      },
+      {
+        "source": "PDF_500",
+        "number": 356,
+        "source_answer": "C",
+        "source_answer_text": "18",
+        "pdf_page": 92
+      },
+      {
+        "source": "PDF_500",
+        "number": 361,
+        "source_answer": "C",
+        "source_answer_text": "18",
+        "pdf_page": 93
+      },
+      {
+        "source": "PDF_500",
+        "number": 366,
+        "source_answer": "B",
+        "source_answer_text": "18",
+        "pdf_page": 95
+      },
+      {
+        "source": "PDF_500",
+        "number": 375,
+        "source_answer": "B",
+        "source_answer_text": "18",
+        "pdf_page": 97
+      },
+      {
+        "source": "PDF_500",
+        "number": 404,
+        "source_answer": "A",
+        "source_answer_text": "18",
+        "pdf_page": 104
+      },
+      {
+        "source": "PDF_500",
+        "number": 415,
+        "source_answer": "B",
+        "source_answer_text": "18",
+        "pdf_page": 107
+      },
+      {
+        "source": "PDF_500",
+        "number": 426,
+        "source_answer": "A",
+        "source_answer_text": "18",
+        "pdf_page": 110
+      },
+      {
+        "source": "PDF_500",
+        "number": 428,
+        "source_answer": "C",
+        "source_answer_text": "18",
+        "pdf_page": 111
+      },
+      {
+        "source": "PDF_500",
+        "number": 464,
+        "source_answer": "C",
+        "source_answer_text": "18",
+        "pdf_page": 120
+      },
+      {
+        "source": "PDF_500",
+        "number": 465,
+        "source_answer": "B",
+        "source_answer_text": "18",
+        "pdf_page": 120
+      },
+      {
+        "source": "PDF_500",
+        "number": 466,
+        "source_answer": "A",
+        "source_answer_text": "18",
+        "pdf_page": 120
+      },
+      {
+        "source": "PDF_500",
+        "number": 477,
+        "source_answer": "A",
+        "source_answer_text": "18",
+        "pdf_page": 123
+      }
+    ],
+    "source_conflict": false,
+    "status": "UNREVIEWED",
+    "approved_answers": [],
+    "review_note": "Exclue des scores : règle absente du corpus, portée trop générale, options ambiguës ou statut d’applicabilité à vérifier.",
+    "information_ids": [],
+    "family": "age"
+  },
+  {
+    "id": "Q_96f31b22d5899be5f403",
+    "source": "PDF_500",
+    "number": 22,
+    "question": "Which FIFA platform is used to register Representation Agreements?",
+    "choices": {
+      "A": "FIFA Agent Platform",
+      "B": "FIFA MyGame",
+      "C": "FIFA TMS",
+      "D": "FIFA Connect"
+    },
+    "source_answer": "A",
+    "occurrences": [
+      {
+        "source": "PDF_500",
+        "number": 22,
+        "source_answer": "A",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 6
+      },
+      {
+        "source": "PDF_500",
+        "number": 25,
+        "source_answer": "D",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 7
+      },
+      {
+        "source": "PDF_500",
+        "number": 27,
+        "source_answer": "B",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 7
+      },
+      {
+        "source": "PDF_500",
+        "number": 28,
+        "source_answer": "D",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 8
+      },
+      {
+        "source": "PDF_500",
+        "number": 40,
+        "source_answer": "D",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 11
+      },
+      {
+        "source": "PDF_500",
+        "number": 43,
+        "source_answer": "A",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 12
+      },
+      {
+        "source": "PDF_500",
+        "number": 46,
+        "source_answer": "C",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 12
+      },
+      {
+        "source": "PDF_500",
+        "number": 49,
+        "source_answer": "C",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 13
+      },
+      {
+        "source": "PDF_500",
+        "number": 50,
+        "source_answer": "C",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 13
+      },
+      {
+        "source": "PDF_500",
+        "number": 51,
+        "source_answer": "C",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 14
+      },
+      {
+        "source": "PDF_500",
+        "number": 64,
+        "source_answer": "D",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 17
+      },
+      {
+        "source": "PDF_500",
+        "number": 97,
+        "source_answer": "B",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 25
+      },
+      {
+        "source": "PDF_500",
+        "number": 107,
+        "source_answer": "C",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 28
+      },
+      {
+        "source": "PDF_500",
+        "number": 116,
+        "source_answer": "B",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 30
+      },
+      {
+        "source": "PDF_500",
+        "number": 125,
+        "source_answer": "D",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 33
+      },
+      {
+        "source": "PDF_500",
+        "number": 146,
+        "source_answer": "D",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 38
+      },
+      {
+        "source": "PDF_500",
+        "number": 158,
+        "source_answer": "D",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 41
+      },
+      {
+        "source": "PDF_500",
+        "number": 159,
+        "source_answer": "D",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 41
+      },
+      {
+        "source": "PDF_500",
+        "number": 162,
+        "source_answer": "C",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 42
+      },
+      {
+        "source": "PDF_500",
+        "number": 163,
+        "source_answer": "D",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 42
+      },
+      {
+        "source": "PDF_500",
+        "number": 189,
+        "source_answer": "D",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 49
+      },
+      {
+        "source": "PDF_500",
+        "number": 190,
+        "source_answer": "B",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 49
+      },
+      {
+        "source": "PDF_500",
+        "number": 191,
+        "source_answer": "D",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 50
+      },
+      {
+        "source": "PDF_500",
+        "number": 196,
+        "source_answer": "A",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 51
+      },
+      {
+        "source": "PDF_500",
+        "number": 198,
+        "source_answer": "C",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 51
+      },
+      {
+        "source": "PDF_500",
+        "number": 201,
+        "source_answer": "A",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 52
+      },
+      {
+        "source": "PDF_500",
+        "number": 208,
+        "source_answer": "D",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 54
+      },
+      {
+        "source": "PDF_500",
+        "number": 209,
+        "source_answer": "B",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 54
+      },
+      {
+        "source": "PDF_500",
+        "number": 239,
+        "source_answer": "B",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 62
+      },
+      {
+        "source": "PDF_500",
+        "number": 246,
+        "source_answer": "D",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 64
+      },
+      {
+        "source": "PDF_500",
+        "number": 248,
+        "source_answer": "B",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 64
+      },
+      {
+        "source": "PDF_500",
+        "number": 257,
+        "source_answer": "A",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 67
+      },
+      {
+        "source": "PDF_500",
+        "number": 274,
+        "source_answer": "B",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 71
+      },
+      {
+        "source": "PDF_500",
+        "number": 298,
+        "source_answer": "C",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 77
+      },
+      {
+        "source": "PDF_500",
+        "number": 334,
+        "source_answer": "B",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 86
+      },
+      {
+        "source": "PDF_500",
+        "number": 373,
+        "source_answer": "B",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 96
+      },
+      {
+        "source": "PDF_500",
+        "number": 387,
+        "source_answer": "A",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 100
+      },
+      {
+        "source": "PDF_500",
+        "number": 392,
+        "source_answer": "A",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 101
+      },
+      {
+        "source": "PDF_500",
+        "number": 393,
+        "source_answer": "B",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 102
+      },
+      {
+        "source": "PDF_500",
+        "number": 409,
+        "source_answer": "B",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 106
+      },
+      {
+        "source": "PDF_500",
+        "number": 414,
+        "source_answer": "B",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 107
+      },
+      {
+        "source": "PDF_500",
+        "number": 445,
+        "source_answer": "C",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 115
+      },
+      {
+        "source": "PDF_500",
+        "number": 482,
+        "source_answer": "A",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 125
+      },
+      {
+        "source": "PDF_500",
+        "number": 491,
+        "source_answer": "A",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 127
+      },
+      {
+        "source": "PDF_500",
+        "number": 498,
+        "source_answer": "C",
+        "source_answer_text": "FIFA Agent Platform",
+        "pdf_page": 129
+      }
+    ],
+    "source_conflict": false,
+    "status": "REVIEWED_CORPUS",
+    "approved_answers": [
+      "A"
+    ],
+    "review_note": "Accords à transmettre sur la Plateforme, dans les délais réglementaires.",
+    "information_ids": [
+      "REFDUTY_013"
+    ],
+    "family": "platform",
+    "source_disagrees": false
+  }
+]
