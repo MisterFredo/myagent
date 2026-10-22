@@ -53,7 +53,7 @@ def render_catalog(entries):
     cards=''.join('<article><h2><a href="/study/'+safe(e['slug'])+'">'+safe(numbered_title(e['slug'], e['title']))+'</a></h2><p>'+safe(e['status'])+' · '+safe(e['count'])+' informations</p></article>' for e in entries)
     return ('<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>MYAGENT — Fiches</title>'
             '<style>body{font:16px/1.65 system-ui;background:#f5f6f8;color:#172033;margin:0}main{max-width:1050px;margin:auto;padding:32px 20px}article,section{background:white;border:1px solid #e1e5ec;border-radius:12px;padding:24px;margin:16px 0}a{color:#284f9b}input,button{font:inherit;padding:10px;max-width:100%;box-sizing:border-box}h2{font-size:21px}</style></head><body><main>'
-            '<nav><a href="/">Informations</a></nav><h1>Mes fiches</h1><p>Supports de travail et sources. Le statut de chaque fiche indique sa revue ; leur nombre ne mesure pas la couverture du programme.</p>'+cards+
+            '<nav><a href="/">Informations</a> · <a href="/practice">Entraînement</a></nav><h1>Mes fiches</h1><p>Supports de travail et sources. Le statut de chaque fiche indique sa revue ; leur nombre ne mesure pas la couverture du programme.</p>'+cards+
             '<section><h2>Exporter des extractions</h2><p>Télécharger les derniers résultats des articles choisis pour les faire relire, sans requête SQL.</p><form action="/exports/extractions" method="get"><label>Articles <input name="articles" value="1-3,22-28" maxlength="200" required></label> <button>Télécharger le JSON</button></form></section></main></body></html>')
 
 
@@ -443,4 +443,6 @@ def build_study_router(require_admin, get_bigquery_client):
             raise HTTPException(503,'Fiche indisponible. Vérifier les tables et les accès BigQuery dans les logs Render.') from None
         return HTMLResponse(html,headers={'Cache-Control':'no-store'})
 
+    from app.practice import build_practice_router
+    router.include_router(build_practice_router(require_admin, get_bigquery_client))
     return router
