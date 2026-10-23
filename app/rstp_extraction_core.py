@@ -80,13 +80,25 @@ def inventory(number: int, text: str, include_parents: bool = False) -> tuple[Un
 
 def prepare_article(pages: list[Fragment], number: int, include_parents: bool = False) -> Article:
     """Pilot 2–4, checked against the supplied January 2026 source export."""
-    if number not in (2,3,4,5,"5bis",6,7,8,9,10,13,14,"14bis",15,16,17,18,"18quater","18quinquies",19,"19bis","19ter"):
+    if number not in (2,3,4,5,"5bis",6,7,8,9,10,13,14,"14bis",15,16,17,18,"18quater","18quinquies",19,"19bis","19ter","18bis","18ter"):
         raise ValueError("RSTP : article non pris en charge dans cette version.")
     pages = sorted(pages,key=lambda p:p.page)
     if [p.page for p in pages] != list(range(159,210)):
         raise ValueError("RSTP: pages 159 à 209 attendues exactement une fois.")
     if len({p.passage_id for p in pages}) != 51:
         raise ValueError("RSTP: identifiants sources dupliqués.")
+    if number in ('18bis','18ter'):
+        page=next(p for p in pages if p.page==175)
+        bis=re.search(r'(?m)^18bis Third-party influence on clubs[ \t]*$',page.text)
+        ter=re.search(r'(?m)^18ter Third-party ownership of players’ economic rights[ \t]*$',page.text)
+        footer=page.text.find('FIFA Football Agent Exam Study Materials')
+        if not bis or not ter or not bis.end()<ter.start()<footer:raise ValueError('RSTP tiers : bornes non reconnues.')
+        head,end=(bis,ter.start()) if number=='18bis' else (ter,footer)
+        body=page.text[head.end():end].strip()
+        units=inventory(number,body,include_parents=include_parents)
+        expected={f'{number}.{i}' for i in range(1,3 if number=='18bis' else 7)}
+        if {u.unit_id for u in units}!=expected:raise ValueError('RSTP tiers : inventaire inattendu.')
+        return Article(number,(Fragment(page.passage_id,page.page,page.text[head.start():end]),),units)
     if number in (19,'19bis','19ter'):
         by_page={p.page:p for p in pages}
         p178,p179,p180,p181=(by_page[n] for n in (178,179,180,181))
