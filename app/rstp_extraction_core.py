@@ -80,13 +80,25 @@ def inventory(number: int, text: str, include_parents: bool = False) -> tuple[Un
 
 def prepare_article(pages: list[Fragment], number: int, include_parents: bool = False) -> Article:
     """Pilot 2–4, checked against the supplied January 2026 source export."""
-    if number not in (2,3,4,5,"5bis"):
-        raise ValueError("RSTP : articles 2 à 5 et 5bis uniquement.")
+    if number not in (2,3,4,5,"5bis",6):
+        raise ValueError("RSTP : articles 2 à 6 et 5bis uniquement.")
     pages = sorted(pages,key=lambda p:p.page)
     if [p.page for p in pages] != list(range(159,210)):
         raise ValueError("RSTP: pages 159 à 209 attendues exactement une fois.")
     if len({p.passage_id for p in pages}) != 51:
         raise ValueError("RSTP: identifiants sources dupliqués.")
+    if number==6:
+        page=next(p for p in pages if p.page==169)
+        starts=list(re.finditer(r"(?m)^6\. Registration periods[ \t]*$",page.text))
+        ends=list(re.finditer(r"(?m)^7\. Player passport[ \t]*$",page.text))
+        if len(starts)!=1 or len(ends)!=1 or starts[0].end()>=ends[0].start():
+            raise ValueError("RSTP 6 : bornes absentes ou ambiguës.")
+        head=starts[0];end=ends[0].start()
+        units=inventory(6,page.text[head.end():end].strip(),include_parents=include_parents)
+        expected={f"6.{i}" for i in range(1,9)}|{f"6.3.{c}" for c in "abcdef"}
+        if {u.unit_id for u in units}!=(expected if include_parents else expected-{'6.3'}):
+            raise ValueError("RSTP 6 : inventaire inattendu.")
+        return Article(6,(Fragment(page.passage_id,page.page,page.text[head.start():end]),),units)
     if number in (5,"5bis"):
         page=next(p for p in pages if p.page==168)
         patterns=[r"(?m)^5\. Registration[ \t]*$",r"(?m)^5bis Bridge transfer[ \t]*$"]
