@@ -80,13 +80,22 @@ def inventory(number: int, text: str, include_parents: bool = False) -> tuple[Un
 
 def prepare_article(pages: list[Fragment], number: int, include_parents: bool = False) -> Article:
     """Pilot 2–4, checked against the supplied January 2026 source export."""
-    if number not in (2,3,4,5,"5bis",6,7,8,9,10,13,14,"14bis",15,16,17):
+    if number not in (2,3,4,5,"5bis",6,7,8,9,10,13,14,"14bis",15,16,17,18):
         raise ValueError("RSTP : article non pris en charge dans cette version.")
     pages = sorted(pages,key=lambda p:p.page)
     if [p.page for p in pages] != list(range(159,210)):
         raise ValueError("RSTP: pages 159 à 209 attendues exactement une fois.")
     if len({p.passage_id for p in pages}) != 51:
         raise ValueError("RSTP: identifiants sources dupliqués.")
+    if number==18:
+        page=next(p for p in pages if p.page==174)
+        heads=list(re.finditer(r'(?m)^18\.[ \t]+Special provisions relating to contracts between\s+p\s*rofessionals and clubs[ \t]*$',page.text))
+        footer=page.text.find('FIFA Football Agent Exam Study Materials')
+        if len(heads)!=1 or footer<=heads[0].end():raise ValueError('RSTP 18 : bornes absentes ou ambiguës.')
+        head=heads[0];body=page.text[head.end():footer].strip()
+        units=inventory(18,body,include_parents=include_parents)
+        if {u.unit_id for u in units}!={f'18.{i}' for i in range(1,8)}:raise ValueError('RSTP 18 : sept paragraphes attendus.')
+        return Article(18,(Fragment(page.passage_id,page.page,page.text[head.start():footer]),),units)
     if number==17:
         first=next(p for p in pages if p.page==173);second=next(p for p in pages if p.page==174)
         h=re.search(r'(?m)^17\.[ \t]+Consequences of terminating a contract without just\s+c\s*ause[ \t]*$',first.text)
