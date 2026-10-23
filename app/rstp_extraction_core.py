@@ -80,13 +80,32 @@ def inventory(number: int, text: str, include_parents: bool = False) -> tuple[Un
 
 def prepare_article(pages: list[Fragment], number: int, include_parents: bool = False) -> Article:
     """Pilot 2–4, checked against the supplied January 2026 source export."""
-    if number not in (2,3,4,5,"5bis",6,7,8,9):
-        raise ValueError("RSTP : articles 2 à 9 et 5bis uniquement.")
+    if number not in (2,3,4,5,"5bis",6,7,8,9,10):
+        raise ValueError("RSTP : articles 2 à 10 et 5bis uniquement.")
     pages = sorted(pages,key=lambda p:p.page)
     if [p.page for p in pages] != list(range(159,210)):
         raise ValueError("RSTP: pages 159 à 209 attendues exactement une fois.")
     if len({p.passage_id for p in pages}) != 51:
         raise ValueError("RSTP: identifiants sources dupliqués.")
+    if number==10:
+        first=next(p for p in pages if p.page==170)
+        second=next(p for p in pages if p.page==171)
+        starts=list(re.finditer(r'(?m)^10\. Loan of professionals[ \t]*$',first.text))
+        ends=list(re.finditer(r'(?m)^11\. Unreg[ \t]*istered players[ \t]*$',second.text))
+        continuation=re.search(r'(?m)^5\. The terms of article 10 paragraph 4',second.text)
+        footer=first.text.find('FIFA Football Agent Exam Study Materials')
+        if len(starts)!=1 or len(ends)!=1 or not continuation or footer<starts[0].end() or continuation.start()>=ends[0].start():
+            raise ValueError('RSTP 10 : bornes ou continuité non reconnues.')
+        fragments=(Fragment(first.passage_id,first.page,first.text[starts[0].start():footer]),Fragment(second.passage_id,second.page,second.text[continuation.start():ends[0].start()]))
+        text=fragments[0].text[starts[0].end()-starts[0].start():]+'\n'+fragments[1].text
+        units=inventory(10,text.strip(),include_parents=include_parents)
+        expected={f'10.{i}' for i in range(1,10)}
+        branches={1:'abcdef',4:'abcd',5:'abc',6:'ab',7:'ab',8:'ab',9:'ab'}
+        expected|={f'10.{n}.{c}' for n,letters in branches.items() for c in letters}
+        leaves=expected-{f'10.{n}' for n in branches}
+        if {u.unit_id for u in units}!=(expected if include_parents else leaves):
+            raise ValueError('RSTP 10 : inventaire différent des 30 unités attendues.')
+        return Article(10,fragments,units)
     if number in (7,8,9):
         selected=[p for p in pages if p.page in (169,170)]
         joined="\n".join(p.text for p in selected)
