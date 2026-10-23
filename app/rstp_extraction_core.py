@@ -80,13 +80,46 @@ def inventory(number: int, text: str, include_parents: bool = False) -> tuple[Un
 
 def prepare_article(pages: list[Fragment], number: int, include_parents: bool = False) -> Article:
     """Pilot 2–4, checked against the supplied January 2026 source export."""
-    if number not in (2,3,4,5,"5bis",6,7,8,9,10,13,14,"14bis",15,16):
+    if number not in (2,3,4,5,"5bis",6,7,8,9,10,13,14,"14bis",15,16,17):
         raise ValueError("RSTP : article non pris en charge dans cette version.")
     pages = sorted(pages,key=lambda p:p.page)
     if [p.page for p in pages] != list(range(159,210)):
         raise ValueError("RSTP: pages 159 à 209 attendues exactement une fois.")
     if len({p.passage_id for p in pages}) != 51:
         raise ValueError("RSTP: identifiants sources dupliqués.")
+    if number==17:
+        first=next(p for p in pages if p.page==173);second=next(p for p in pages if p.page==174)
+        h=re.search(r'(?m)^17\.[ \t]+Consequences of terminating a contract without just\s+c\s*ause[ \t]*$',first.text)
+        end=re.search(r'(?m)^18\.[ \t]+Special provisions relating to contracts between\s+p\s*rofessionals and clubs[ \t]*$',second.text)
+        footer=first.text.find('FIFA Football Agent Exam Study Materials')
+        continuation=second.text.find('up to a maximum of six monthly salaries.')
+        if not h or not end or footer<h.end() or continuation<0 or continuation>=end.start():raise ValueError('RSTP 17 : bornes non reconnues.')
+        f1=Fragment(first.passage_id,first.page,first.text[h.start():footer]);f2=Fragment(second.passage_id,second.page,second.text[continuation:end.start()])
+        body=f1.text[h.end()-h.start():]+'\n'+f2.text
+        mark=re.compile(r'(?m)^[ \t]*(?:(?P<n>\d+)\.|(?P<roman>i{1,3})\.)[ \t\r\n]+')
+        markers=list(mark.finditer(body))
+        if not markers or markers[0].group('n')!='1':raise ValueError('RSTP 17 : paragraphe 1 absent.')
+        intro=body[:markers[0].start()].strip();nodes=[];parent=None
+        for i,m in enumerate(markers):
+            stop=markers[i+1].start() if i+1<len(markers) else len(body)
+            if m.group('n'):parent='17.'+m.group('n');key=parent
+            else:
+                if parent!='17.1':raise ValueError('RSTP 17 : liste romaine hors paragraphe 1.')
+                key=parent+'.'+m.group('roman')
+            nodes.append((key,body[m.start():stop].strip()))
+        expected={f'17.{i}' for i in range(1,6)}|{'17.1.i','17.1.ii','17.1.iii'}
+        if len(nodes)!=8 or {k for k,t in nodes}!=expected:raise ValueError('RSTP 17 : huit paragraphes/sous-paragraphes attendus.')
+        defpage=next(p for p in pages if p.page==162)
+        a=defpage.text.find('7. Protected period:');b=defpage.text.find('8. Registration period:',a)
+        if a<0 or b<=a:raise ValueError('Définition 7 absente.')
+        definition=defpage.text[a:b].strip();parent1=next(t for k,t in nodes if k=='17.1')
+        units=[Unit('17',intro,())]
+        for key,text in nodes:
+            contexts=(intro,)+( (parent1,) if key.startswith('17.1.') else ())
+            if key=='17.3':contexts+=(definition,)
+            units.append(Unit(key,text,contexts))
+        if not include_parents:units=[u for u in units if u.unit_id not in ('17','17.1')]
+        return Article(17,(Fragment(defpage.passage_id,defpage.page,definition),f1,f2),tuple(units))
     if number in (13,14,"14bis",15,16):
         page=next(p for p in pages if p.page==173)
         patterns={
