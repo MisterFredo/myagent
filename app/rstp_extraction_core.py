@@ -80,13 +80,50 @@ def inventory(number: int, text: str, include_parents: bool = False) -> tuple[Un
 
 def prepare_article(pages: list[Fragment], number: int, include_parents: bool = False) -> Article:
     """Pilot 2–4, checked against the supplied January 2026 source export."""
-    if number not in (2,3,4,5,"5bis",6,7,8,9,10,13,14,"14bis",15,16,17,18):
+    if number not in (2,3,4,5,"5bis",6,7,8,9,10,13,14,"14bis",15,16,17,18,"18quater","18quinquies"):
         raise ValueError("RSTP : article non pris en charge dans cette version.")
     pages = sorted(pages,key=lambda p:p.page)
     if [p.page for p in pages] != list(range(159,210)):
         raise ValueError("RSTP: pages 159 à 209 attendues exactement une fois.")
     if len({p.passage_id for p in pages}) != 51:
         raise ValueError("RSTP: identifiants sources dupliqués.")
+    if number in ('18quater','18quinquies'):
+        first=next(p for p in pages if p.page==176);second=next(p for p in pages if p.page==177)
+        head=re.search(r'(?m)^18quater[ \t]+Sp\s*ecial provisions relating to pregnancy,\s+adoption and family leave[ \t]*$',first.text)
+        quin=re.search(r'(?m)^18quinquies[ \t]+Me\s*nstrual health[ \t]*$',second.text)
+        f1=first.text.find('FIFA Football Agent Exam Study Materials');f2=second.text.find('FIFA Football Agent Exam Study Materials')
+        if not head or not quin or f1<head.end() or f2<quin.end():raise ValueError('RSTP joueuses : bornes non reconnues.')
+        if number=='18quinquies':
+            text=second.text[quin.end():f2].strip()
+            if list(MARK.finditer(text)):raise ValueError('18quinquies : article non numéroté attendu.')
+            return Article(number,(Fragment(second.passage_id,second.page,second.text[quin.start():f2]),),(Unit(number,text,()),))
+        continuation=re.search(r'(?m)^b\) in addition to the obligation',second.text)
+        if not continuation or continuation.start()>=quin.start():raise ValueError('18quater : continuité absente.')
+        main=(Fragment(first.passage_id,first.page,first.text[head.start():f1]),Fragment(second.passage_id,second.page,second.text[continuation.start():quin.start()]))
+        body=main[0].text[head.end()-head.start():]+'\n'+main[1].text
+        units=inventory(number,body.strip(),include_parents=include_parents)
+        expected={f'18quater.{i}' for i in range(1,7)}|{'18quater.2.a'}|{f'18quater.3.{c}' for c in 'abc'}|{f'18quater.3.a.{r}' for r in ('i','ii','iii','iv')}|{f'18quater.4.{c}' for c in 'abc'}|{f'18quater.5.{c}' for c in 'ab'}
+        parents={'18quater.2','18quater.3','18quater.3.a','18quater.4','18quater.5'}
+        if {u.unit_id for u in units}!=(expected if include_parents else expected-parents):raise ValueError('18quater : inventaire différent des 19 unités attendues.')
+        defpage=next(p for p in pages if p.page==164);defs=[]
+        for n,label,nextlabel in [(30,'Maternity leave:','31. Club-trained player:'),(42,'Adoption leave:','43. Family leave:'),(43,'Family leave:',None)]:
+            a=defpage.text.find(str(n)+'. '+label)
+            b=defpage.text.find(nextlabel,a) if nextlabel else defpage.text.find(' Re',a)
+            if a<0 or b<=a:raise ValueError('Définition de congé absente.')
+            defs.append(defpage.text[a:b].strip())
+        full='\n'.join(f.text for f in main)
+        shared=re.search(r'The player shall be entitled to receive her full remuneration following her return\s+to football activity\.',full)
+        if not shared:raise ValueError('18quater : salaire au retour absent.')
+        sentence=shared.group(0);rebuilt=[]
+        for u in units:
+            own=u.text
+            if u.unit_id=='18quater.5.b':
+                if sentence not in own:raise ValueError('18quater : salaire hors source attendue.')
+                own=own.split(sentence,1)[0].strip()
+            context=u.inherited_context+(tuple(defs) if u.unit_id in ('18quater.5','18quater.5.a','18quater.5.b') else ())
+            shared_context=(sentence,) if u.unit_id=='18quater.5' or u.unit_id.startswith('18quater.5.') else ()
+            rebuilt.append(Unit(u.unit_id,own,context,shared_context))
+        return Article(number,(Fragment(defpage.passage_id,defpage.page,'\n'.join(defs)),)+main,tuple(rebuilt))
     if number==18:
         page=next(p for p in pages if p.page==174)
         heads=list(re.finditer(r'(?m)^18\.[ \t]+Special provisions relating to contracts between\s+p\s*rofessionals and clubs[ \t]*$',page.text))
