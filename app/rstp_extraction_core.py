@@ -80,13 +80,39 @@ def inventory(number: int, text: str, include_parents: bool = False) -> tuple[Un
 
 def prepare_article(pages: list[Fragment], number: int, include_parents: bool = False) -> Article:
     """Pilot 2–4, checked against the supplied January 2026 source export."""
-    if number not in (2,3,4,5,"5bis",6,7,8,9,10):
-        raise ValueError("RSTP : articles 2 à 10 et 5bis uniquement.")
+    if number not in (2,3,4,5,"5bis",6,7,8,9,10,13,14,"14bis",15,16):
+        raise ValueError("RSTP : article non pris en charge dans cette version.")
     pages = sorted(pages,key=lambda p:p.page)
     if [p.page for p in pages] != list(range(159,210)):
         raise ValueError("RSTP: pages 159 à 209 attendues exactement une fois.")
     if len({p.passage_id for p in pages}) != 51:
         raise ValueError("RSTP: identifiants sources dupliqués.")
+    if number in (13,14,"14bis",15,16):
+        page=next(p for p in pages if p.page==173)
+        patterns={
+            13:r'(?m)^13\. Respect of contract[ \t]*$',
+            14:r'(?m)^14\. Terminating a contract with just cause[ \t]*$',
+            '14bis':r'(?m)^14bis[ \t]+Terminating a contract with just cause for\s+o\s*utstanding salaries[ \t]*$',
+            15:r'(?m)^15\. Terminating a contract with sporting just cause[ \t]*$',
+            16:r'(?m)^16\.[ \t]+Restriction on terminating a contract during the\s+c\s*ompetition period[ \t]*$',
+            17:r'(?m)^17\.[ \t]+Consequences of terminating a contract without just\s+c\s*ause[ \t]*$'}
+        sequence=[13,14,'14bis',15,16,17];heads={}
+        for n,pattern in patterns.items():
+            found=list(re.finditer(pattern,page.text))
+            if len(found)!=1:raise ValueError(f'RSTP {n}: titre absent ou ambigu.')
+            heads[n]=found[0]
+        if not all(heads[a].start()<heads[b].start() for a,b in zip(sequence,sequence[1:])):
+            raise ValueError('RSTP 13–16 : titres désordonnés.')
+        head=heads[number];end=heads[sequence[sequence.index(number)+1]].start()
+        body=page.text[head.end():end].strip()
+        if number in (13,15,16):
+            if list(MARK.finditer(body)):raise ValueError('RSTP : article non numéroté attendu.')
+            units=(Unit(str(number),body,()),)
+        else:
+            units=inventory(number,body,include_parents=include_parents)
+            expected={f'{number}.{i}' for i in range(1,4 if number=='14bis' else 3)}
+            if {u.unit_id for u in units}!=expected:raise ValueError('RSTP : paragraphes attendus absents ou inattendus.')
+        return Article(number,(Fragment(page.passage_id,page.page,page.text[head.start():end]),),units)
     if number==10:
         first=next(p for p in pages if p.page==170)
         second=next(p for p in pages if p.page==171)
