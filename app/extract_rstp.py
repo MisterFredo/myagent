@@ -263,7 +263,7 @@ def model_call(client, model, instructions, data, schema, max_tokens, phase,
 
 def run():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--article", type=str, choices=("2", "3", "4", "5", "5bis", "6", "7", "8", "9", "10"), default="2")
+    parser.add_argument("--article", type=str, choices=("2", "3", "4", "5", "5bis", "6", "7", "8", "9", "10", "13", "14", "14bis", "15", "16"), default="2")
     parser.add_argument("--execute", action="store_true")
     args = parser.parse_args()
     if args.article.isdigit():args.article=int(args.article)
@@ -311,7 +311,7 @@ def run():
     input_hash = hashlib.sha256(
         json.dumps(data, ensure_ascii=False, sort_keys=True).encode("utf-8")
     ).hexdigest()
-    article_suffix=f"{args.article:03d}" if isinstance(args.article,int) else "005bis"
+    article_suffix=f"{args.article:03d}" if isinstance(args.article,int) else {"5bis":"005bis","14bis":"014bis"}[args.article]
     batch_id = f"ARTICLE_V1_RSTP_2026_01_EN_{article_suffix}"
     previous = list(query(
         f"""
