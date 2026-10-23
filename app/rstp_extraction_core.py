@@ -80,13 +80,57 @@ def inventory(number: int, text: str, include_parents: bool = False) -> tuple[Un
 
 def prepare_article(pages: list[Fragment], number: int, include_parents: bool = False) -> Article:
     """Pilot 2–4, checked against the supplied January 2026 source export."""
-    if number not in (2,3,4,5,"5bis",6):
-        raise ValueError("RSTP : articles 2 à 6 et 5bis uniquement.")
+    if number not in (2,3,4,5,"5bis",6,7,8,9):
+        raise ValueError("RSTP : articles 2 à 9 et 5bis uniquement.")
     pages = sorted(pages,key=lambda p:p.page)
     if [p.page for p in pages] != list(range(159,210)):
         raise ValueError("RSTP: pages 159 à 209 attendues exactement une fois.")
     if len({p.passage_id for p in pages}) != 51:
         raise ValueError("RSTP: identifiants sources dupliqués.")
+    if number in (7,8,9):
+        selected=[p for p in pages if p.page in (169,170)]
+        joined="\n".join(p.text for p in selected)
+        titles={7:r"(?m)^7\. Player passport[ \t]*$",8:r"(?m)^8\. Application for registration[ \t]*$",9:r"(?m)^9\. International Transfer Certificate[ \t]*$",10:r"(?m)^10\. Loan of professionals[ \t]*$"}
+        heads={}
+        for n,pattern in titles.items():
+            found=list(re.finditer(pattern,joined))
+            if len(found)!=1:raise ValueError(f"RSTP {n}: titre absent ou ambigu.")
+            heads[n]=found[0]
+        if not all(heads[n].start()<heads[n+1].start() for n in (7,8,9)):
+            raise ValueError("RSTP 7–9 : titres désordonnés.")
+        start,end=heads[number].start(),heads[number+1].start()
+        fragments=[];offset=0
+        for page in selected:
+            left,right=max(start,offset),min(end,offset+len(page.text))
+            if right>left:fragments.append(Fragment(page.passage_id,page.page,page.text[left-offset:right-offset]))
+            offset+=len(page.text)+1
+        if number==7:
+            # Omit page furniture at the split without changing source characters.
+            clean=[]
+            for f in fragments:
+                text=f.text
+                if f.page==169:
+                    footer=text.find('FIFA Football Agent Exam Study Materials')
+                    if footer<0:raise ValueError('RSTP 7 : pied de page absent.')
+                    text=text[:footer]
+                if f.page==170:
+                    continuation=re.search(r'(?m)^2\. For entitlements',text)
+                    if not continuation:raise ValueError('RSTP 7 : suite du paragraphe 2 absente.')
+                    text=text[continuation.start():]
+                clean.append(Fragment(f.passage_id,f.page,text))
+            fragments=clean
+        full='\n'.join(f.text for f in fragments)
+        header=list(re.finditer(titles[number],full))
+        if len(header)!=1:raise ValueError('RSTP : titre source non unique.')
+        body=full[header[0].end():].strip()
+        if number==8:
+            if list(MARK.finditer(body)):raise ValueError("RSTP 8 : paragraphe non numéroté attendu.")
+            units=(Unit('8',body,()),)
+        else:
+            units=inventory(number,body,include_parents=include_parents)
+            if {u.unit_id for u in units}!={f"{number}.{i}" for i in range(1,5)}:
+                raise ValueError("RSTP 7/9 : quatre paragraphes attendus.")
+        return Article(number,tuple(fragments),units)
     if number==6:
         page=next(p for p in pages if p.page==169)
         starts=list(re.finditer(r"(?m)^6\. Registration periods[ \t]*$",page.text))
