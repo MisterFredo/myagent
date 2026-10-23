@@ -80,13 +80,77 @@ def inventory(number: int, text: str, include_parents: bool = False) -> tuple[Un
 
 def prepare_article(pages: list[Fragment], number: int, include_parents: bool = False) -> Article:
     """Pilot 2–4, checked against the supplied January 2026 source export."""
-    if number not in (2,3,4,5,"5bis",6,7,8,9,10,13,14,"14bis",15,16,17,18,"18quater","18quinquies"):
+    if number not in (2,3,4,5,"5bis",6,7,8,9,10,13,14,"14bis",15,16,17,18,"18quater","18quinquies",19,"19bis","19ter"):
         raise ValueError("RSTP : article non pris en charge dans cette version.")
     pages = sorted(pages,key=lambda p:p.page)
     if [p.page for p in pages] != list(range(159,210)):
         raise ValueError("RSTP: pages 159 à 209 attendues exactement une fois.")
     if len({p.passage_id for p in pages}) != 51:
         raise ValueError("RSTP: identifiants sources dupliqués.")
+    if number in (19,'19bis','19ter'):
+        by_page={p.page:p for p in pages}
+        p178,p179,p180,p181=(by_page[n] for n in (178,179,180,181))
+        h19=re.search(r'(?m)^19\. Protection of minors[ \t]*$',p178.text)
+        hbis=re.search(r'(?m)^19bis[ \t]+Registration and reporting of minors at academies[ \t]*$',p179.text)
+        hter=re.search(r'(?m)^19ter[ \t]+Tr\s*ials[ \t]*$',p180.text)
+        if not all((h19,hbis,hter)):raise ValueError('RSTP mineurs : titres non reconnus.')
+        footer=lambda p:p.text.index('FIFA Football Agent Exam Study Materials')
+        if number==19:
+            start=p179.text.index('If the minor has been formally recognised as a refugee')
+            fragments=(Fragment(p178.passage_id,178,p178.text[h19.start():footer(p178)]),Fragment(p179.passage_id,179,p179.text[start:hbis.start()]))
+            body=fragments[0].text[h19.end()-h19.start():]+'\n'+fragments[1].text
+        elif number=='19bis':
+            start=p180.text.index('4. A club that wishes to collaborate')
+            fragments=(Fragment(p179.passage_id,179,p179.text[hbis.start():footer(p179)]),Fragment(p180.passage_id,180,p180.text[start:hter.start()]))
+            body=fragments[0].text[hbis.end()-hbis.start():]+'\n'+fragments[1].text
+        else:
+            start=p181.text.index('10. Collective bargaining agreements')
+            stop=re.search(r'(?m)^08\.[ \t]*$',p181.text)
+            if not stop:raise ValueError('19ter : fin non reconnue.')
+            fragments=(Fragment(p180.passage_id,180,p180.text[hter.start():footer(p180)]),Fragment(p181.passage_id,181,p181.text[start:stop.start()]))
+            body=fragments[0].text[hter.end()-hter.start():]+'\n'+fragments[1].text
+        # Direct Roman numerals (19bis) and nested Roman numerals (19/19ter).
+        markers=list(MARK.finditer(body));nodes=[];paragraph=letter=None
+        for i,m in enumerate(markers):
+            if m.group('number'):
+                paragraph=m.group('number');letter=None;path=(str(number),paragraph)
+            elif m.group('letter'):
+                if paragraph is None:raise ValueError('Mineurs : lettre sans parent.')
+                letter=m.group('letter');path=(str(number),paragraph,letter)
+            else:
+                if paragraph is None:raise ValueError('Mineurs : chiffre romain sans parent.')
+                path=(str(number),paragraph)+((letter,) if letter else ())+ (m.group('roman'),)
+            text=body[m.start():markers[i+1].start() if i+1<len(markers) else len(body)].strip()
+            nodes.append((path,text))
+        if len({p for p,t in nodes})!=len(nodes):raise ValueError('Mineurs : doublon de numérotation.')
+        shared={}
+        # The club obligations apply to both geographical alternatives in 19.2.b.
+        if number==19:
+            t=next(t for p,t in nodes if p==('19','2','b','ii'))
+            sentence='The new club must fulfil the following minimum obligations:'
+            if sentence not in t:raise ValueError('19.2.b : obligations communes absentes.')
+            shared[('19','2','b')]=sentence
+            nodes=[(p,t.split(sentence)[0].strip() if p==('19','2','b','ii') else t) for p,t in nodes]
+            # Refugee / asylum distinctions qualify all humanitarian alternatives.
+            path=('19','2','d','ii');t=next(t for p,t in nodes if p==path)
+            at=t.index('If the minor has been formally recognised as a refugee')
+            shared[('19','2','d')]=t[at:].strip()
+            nodes=[(p,t[:at].strip() if p==path else t) for p,t in nodes]
+        if number=='19bis':
+            path=('19bis','6','ii');t=next(t for p,t in nodes if p==path)
+            at=t.index('Such reports shall contain')
+            shared[('19bis','6')]=t[at:].strip()
+            nodes=[(p,t[:at].strip() if p==path else t) for p,t in nodes]
+        # Exact expected hierarchy, not only total counts.
+        expected=({f'19.{i}' for i in range(1,10)}|{f'19.2.{c}' for c in 'abcde'}|{f'19.2.b.{r}' for r in ('i','ii','iii','iv','v','vi')}|{f'19.2.d.{r}' for r in ('i','ii')}|{f'19.4.{c}' for c in 'abc'}|{f'19.7.{c}' for c in 'ab'}) if number==19 else (({f'19bis.{i}' for i in range(1,8)}|{f'19bis.4.{r}' for r in ('i','ii','iii','iv')}|{f'19bis.6.{r}' for r in ('i','ii')}) if number=='19bis' else ({f'19ter.{i}' for i in range(1,12)}|{f'19ter.8.{c}' for c in 'abcde'}|{f'19ter.8.a.{r}' for r in ('i','ii')}))
+        if {'.'.join(p) for p,t in nodes}!=expected:raise ValueError('Mineurs : hiérarchie différente de la source attendue.')
+        units=[]
+        for path,text in nodes:
+            if not include_parents and any(len(p)>len(path) and p[:len(path)]==path for p,t in nodes):continue
+            parents=tuple(t for p,t in nodes if len(p)<len(path) and path[:len(p)]==p)
+            common=tuple(t for p,t in shared.items() if path[:len(p)]==p)
+            units.append(Unit('.'.join(path),text,parents,common))
+        return Article(number,fragments,tuple(units))
     if number in ('18quater','18quinquies'):
         first=next(p for p in pages if p.page==176);second=next(p for p in pages if p.page==177)
         head=re.search(r'(?m)^18quater[ \t]+Sp\s*ecial provisions relating to pregnancy,\s+adoption and family leave[ \t]*$',first.text)
