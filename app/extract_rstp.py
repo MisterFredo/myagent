@@ -138,6 +138,7 @@ Un renvoi à un autre paragraphe du même article peut être lu dans le texte
 fourni. Un renvoi externe non fourni demeure une dépendance à documenter.
 Ne pas créer une règle nationale, un âge ou une date à partir de suppositions.
 Ne pas déterminer le statut juridique actuel ou le programme 2027.
+Pour RSTP 17, le contexte fourni à 17.3 inclut la définition 7 de la période protégée. En restituer les durées et points de départ sans inventer une règle pour le jour exact du 28e anniversaire. La source introduit un principe général en unité 17, puis 17.1 avec ses points romains i à iii. Ne pas fusionner compensation, responsabilité du nouveau club, sanctions du joueur et sanctions du club.
 Pas de quiz, de recommandations ou de fiche thématique dans cette étape.
 """
 
@@ -263,7 +264,7 @@ def model_call(client, model, instructions, data, schema, max_tokens, phase,
 
 def run():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--article", type=str, choices=("2", "3", "4", "5", "5bis", "6", "7", "8", "9", "10", "13", "14", "14bis", "15", "16"), default="2")
+    parser.add_argument("--article", type=str, choices=("2", "3", "4", "5", "5bis", "6", "7", "8", "9", "10", "13", "14", "14bis", "15", "16", "17"), default="2")
     parser.add_argument("--execute", action="store_true")
     args = parser.parse_args()
     if args.article.isdigit():args.article=int(args.article)
