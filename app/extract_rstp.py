@@ -264,7 +264,7 @@ def model_call(client, model, instructions, data, schema, max_tokens, phase,
 
 def run():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--article", type=str, choices=("2", "3", "4", "5", "5bis", "6", "7", "8", "9", "10", "13", "14", "14bis", "15", "16", "17"), default="2")
+    parser.add_argument("--article", type=str, choices=("2", "3", "4", "5", "5bis", "6", "7", "8", "9", "10", "13", "14", "14bis", "15", "16", "17", "18"), default="2")
     parser.add_argument("--execute", action="store_true")
     args = parser.parse_args()
     if args.article.isdigit():args.article=int(args.article)
