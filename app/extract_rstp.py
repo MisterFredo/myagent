@@ -264,7 +264,7 @@ def model_call(client, model, instructions, data, schema, max_tokens, phase,
 
 def run():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--article", type=str, choices=("2", "3", "4", "5", "5bis", "6", "7", "8", "9", "10", "13", "14", "14bis", "15", "16", "17", "18", "18quater", "18quinquies", "19", "19bis", "19ter", "18bis", "18ter"), default="2")
+    parser.add_argument("--article", type=str, choices=("2", "3", "4", "5", "5bis", "6", "7", "8", "9", "10", "13", "14", "14bis", "15", "16", "17", "18", "18quater", "18quinquies", "19", "19bis", "19ter", "18bis", "18ter", "20", "21", 'a4-1', 'a4-2', 'a4-3', 'a4-4', 'a4-5', 'a4-6', 'a4-7', 'a5-1', 'a5-2'), default="2")
     parser.add_argument("--execute", action="store_true")
     args = parser.parse_args()
     if args.article.isdigit():args.article=int(args.article)
@@ -312,7 +312,7 @@ def run():
     input_hash = hashlib.sha256(
         json.dumps(data, ensure_ascii=False, sort_keys=True).encode("utf-8")
     ).hexdigest()
-    article_suffix=f"{args.article:03d}" if isinstance(args.article,int) else {"5bis":"005bis","14bis":"014bis","18quater":"018quater","18quinquies":"018quinquies","19bis":"019bis","19ter":"019ter","18bis":"018bis","18ter":"018ter"}[args.article]
+    article_suffix=f"{args.article:03d}" if isinstance(args.article,int) else {"5bis":"005bis","14bis":"014bis","18quater":"018quater","18quinquies":"018quinquies","19bis":"019bis","19ter":"019ter","18bis":"018bis","18ter":"018ter",'a4-1':'A4_1','a4-2':'A4_2','a4-3':'A4_3','a4-4':'A4_4','a4-5':'A4_5','a4-6':'A4_6','a4-7':'A4_7','a5-1':'A5_1','a5-2':'A5_2'}[args.article]
     batch_id = f"ARTICLE_V1_RSTP_2026_01_EN_{article_suffix}"
     previous = list(query(
         f"""
