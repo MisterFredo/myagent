@@ -80,13 +80,67 @@ def inventory(number: int, text: str, include_parents: bool = False) -> tuple[Un
 
 def prepare_article(pages: list[Fragment], number: int, include_parents: bool = False) -> Article:
     """Pilot 2–4, checked against the supplied January 2026 source export."""
-    if number not in (2,3,4,5,"5bis",6,7,8,9,10,13,14,"14bis",15,16,17,18,"18quater","18quinquies",19,"19bis","19ter","18bis","18ter"):
+    if number not in (2,3,4,5,"5bis",6,7,8,9,10,13,14,"14bis",15,16,17,18,"18quater","18quinquies",19,"19bis","19ter","18bis","18ter",20,21,'a4-1','a4-2','a4-3','a4-4','a4-5','a4-6','a4-7','a5-1','a5-2'):
         raise ValueError("RSTP : article non pris en charge dans cette version.")
     pages = sorted(pages,key=lambda p:p.page)
     if [p.page for p in pages] != list(range(159,210)):
         raise ValueError("RSTP: pages 159 à 209 attendues exactement une fois.")
     if len({p.passage_id for p in pages}) != 51:
         raise ValueError("RSTP: identifiants sources dupliqués.")
+    if number in (20,21):
+        page=next(p for p in pages if p.page==182)
+        head=re.search(r'(?m)^20\. Training compensation[ \t]*$',page.text)
+        second=re.search(r'(?m)^21\. Solidarity mechanism[ \t]*$',page.text)
+        end=re.search(r'(?m)^09\.[ \t]*$',page.text)
+        if not all((head,second,end)):raise ValueError('RSTP 20/21 : bornes absentes.')
+        h,stop=(head,second.start()) if number==20 else (second,end.start())
+        body=page.text[h.end():stop].strip()
+        return Article(number,(Fragment(page.passage_id,182,page.text[h.start():stop]),),(Unit(str(number),body,()),))
+    if isinstance(number,str) and re.fullmatch(r'a[45]-[1-7]',number):
+        by_page={p.page:p for p in pages}
+        def part(n,start,end):
+            p=by_page[n];a=p.text.index(start);b=p.text.index(end,a)
+            return Fragment(p.passage_id,n,p.text[a:b])
+        footer='FIFA Football Agent Exam Study Materials'
+        sections={
+            'a4-1':(part(201,'1. Objective','2. Payment of training compensation'),),
+            'a4-2':(part(201,'2. Payment of training compensation','04.\nANNEXE'),part(202,'2. Training compensation is not due if:','3. Responsibility to pay training compensation')),
+            'a4-3':(part(202,'3. Responsibility to pay training compensation','4. Training costs'),),
+            'a4-4':(part(202,'4. Training costs','5. Calculation of training compensation'),),
+            'a4-5':(part(202,'5. Calculation of training compensation',footer),),
+            'a4-6':(part(203,'6. Special provisions for the EU/EEA','7. Disciplinary measures'),),
+            'a4-7':(part(203,'7. Disciplinary measures','1. Solidarity contribution'),),
+            'a5-1':(part(203,'1. Solidarity contribution','05.\nANNEXE'),part(204,'2. A training club is entitled','2. Payment procedure')),
+            'a5-2':(part(204,'2. Payment procedure','06.\nANNEXE'),)
+        }
+        if number not in sections:raise ValueError('Annexe : article non pris en charge.')
+        fragments=sections[number];first=fragments[0].text
+        body=first.split('\n',1)[1]+('\n'+fragments[1].text if len(fragments)>1 else '')
+        prefix='ANNEX'+number[1] +'.'+number.split('-')[1]
+        if number=='a4-7':units=(Unit(prefix,body.strip(),()),)
+        else:
+            markers=list(MARK.finditer(body));nodes=[];paragraph=letter=None
+            for i,m in enumerate(markers):
+                if m.group('number'):
+                    paragraph=m.group('number');letter=None;path=(prefix,paragraph)
+                elif m.group('letter'):
+                    if paragraph is None:raise ValueError('Annexe : lettre sans parent.')
+                    letter=m.group('letter');path=(prefix,paragraph,letter)
+                else:
+                    if paragraph is None:raise ValueError('Annexe : romain sans parent.')
+                    path=(prefix,paragraph)+((letter,) if letter else ())+(m.group('roman'),)
+                stop=markers[i+1].start() if i+1<len(markers) else len(body)
+                nodes.append((path,body[m.start():stop].strip()))
+            expected={
+                'a4-1':{'1','2'},'a4-2':{'1','1.a','1.b','2','2.a','2.b','2.c','3'},
+                'a4-3':{'1','2','3'},'a4-4':{'1','2'},'a4-5':{'1','2','3','4'},
+                'a4-6':{'1','1.a','1.b','2','3','3.i'},
+                'a5-1':{'1'}|{'1.'+c for c in 'abcdefghijkl'}|{'2','2.a','2.b'},
+                'a5-2':{'1','2','3','4','5'}
+            }[number]
+            if {'.'.join(path)[len(prefix)+1:] for path,t in nodes}!=expected or len(nodes)!=len(expected):raise ValueError('Annexe : hiérarchie inattendue.')
+            units=tuple(Unit('.'.join(path),text,tuple(t for p,t in nodes if len(p)<len(path) and path[:len(p)]==p)) for path,text in nodes if include_parents or not any(len(p)>len(path) and p[:len(path)]==path for p,t in nodes))
+        return Article(number,fragments,units)
     if number in ('18bis','18ter'):
         page=next(p for p in pages if p.page==175)
         bis=re.search(r'(?m)^18bis Third-party influence on clubs[ \t]*$',page.text)
