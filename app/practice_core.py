@@ -6,16 +6,51 @@ PROMPT_VERSION='CLOSED_CORPUS_PRACTICE_V1'
 def digest(value):return hashlib.sha256(json.dumps(value,ensure_ascii=False,sort_keys=True,separators=(',',':')).encode()).hexdigest()
 def load_data():
  bank=json.loads((ROOT/'practice_bank.json').read_text());corpus=json.loads((ROOT/'practice_corpus.json').read_text())
- if len(corpus)!=352 or len({x['information_id'] for x in corpus})!=352:raise ValueError('Invalid corpus snapshot')
+ if not corpus or len({x['information_id'] for x in corpus})!=len(corpus):raise ValueError('Invalid corpus snapshot')
  if len({q['id'] for q in bank})!=len(bank):raise ValueError('Duplicate bank ids')
+ known={x['information_id']:x for x in corpus}
+ for q in bank:
+  if q['status']=='REVIEWED_CORPUS':
+   if len(q.get('approved_answers',[]))!=1 or q['approved_answers'][0] not in q['choices']:raise ValueError('Invalid reviewed answer')
+   if not q.get('information_ids') or any(i not in known for i in q['information_ids']):raise ValueError('Unknown scoring reference')
+  if not q.get('theme') and q.get('information_ids'):q['theme']=known[q['information_ids'][0]]['card_id']
  return bank,corpus
 
-def pick_quiz(bank,limit=10):
- eligible=[q for q in bank if q['status']=='REVIEWED_CORPUS'];random.SystemRandom().shuffle(eligible)
- out=[];seen=set()
+def quiz_stats(bank,history):
+ by={q['id']:q for q in bank};stats={}
+ # History is newest first. A later success clears the latest failure priority.
+ for event in history or []:
+  for item in event.get('score',{}).get('items',[]):
+   if item.get('question_id') not in by:continue
+   q=by[item['question_id']];family=q['family']
+   st=stats.setdefault(family,{'seen':0,'latest_correct':bool(item.get('correct'))})
+   st['seen']+=1
+ return stats
+
+def pick_quiz(bank,limit=20,history=None,theme=''):
+ eligible=[q for q in bank if q['status']=='REVIEWED_CORPUS' and (not theme or q.get('theme')==theme)]
+ rng=random.SystemRandom();rng.shuffle(eligible);stats=quiz_stats(bank,history)
+ # One variant per family. Diversify study cards inside each priority tier.
+ unseen=[];failed=[];known=[];seen_families=set()
  for q in eligible:
-  if q['family'] not in seen:out.append(q['id']);seen.add(q['family'])
- return out[:min(limit,len(out))]
+  if q['family'] in seen_families:continue
+  seen_families.add(q['family']);st=stats.get(q['family'])
+  (unseen if not st else failed if not st['latest_correct'] else known).append(q)
+ def balanced(pool,count):
+  out=[];counts={}
+  while pool and len(out)<count:
+   best=min(range(len(pool)),key=lambda j:(counts.get(pool[j].get('theme',''),0),stats.get(pool[j]['family'],{}).get('seen',0)))
+   q=pool.pop(best);out.append(q);counts[q.get('theme','')]=counts.get(q.get('theme',''),0)+1
+  return out
+ # Reserve up to six slots for latest failures, then favor unseen; fill only if needed.
+ retry=balanced(failed,min(6,limit));fresh=balanced(unseen,limit-len(retry))
+ out=retry+fresh
+ out+=balanced(failed,limit-len(out));out+=balanced(known,limit-len(out))
+ rng.shuffle(out)
+ return [q['id'] for q in out]
+
+def shuffled_choice_order(q):
+ keys=list(q['choices']);random.SystemRandom().shuffle(keys);return keys
 
 def public_question(q):return {k:q[k] for k in ('id','question','choices')}
 
