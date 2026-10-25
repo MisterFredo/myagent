@@ -1,0 +1,2388 @@
+[
+  {
+    "id": "EXAM_c5402d6ffd4a2c33cdee",
+    "question": "La loi du pays où un mineur sera employé lui permet un premier contrat professionnel à 16 ans. Il a 15 ans et 7 mois. Son tuteur a donné son consentement écrit préalable. Quelles affirmations sont exactes pour l’agent souhaitant le représenter ?",
+    "choices": {
+      "A": "La fenêtre d’approche de six mois est ouverte.",
+      "B": "Le cours CPD désigné doit être réussi avant la représentation.",
+      "C": "Le consentement suffit à dispenser du cours CPD sur les mineurs.",
+      "D": "Les exigences légales nationales applicables à la représentation du mineur restent à respecter."
+    },
+    "approved_answers": [
+      "A",
+      "B",
+      "D"
+    ],
+    "answer_mode": "MULTIPLE_CHOICE",
+    "option_explanations": {
+      "A": "Il reste cinq mois avant 16 ans : le seuil temporel est rempli.",
+      "B": "La réussite préalable du cours reste requise, avec les exigences nationales.",
+      "C": "Consentement et formation sont des exigences distinctes et cumulatives.",
+      "D": "Le cours CPD ne dispense pas du respect des exigences légales nationales prévues par 13.2."
+    },
+    "information_ids": [
+      "13.1",
+      "13.2"
+    ],
+    "theme": "FFAR_MINORS",
+    "family": "EXAM_c5402d6ffd4a2c33cdee",
+    "status": "REVIEWED_CORPUS",
+    "skill": "conditions",
+    "review_method": "AI_ASSISTED_COMPARISON_WITH_DRAFT_STUDY_CORPUS",
+    "support_quotes": [
+      {
+        "information_id": "13.1",
+        "quote": "L’approche d’un mineur ou de son représentant légal, et/ou la conclusion ultérieure d’un accord de représentation pour des services d’agent, peut intervenir au plus tôt six mois avant l’âge auquel le mineur peut signer son premier contrat professionnel selon la loi applicable dans le pays ou territoire où il sera employé. Avant l’approche, le consentement écrit du représentant légal du mineur doit avoir été obtenu. La borne de six mois est incluse ; la règle ne fixe pas ici un âge universel et ne limite pas la période à la seule phase précédant l’âge requis."
+      },
+      {
+        "information_id": "13.2",
+        "quote": "L’agent qui souhaite représenter un mineur ou représenter un club dans une transaction impliquant un mineur doit préalablement réussir le cours de formation continue désigné sur les mineurs et respecter les exigences de représentation d’un mineur prévues par la loi applicable dans le pays ou territoire de l’association membre où le mineur sera employé."
+      },
+      {
+        "information_id": "13.1",
+        "quote": "Services d’agent concernant un mineur ou son représentant légal."
+      },
+      {
+        "information_id": "13.1",
+        "quote": "Pas d’approche avant le début de la période située six mois avant l’âge applicable au premier contrat professionnel."
+      },
+      {
+        "information_id": "13.1",
+        "quote": "Consentement écrit du représentant légal obtenu avant l’approche."
+      },
+      {
+        "information_id": "13.2",
+        "quote": "L’agent souhaite représenter un mineur ou un club dans une transaction impliquant un mineur."
+      }
+    ]
+  },
+  {
+    "id": "EXAM_91516450416433af8b26",
+    "question": "L’âge légal du premier contrat professionnel est de 16 ans. Un agent souhaite approcher un jeune de 15 ans et 4 mois ; son tuteur donne son accord écrit préalable. Quelle conclusion sur le seul critère temporel ?",
+    "choices": {
+      "A": "L’approche est trop précoce : il reste huit mois.",
+      "B": "L’approche est permise car le consentement efface le délai.",
+      "C": "L’approche est permise uniquement si elle est gratuite.",
+      "D": "L’approche est toujours impossible avant 18 ans."
+    },
+    "approved_answers": [
+      "A"
+    ],
+    "answer_mode": "SINGLE_CHOICE",
+    "option_explanations": {
+      "A": "Huit mois dépassent la fenêtre de six mois précédant l’âge légal.",
+      "B": "Le consentement ne remplace pas la fenêtre des six mois.",
+      "C": "La gratuité ne supprime pas le critère temporel.",
+      "D": "Le texte prévoit une approche avant 18 ans sous conditions."
+    },
+    "information_ids": [
+      "13.1"
+    ],
+    "theme": "FFAR_MINORS",
+    "family": "EXAM_91516450416433af8b26",
+    "status": "REVIEWED_CORPUS",
+    "skill": "dates",
+    "review_method": "AI_ASSISTED_COMPARISON_WITH_DRAFT_STUDY_CORPUS",
+    "support_quotes": [
+      {
+        "information_id": "13.1",
+        "quote": "L’approche d’un mineur ou de son représentant légal, et/ou la conclusion ultérieure d’un accord de représentation pour des services d’agent, peut intervenir au plus tôt six mois avant l’âge auquel le mineur peut signer son premier contrat professionnel selon la loi applicable dans le pays ou territoire où il sera employé. Avant l’approche, le consentement écrit du représentant légal du mineur doit avoir été obtenu. La borne de six mois est incluse ; la règle ne fixe pas ici un âge universel et ne limite pas la période à la seule phase précédant l’âge requis."
+      },
+      {
+        "information_id": "13.1",
+        "quote": "Services d’agent concernant un mineur ou son représentant légal."
+      },
+      {
+        "information_id": "13.1",
+        "quote": "Pas d’approche avant le début de la période située six mois avant l’âge applicable au premier contrat professionnel."
+      },
+      {
+        "information_id": "13.1",
+        "quote": "Consentement écrit du représentant légal obtenu avant l’approche."
+      }
+    ]
+  },
+  {
+    "id": "EXAM_13535637b64a330088d9",
+    "question": "Un accord joueur–agent prévoit deux ans et une reconduction automatique d’un an. Le joueur signe la clause dès le départ. Quelles propositions sont exactes ?",
+    "choices": {
+      "A": "La clause de renouvellement automatique est nulle et sans effet.",
+      "B": "La durée initiale de deux ans dépasse le maximum.",
+      "C": "La poursuite peut passer par un nouvel accord de représentation.",
+      "D": "La signature initiale du joueur rend la reconduction valable."
+    },
+    "approved_answers": [
+      "A",
+      "C"
+    ],
+    "answer_mode": "MULTIPLE_CHOICE",
+    "option_explanations": {
+      "A": "Le texte écarte expressément le renouvellement automatique.",
+      "B": "Deux ans correspond au plafond applicable à l’individu.",
+      "C": "Un nouvel accord est la voie prévue pour prolonger.",
+      "D": "Le consentement initial ne sauve pas la clause interdite."
+    },
+    "information_ids": [
+      "REF12_003",
+      "REF12_004",
+      "REF12_005"
+    ],
+    "theme": "REF_FFAR_ARTICLE_12_V1",
+    "family": "EXAM_13535637b64a330088d9",
+    "status": "REVIEWED_CORPUS",
+    "skill": "exceptions",
+    "review_method": "AI_ASSISTED_COMPARISON_WITH_DRAFT_STUDY_CORPUS",
+    "support_quotes": [
+      {
+        "information_id": "REF12_003",
+        "quote": "Un accord de représentation entre un individu et un agent ne peut dépasser deux ans."
+      },
+      {
+        "information_id": "REF12_004",
+        "quote": "La durée de l’accord avec un individu ne peut être prolongée que par un nouvel accord de représentation."
+      },
+      {
+        "information_id": "REF12_005",
+        "quote": "Toute clause de renouvellement automatique d’un tel accord est nulle et sans effet."
+      },
+      {
+        "information_id": "REF12_003",
+        "quote": "Accord conclu avec un individu."
+      },
+      {
+        "information_id": "REF12_003",
+        "quote": "Durée maximale de deux ans."
+      },
+      {
+        "information_id": "REF12_004",
+        "quote": "Prolongation de la relation de représentation avec un individu."
+      },
+      {
+        "information_id": "REF12_005",
+        "quote": "Accord avec un individu ; présence d’une clause de renouvellement automatique."
+      }
+    ]
+  },
+  {
+    "id": "EXAM_a632e4757c775f8668a9",
+    "question": "Dans une même transaction, tous les clients donnent un consentement préalable, explicite et écrit. Quelle combinaison relève de l’exception de double représentation du texte étudié ?",
+    "choices": {
+      "A": "Joueur et club libérateur.",
+      "B": "Joueur et club engageant.",
+      "C": "Club libérateur et club engageant.",
+      "D": "N’importe lesquelles des deux parties, grâce aux consentements."
+    },
+    "approved_answers": [
+      "B"
+    ],
+    "answer_mode": "SINGLE_CHOICE",
+    "option_explanations": {
+      "A": "Cette combinaison reste interdite.",
+      "B": "C’est la combinaison visée par l’exception, avec les consentements requis.",
+      "C": "Cette combinaison reste interdite.",
+      "D": "Le consentement ne transforme pas toute combinaison interdite en exception."
+    },
+    "information_ids": [
+      "REF12_018",
+      "REF12_019",
+      "REF12_020"
+    ],
+    "theme": "REF_FFAR_ARTICLE_12_V1",
+    "family": "EXAM_a632e4757c775f8668a9",
+    "status": "REVIEWED_CORPUS",
+    "skill": "scope",
+    "review_method": "AI_ASSISTED_COMPARISON_WITH_DRAFT_STUDY_CORPUS",
+    "support_quotes": [
+      {
+        "information_id": "REF12_018",
+        "quote": "L’agent peut fournir des services d’agent de football et d’autres services pour un individu et une entité engageante dans la même transaction."
+      },
+      {
+        "information_id": "REF12_019",
+        "quote": "L’agent ne peut fournir des services d’agent de football ou d’autres services, dans la même transaction, pour une entité libératrice et un individu."
+      },
+      {
+        "information_id": "REF12_020",
+        "quote": "L’agent ne peut fournir des services d’agent de football ou d’autres services, dans la même transaction, pour une entité libératrice et une entité engageante."
+      },
+      {
+        "information_id": "REF12_018",
+        "quote": "Les clients sont un individu et une entité engageante dans la même transaction."
+      },
+      {
+        "information_id": "REF12_018",
+        "quote": "Consentement explicite et écrit des deux clients."
+      },
+      {
+        "information_id": "REF12_018",
+        "quote": "Consentement des deux clients préalable à la double représentation."
+      },
+      {
+        "information_id": "REF12_019",
+        "quote": "Même transaction."
+      },
+      {
+        "information_id": "REF12_020",
+        "quote": "Même transaction."
+      }
+    ]
+  },
+  {
+    "id": "EXAM_9c8b4561d96f85448595",
+    "question": "Un joueur est lié à son agent par une exclusivité expirant dans quatre mois. Son contrat avec le club expire dans cinq mois. Un autre agent peut-il l’approcher en invoquant la règle des six mois du contrat de travail ?",
+    "choices": {
+      "A": "Oui, les six mois s’appliquent à tous les contrats.",
+      "B": "Oui, s’il n’exige aucun paiement immédiat.",
+      "C": "Non : pour l’exclusivité d’agent, la fenêtre est celle des deux derniers mois.",
+      "D": "Non, il doit attendre cinq années après la fin du contrat."
+    },
+    "approved_answers": [
+      "C"
+    ],
+    "answer_mode": "SINGLE_CHOICE",
+    "option_explanations": {
+      "A": "Les six mois concernent la liberté de conclure un contrat de travail dans le cadre de 18.3.",
+      "B": "L’absence de paiement immédiat n’efface pas l’exclusivité.",
+      "C": "L’approche sous exclusivité relève du FFAR et de sa fenêtre de deux mois.",
+      "D": "Aucun délai de cinq ans n’est posé ici."
+    },
+    "information_ids": [
+      "REFDUTY_002",
+      "RSTP_DETAIL_18_3"
+    ],
+    "theme": "REF_FFAR_AGENT_DUTIES_V1",
+    "family": "EXAM_9c8b4561d96f85448595",
+    "status": "REVIEWED_CORPUS",
+    "skill": "cross_rules",
+    "review_method": "AI_ASSISTED_COMPARISON_WITH_DRAFT_STUDY_CORPUS",
+    "support_quotes": [
+      {
+        "information_id": "REFDUTY_002",
+        "quote": "Un agent de football ne peut approcher un client lié par un accord de représentation exclusif avec un autre agent, sauf les deux derniers mois de cet accord."
+      },
+      {
+        "information_id": "RSTP_DETAIL_18_3",
+        "quote": "Un club souhaitant conclure un contrat avec un professionnel doit informer par écrit le club actuel du joueur avant de commencer les négociations. Un professionnel ne peut conclure un contrat avec un autre club que si son contrat avec son club actuel a expiré ou expire dans les six mois. Toute violation de cette disposition sera soumise à des sanctions appropriées."
+      },
+      {
+        "information_id": "REFDUTY_002",
+        "quote": "Client lié par un accord de représentation exclusif avec un autre agent."
+      },
+      {
+        "information_id": "REFDUTY_002",
+        "quote": "Les deux derniers mois de l’accord exclusif."
+      },
+      {
+        "information_id": "REFDUTY_002",
+        "quote": "Approcher le client et conclure un accord sont deux interdictions distinctes ; leur exception temporelle doit être conservée."
+      },
+      {
+        "information_id": "REFDUTY_002",
+        "quote": "Dans les deux derniers mois de cet accord exclusif."
+      },
+      {
+        "information_id": "RSTP_DETAIL_18_3",
+        "quote": "Le professionnel a son contrat qui a expiré ou va expirer dans les six mois."
+      },
+      {
+        "information_id": "RSTP_DETAIL_18_3",
+        "quote": "Deux exigences distinctes : le club qui veut négocier informe par écrit le club actuel AVANT les négociations ; le joueur est libre de CONCLURE avec un autre club lorsque son contrat est expiré ou doit expirer dans les six mois."
+      },
+      {
+        "information_id": "RSTP_DETAIL_18_3",
+        "quote": "Informer n’est pas demander une autorisation. Ce paragraphe ne crée pas une liberté générale de quitter son club avant le terme du contrat."
+      },
+      {
+        "information_id": "RSTP_DETAIL_18_3",
+        "quote": "Exemple fictif : contrat expirant le 30 juin, signature en mars d’un contrat futur : le critère des six mois est rempli ; le club intéressé doit avoir informé le club actuel avant de négocier."
+      },
+      {
+        "information_id": "RSTP_DETAIL_18_3",
+        "quote": "Une violation peut être sanctionnée ; aucun montant d’amende ou durée de suspension précis n’est fixé ici."
+      }
+    ]
+  },
+  {
+    "id": "EXAM_38d5c15d1f1bbffd0acb",
+    "question": "Un agent représente seulement un individu. La rémunération annuelle pertinente est de 280 000 USD, plus 40 000 USD de paiements conditionnels. En appliquant le barème FFAR étudié et l’exclusion des paiements conditionnels, quel plafond obtient-on ?",
+    "choices": {
+      "A": "8 400 USD",
+      "B": "13 600 USD",
+      "C": "16 000 USD",
+      "D": "12 400 USD"
+    },
+    "approved_answers": [
+      "D"
+    ],
+    "answer_mode": "SINGLE_CHOICE",
+    "option_explanations": {
+      "A": "3 % de toute la base méconnaît la première tranche à 5 %.",
+      "B": "Ce résultat inclut les 40 000 conditionnels à tort dans cet exercice.",
+      "C": "Ce montant ne correspond pas au calcul des deux tranches prévues.",
+      "D": "200 000 × 5 % + 80 000 × 3 % = 12 400."
+    },
+    "information_ids": [
+      "REFFEE_024",
+      "REFFEE_028"
+    ],
+    "theme": "REF_FFAR_FEES_V1",
+    "family": "EXAM_38d5c15d1f1bbffd0acb",
+    "status": "REVIEWED_CORPUS",
+    "skill": "calculation",
+    "review_method": "AI_ASSISTED_COMPARISON_WITH_DRAFT_STUDY_CORPUS",
+    "support_quotes": [
+      {
+        "information_id": "REFFEE_024",
+        "quote": "Lorsque l’agent représente un individu : 5 % sur les premiers 200 000 USD ou équivalent de rémunération annuelle ; 3 % sur la part annuelle excédant ce montant."
+      },
+      {
+        "information_id": "REFFEE_028",
+        "quote": "Le calcul du plafond basé sur la rémunération de l’individu ne tient pas compte des paiements conditionnels."
+      },
+      {
+        "information_id": "REFFEE_024",
+        "quote": "Restitution du tableau du corpus, sans décision sur son applicabilité actuelle."
+      }
+    ]
+  },
+  {
+    "id": "EXAM_27bde21e9d72044153e7",
+    "question": "Une double représentation est autorisée et toutes ses conditions sont remplies. La rémunération annuelle pertinente est de 250 000 USD. Quel couple « plafond total / maximum payable par l’entité engageante à hauteur de 50 % du total » résulte des règles étudiées ?",
+    "choices": {
+      "A": "23 000 / 11 500 USD",
+      "B": "15 000 / 7 500 USD",
+      "C": "25 000 / 12 500 USD",
+      "D": "20 000 / 10 000 USD"
+    },
+    "approved_answers": [
+      "A"
+    ],
+    "answer_mode": "SINGLE_CHOICE",
+    "option_explanations": {
+      "A": "200 000 × 10 % + 50 000 × 6 % = 23 000 ; moitié = 11 500.",
+      "B": "6 % appliqué à toute la rémunération omet la première tranche.",
+      "C": "10 % appliqué à toute la rémunération omet le taux sur l’excédent.",
+      "D": "Ce calcul oublie les honoraires sur la tranche supérieure à 200 000."
+    },
+    "information_ids": [
+      "REFFEE_026",
+      "REFFEE_014"
+    ],
+    "theme": "REF_FFAR_FEES_V1",
+    "family": "EXAM_27bde21e9d72044153e7",
+    "status": "REVIEWED_CORPUS",
+    "skill": "calculation",
+    "review_method": "AI_ASSISTED_COMPARISON_WITH_DRAFT_STUDY_CORPUS",
+    "support_quotes": [
+      {
+        "information_id": "REFFEE_026",
+        "quote": "Pour une double représentation autorisée individu + entité engageante : 10 % sur les premiers 200 000 USD ou équivalent de rémunération annuelle ; 6 % sur la part annuelle excédant ce montant."
+      },
+      {
+        "information_id": "REFFEE_014",
+        "quote": "Dans une double représentation autorisée individu + entité engageante au titre de 12.8.a, l’entité engageante peut payer jusqu’à 50 % du total des honoraires dus."
+      },
+      {
+        "information_id": "REFFEE_026",
+        "quote": "Restitution du tableau du corpus, sans décision sur son applicabilité actuelle."
+      },
+      {
+        "information_id": "REFFEE_014",
+        "quote": "Double représentation autorisée conformément à 12.8.a."
+      }
+    ]
+  },
+  {
+    "id": "EXAM_f8077d0dfd0a0db0e3e2",
+    "question": "L’accord joueur–agent expire après deux ans. Le contrat de travail négocié dure quatre ans et reste en vigueur. L’accord de représentation prévoyait expressément le paiement après son expiration. Quelles affirmations sont exactes ?",
+    "choices": {
+      "A": "Des honoraires peuvent continuer après cette expiration dans les conditions prévues.",
+      "B": "L’expiration de la représentation efface nécessairement tous les honoraires futurs.",
+      "C": "L’agent a nécessairement droit à quatre années complètes même si le joueur change de club.",
+      "D": "Un transfert vers un autre club avant la fin du contrat de travail peut supprimer le droit aux honoraires non encore dus issus de ce contrat."
+    },
+    "approved_answers": [
+      "A",
+      "D"
+    ],
+    "answer_mode": "MULTIPLE_CHOICE",
+    "option_explanations": {
+      "A": "La durée plus longue, le maintien du contrat et l’accord exprès sont réunis dans l’énoncé.",
+      "B": "L’exception de paiement après expiration existe.",
+      "C": "Cette affirmation ignore le cas de transfert anticipé.",
+      "D": "Le cas de transfert anticipé est expressément prévu en 14.12.a."
+    },
+    "information_ids": [
+      "REFFEE_009",
+      "REFFEE_017"
+    ],
+    "theme": "REF_FFAR_FEES_V1",
+    "family": "EXAM_f8077d0dfd0a0db0e3e2",
+    "status": "REVIEWED_CORPUS",
+    "skill": "cross_rules",
+    "review_method": "AI_ASSISTED_COMPARISON_WITH_DRAFT_STUDY_CORPUS",
+    "support_quotes": [
+      {
+        "information_id": "REFFEE_009",
+        "quote": "L’agent peut percevoir des honoraires après l’expiration de l’accord de représentation dans les conditions suivantes."
+      },
+      {
+        "information_id": "REFFEE_017",
+        "quote": "L’agent n’a pas droit aux honoraires non encore dus issus du contrat de travail négocié si l’individu est transféré à une autre entité engageante avant son expiration."
+      },
+      {
+        "information_id": "REFFEE_009",
+        "quote": "Le contrat de travail négocié dure plus longtemps que l’accord de représentation associé."
+      },
+      {
+        "information_id": "REFFEE_009",
+        "quote": "Ce contrat de travail reste en vigueur."
+      },
+      {
+        "information_id": "REFFEE_009",
+        "quote": "Cette perception après expiration est expressément convenue avec le client dans l’accord de représentation."
+      },
+      {
+        "information_id": "REFFEE_009",
+        "quote": "Après expiration de l’accord de représentation, tant que le contrat de travail négocié reste en vigueur."
+      },
+      {
+        "information_id": "REFFEE_009",
+        "quote": "Aucune condition de nouveaux services restant à fournir après expiration n’est ajoutée."
+      },
+      {
+        "information_id": "REFFEE_017",
+        "quote": "Transfert de l’individu à une autre entité engageante avant l’expiration du contrat de travail négocié."
+      }
+    ]
+  },
+  {
+    "id": "EXAM_a0913cfafe5aa3c954ed",
+    "question": "Quel rapprochement entre les deux procédures de maintien de licence est correct ?",
+    "choices": {
+      "A": "Tout manquement entraîne automatiquement un retrait définitif immédiat.",
+      "B": "Les cas de redevance, CPD ou déclaration prévoient une régularisation sous 60 jours ; le cas d’inéligibilité est renvoyé à la Commission de discipline.",
+      "C": "L’inéligibilité et le défaut de paiement suivent nécessairement le même délai de régularisation de 60 jours.",
+      "D": "La suspension provisoire est toujours une autorisation de poursuivre l’activité pendant 60 jours."
+    },
+    "approved_answers": [
+      "B"
+    ],
+    "answer_mode": "SINGLE_CHOICE",
+    "option_explanations": {
+      "A": "Le texte distingue suspension provisoire et retrait.",
+      "B": "C’est la distinction des paragraphes 17.3 et 17.4.",
+      "C": "Le délai des cas b, c et d ne s’étend pas automatiquement au cas a.",
+      "D": "Une suspension n’est pas une autorisation d’activité."
+    },
+    "information_ids": [
+      "REF17_009",
+      "REF17_007"
+    ],
+    "theme": "REF_FFAR_ARTICLE_17_V1",
+    "family": "EXAM_a0913cfafe5aa3c954ed",
+    "status": "REVIEWED_CORPUS",
+    "skill": "cross_rules",
+    "review_method": "AI_ASSISTED_COMPARISON_WITH_DRAFT_STUDY_CORPUS",
+    "support_quotes": [
+      {
+        "information_id": "REF17_009",
+        "quote": "La licence est retirée si l’agent ne régularise pas sa non-conformité dans les 60 jours suivant la suspension provisoire automatique."
+      },
+      {
+        "information_id": "REF17_007",
+        "quote": "L’affaire est renvoyée à la Commission de discipline de la FIFA pour décision."
+      },
+      {
+        "information_id": "REF17_009",
+        "quote": "Application d’un ou plusieurs cas de 17.1.b, 17.1.c ou 17.1.d."
+      },
+      {
+        "information_id": "REF17_009",
+        "quote": "Absence de régularisation dans les 60 jours."
+      },
+      {
+        "information_id": "REF17_009",
+        "quote": "60 jours à compter de la suspension provisoire automatique de la licence, et non de la notification."
+      },
+      {
+        "information_id": "REF17_009",
+        "quote": "La règle du retrait après 60 jours concerne les cas redevance, CPD et déclaration ; l’éligibilité suit la procédure du paragraphe 17.3."
+      },
+      {
+        "information_id": "REF17_007",
+        "quote": "Application du cas 17.1.a : exigences d’éligibilité."
+      },
+      {
+        "information_id": "REF17_007",
+        "quote": "Les deux étapes de 17.3.a et 17.3.b se cumulent."
+      },
+      {
+        "information_id": "REF17_007",
+        "quote": "Le mécanisme de retrait après 60 jours prévu à 17.4.b ne doit pas être transposé automatiquement à ce cas."
+      }
+    ]
+  },
+  {
+    "id": "EXAM_9c87606f7739bd920d66",
+    "question": "Un joueur brésilien est transféré d’un club français vers un club italien. L’accord de représentation porte précisément sur ce transfert. Quelle donnée détermine ici sa dimension internationale ?",
+    "choices": {
+      "A": "La nationalité brésilienne du joueur.",
+      "B": "Le lieu de naissance de l’agent.",
+      "C": "Le transfert entre les associations française et italienne.",
+      "D": "La langue utilisée pour signer l’accord."
+    },
+    "approved_answers": [
+      "C"
+    ],
+    "answer_mode": "SINGLE_CHOICE",
+    "option_explanations": {
+      "A": "La nationalité ne suffit pas à définir la dimension de l’accord.",
+      "B": "Le lieu de naissance de l’agent n’est pas ce critère.",
+      "C": "L’accord porte sur une transaction déterminée liée à un transfert international.",
+      "D": "La langue de signature n’est pas ce critère."
+    },
+    "information_ids": [
+      "REF_FRAMEWORK_004",
+      "REF_FRAMEWORK_005"
+    ],
+    "theme": "REF_FFAR_FRAMEWORK_V1",
+    "family": "EXAM_9c87606f7739bd920d66",
+    "status": "REVIEWED_CORPUS",
+    "skill": "scope",
+    "review_method": "AI_ASSISTED_COMPARISON_WITH_DRAFT_STUDY_CORPUS",
+    "support_quotes": [
+      {
+        "information_id": "REF_FRAMEWORK_004",
+        "quote": "Un accord a une dimension internationale s’il porte sur une transaction déterminée liée à un transfert international, ou sur plusieurs transactions déterminées dont au moins une est liée à un transfert international. Cela inclut le déplacement d’un entraîneur vers un club affilié à une autre association membre que celle de son précédent employeur, ou vers une autre association membre."
+      },
+      {
+        "information_id": "REF_FRAMEWORK_005",
+        "quote": "Pour un comportement lié à un transfert ou une transaction nationale, ou un accord portant sur des services sans transactions déterminées liées à un transfert international, appliquer le règlement national du lieu où le client est enregistré ou domicilié au moment de la signature de l’accord."
+      },
+      {
+        "information_id": "REF_FRAMEWORK_004",
+        "quote": "La nationalité du client n’est pas le critère énoncé dans cet extrait."
+      },
+      {
+        "information_id": "REF_FRAMEWORK_005",
+        "quote": "Situation du client au moment de la signature."
+      }
+    ]
+  },
+  {
+    "id": "EXAM_934069b30c0cddaa84b3",
+    "question": "La fenêtre applicable au club recruteur ferme le 31 août. Quelles situations satisfont le critère de fin du précédent contrat de l’exception 6.3.b pour une inscription demandée le 15 septembre ?",
+    "choices": {
+      "A": "Expiration naturelle le 5 septembre.",
+      "B": "Expiration naturelle du contrat le 30 juin.",
+      "C": "Résiliation d’un commun accord le 20 août.",
+      "D": "Résiliation d’un commun accord le 10 septembre."
+    },
+    "approved_answers": [
+      "B",
+      "C"
+    ],
+    "answer_mode": "MULTIPLE_CHOICE",
+    "option_explanations": {
+      "A": "La fin du contrat est postérieure à la fermeture.",
+      "B": "Expiration avant la fermeture : ce critère est rempli.",
+      "C": "Résiliation mutuelle avant la fermeture : ce critère est rempli.",
+      "D": "La résiliation est postérieure à la fermeture. Les autres conditions d’inscription restent dans tous les cas à vérifier."
+    },
+    "information_ids": [
+      "RSTP_DETAIL_6_3_b"
+    ],
+    "theme": "REF_RSTP_STATUS_REGISTRATION_V6",
+    "family": "EXAM_934069b30c0cddaa84b3",
+    "status": "REVIEWED_CORPUS",
+    "skill": "dates",
+    "review_method": "AI_ASSISTED_COMPARISON_WITH_DRAFT_STUDY_CORPUS",
+    "support_quotes": [
+      {
+        "information_id": "RSTP_DETAIL_6_3_b",
+        "quote": "Un professionnel dont le contrat a naturellement expiré ou a été résilié d'un commun accord avant la fin de la période d'enregistrement applicable au club recruteur peut être enregistré avec ce club même après l'expiration de la période d'enregistrement en question."
+      },
+      {
+        "information_id": "RSTP_DETAIL_6_3_b",
+        "quote": "Le contrat doit avoir expiré naturellement ou avoir été résilié mutuellement avant la fin de la période d'enregistrement."
+      },
+      {
+        "information_id": "RSTP_DETAIL_6_3_b",
+        "quote": "Condition déterminante : expiration normale OU résiliation d’un commun accord AVANT la fin de la fenêtre applicable au club recruteur. L’enregistrement peut alors intervenir après cette fenêtre."
+      },
+      {
+        "information_id": "RSTP_DETAIL_6_3_b",
+        "quote": "Exemple fictif : contrat expiré avant la clôture de la fenêtre du club recruteur : cette voie peut permettre un enregistrement ultérieur. Une expiration postérieure à la clôture ne remplit pas ce critère."
+      },
+      {
+        "information_id": "RSTP_DETAIL_6_3_b",
+        "quote": "Piège : « joueur libre » ne signifie pas automatiquement « enregistrable à tout moment »."
+      }
+    ]
+  },
+  {
+    "id": "EXAM_cf978af15fa528b1d1af",
+    "question": "Hors toute exception, un joueur a été enregistré dans les clubs A puis B au cours de la saison. Il n’a disputé de matchs officiels que pour A. Quelle conclusion respecte les seuls plafonds de l’article 5.4 ?",
+    "choices": {
+      "A": "L’inscription à C et les matchs officiels pour C sont nécessairement exclus.",
+      "B": "Il peut être enregistré successivement dans trois clubs supplémentaires.",
+      "C": "Il peut jouer pour B puis C sans jamais dépasser le plafond de deux clubs joués.",
+      "D": "Il peut encore être enregistré à C et jouer pour C sans dépasser ces deux plafonds."
+    },
+    "approved_answers": [
+      "D"
+    ],
+    "answer_mode": "SINGLE_CHOICE",
+    "option_explanations": {
+      "A": "Deux enregistrements et un club joué laissent cette possibilité au regard de ces seuls plafonds.",
+      "B": "Le maximum général est de trois enregistrements, pas cinq.",
+      "C": "Jouer ensuite pour B puis C porterait à trois clubs joués.",
+      "D": "C serait le troisième enregistrement et le deuxième club joué ; les autres conditions restent à vérifier."
+    },
+    "information_ids": [
+      "RSTP_DETAIL_5_4"
+    ],
+    "theme": "REF_RSTP_STATUS_REGISTRATION_V6",
+    "family": "EXAM_cf978af15fa528b1d1af",
+    "status": "REVIEWED_CORPUS",
+    "skill": "cross_rules",
+    "review_method": "AI_ASSISTED_COMPARISON_WITH_DRAFT_STUDY_CORPUS",
+    "support_quotes": [
+      {
+        "information_id": "RSTP_DETAIL_5_4",
+        "quote": "Les joueurs peuvent être enregistrés dans un maximum de trois clubs pendant une saison, mais ne peuvent jouer en matchs officiels que pour deux clubs. Exceptionnellement, un joueur passant entre deux clubs de saisons chevauchantes peut jouer pour un troisième club, sous réserve de respecter ses obligations contractuelles, les périodes d'enregistrement (article 6) et la durée minimale d'un contrat (article 18, paragraphe 2). Les limitations ne s'appliquent pas si un joueur est enregistré selon l'exception de l'article 6, paragraphe 3 a). Le Règlement de la Compétition pour la Coupe du Monde des Clubs de la FIFA peut établir d'autres exceptions."
+      },
+      {
+        "information_id": "RSTP_DETAIL_5_4",
+        "quote": "Principe à mémoriser : trois clubs d’enregistrement au maximum sur la saison, mais deux clubs au maximum en matchs officiels."
+      },
+      {
+        "information_id": "RSTP_DETAIL_5_4",
+        "quote": "Exemple fictif : joueur enregistré à A puis B, mais n’ayant disputé de matchs officiels que pour A : un enregistrement à C et des matchs officiels pour C restent possibles au regard de ce seul plafond. Les autres conditions d’éligibilité demeurent à vérifier."
+      },
+      {
+        "information_id": "RSTP_DETAIL_5_4",
+        "quote": "Saisons chevauchantes : départ en été/automne dans une association, en hiver/printemps dans l’autre. L’exception est conditionnelle, pas une autorisation automatique de jouer pour trois clubs."
+      },
+      {
+        "information_id": "RSTP_DETAIL_5_4",
+        "quote": "Autres exceptions distinctes : renvoi à 6.3.a ; exceptions éventuellement prévues par le règlement de la Coupe du Monde des Clubs. Ne pas en inventer la portée."
+      },
+      {
+        "information_id": "RSTP_DETAIL_5_4",
+        "quote": "Troisième club en matchs officiels possible entre associations à saisons chevauchantes : obligations contractuelles envers les clubs précédents entièrement respectées ET périodes d’enregistrement de l’article 6 respectées ET durée minimale de contrat de 18.2 respectée."
+      },
+      {
+        "information_id": "RSTP_DETAIL_5_4",
+        "quote": "Limitations non applicables en cas d’enregistrement sur le fondement de l’exception 6.3.a."
+      },
+      {
+        "information_id": "RSTP_DETAIL_5_4",
+        "quote": "Autres exceptions pouvant être établies par le règlement de la Coupe du Monde des Clubs de la FIFA."
+      }
+    ]
+  },
+  {
+    "id": "EXAM_4181fb870a282e45c292",
+    "question": "Un prêt remplit les deux critères d’âge/saison et de joueur formé au club de 10.7. Le club prêteur a déjà trois professionnels prêtés dans le même sens au même club. Peut-il invoquer cette exemption pour en ajouter un quatrième dans ce club ?",
+    "choices": {
+      "A": "Non, l’exemption du quota global ne supprime pas le plafond bilatéral de trois.",
+      "B": "Oui, l’exemption supprime tous les plafonds.",
+      "C": "Oui, si le quatrième joueur a moins de 18 ans.",
+      "D": "Oui, si le prêt dure moins d’un an."
+    },
+    "approved_answers": [
+      "A"
+    ],
+    "answer_mode": "SINGLE_CHOICE",
+    "option_explanations": {
+      "A": "C’est la distinction entre 10.7 et 10.8.",
+      "B": "L’exemption concerne les limites globales de 10.6.",
+      "C": "Le plafond bilatéral s’applique indépendamment de l’âge ou du statut formé au club.",
+      "D": "La durée inférieure à un an n’écarte pas le plafond bilatéral."
+    },
+    "information_ids": [
+      "RSTP_DETAIL_10_7",
+      "RSTP_DETAIL_10_7_a",
+      "RSTP_DETAIL_10_7_b",
+      "RSTP_DETAIL_10_8_a"
+    ],
+    "theme": "REF_RSTP_STATUS_REGISTRATION_V6",
+    "family": "EXAM_4181fb870a282e45c292",
+    "status": "REVIEWED_CORPUS",
+    "skill": "cross_rules",
+    "review_method": "AI_ASSISTED_COMPARISON_WITH_DRAFT_STUDY_CORPUS",
+    "support_quotes": [
+      {
+        "information_id": "RSTP_DETAIL_10_7",
+        "quote": "Le prêt est exempté des limitations globales de 10.6 si les deux conditions de 10.7.a et 10.7.b sont remplies."
+      },
+      {
+        "information_id": "RSTP_DETAIL_10_7_a",
+        "quote": "Le prêt a lieu avant la fin de la saison de l'ancien club dans laquelle le professionnel atteint 21 ans."
+      },
+      {
+        "information_id": "RSTP_DETAIL_10_7_b",
+        "quote": "Le professionnel est un joueur formé au club avec l'ancien club."
+      },
+      {
+        "information_id": "RSTP_DETAIL_10_8_a",
+        "quote": "Un club peut avoir un maximum de trois professionnels prêtés à un même club à tout moment pendant une saison."
+      },
+      {
+        "information_id": "RSTP_DETAIL_10_7",
+        "quote": "Prêt avant la fin de la saison du club prêteur dans laquelle le joueur atteint 21 ans."
+      },
+      {
+        "information_id": "RSTP_DETAIL_10_7",
+        "quote": "Joueur formé au club prêteur au sens de la définition 31."
+      },
+      {
+        "information_id": "RSTP_DETAIL_10_7",
+        "quote": "Exemption du plafond global uniquement si les DEUX conditions sont réunies : critère de saison/âge ET formation au club prêteur."
+      },
+      {
+        "information_id": "RSTP_DETAIL_10_7",
+        "quote": "L’exemption ne supprime pas le plafond bilatéral de trois joueurs de 10.8."
+      },
+      {
+        "information_id": "RSTP_DETAIL_10_7_a",
+        "quote": "Le repère est la fin de la saison du club prêteur pendant laquelle le joueur atteint 21 ans, pas mécaniquement le jour de son 21e anniversaire."
+      },
+      {
+        "information_id": "RSTP_DETAIL_10_7_b",
+        "quote": "Le joueur doit aussi être formé au club prêteur au sens de la définition 31, reproduite ci-dessous. Avoir simplement un joueur jeune ne suffit pas."
+      },
+      {
+        "information_id": "RSTP_DETAIL_10_8_a",
+        "quote": "Au plus trois prêts sortants du même club vers un club déterminé, simultanément pendant une saison."
+      }
+    ]
+  },
+  {
+    "id": "EXAM_6d7029db46c76352cf96",
+    "question": "Un club doit illicitement deux salaires mensuels échus. Le joueur le met en demeure par écrit en ne lui laissant que sept jours pour payer. Peut-il se fonder sur la seule réunion de ces faits pour remplir le mécanisme de 14bis.1 ?",
+    "choices": {
+      "A": "Oui, deux mensualités suffisent sans autre condition.",
+      "B": "Non : ce mécanisme exige au moins quinze jours pour payer intégralement.",
+      "C": "Oui, dès lors que la mise en demeure est écrite.",
+      "D": "Non : il faut toujours douze mensualités."
+    },
+    "approved_answers": [
+      "B"
+    ],
+    "answer_mode": "SINGLE_CHOICE",
+    "option_explanations": {
+      "A": "La procédure préalable est aussi requise.",
+      "B": "Sept jours n’atteignent pas le minimum de quinze jours.",
+      "C": "L’écrit ne dispense pas du délai minimal.",
+      "D": "Le seuil décrit est d’au moins deux mensualités, pas douze."
+    },
+    "information_ids": [
+      "RSTP_DETAIL_14bis_1"
+    ],
+    "theme": "REF_RSTP_CONTRACTS_V5",
+    "family": "EXAM_6d7029db46c76352cf96",
+    "status": "REVIEWED_CORPUS",
+    "skill": "conditions",
+    "review_method": "AI_ASSISTED_COMPARISON_WITH_DRAFT_STUDY_CORPUS",
+    "support_quotes": [
+      {
+        "information_id": "RSTP_DETAIL_14bis_1",
+        "quote": "Si le club manque illicitement au paiement d’au moins deux salaires mensuels à leurs échéances, le joueur est réputé avoir une juste cause de résiliation, à condition de mettre le club débiteur en demeure par écrit et de lui accorder au moins 15 jours pour satisfaire intégralement ses obligations financières. Des dispositions alternatives dans les contrats existant au moment de l’entrée en vigueur de cette disposition peuvent être prises en compte."
+      },
+      {
+        "information_id": "RSTP_DETAIL_14bis_1",
+        "quote": "Défaut illicite de paiement d’au moins deux salaires mensuels à leur échéance."
+      },
+      {
+        "information_id": "RSTP_DETAIL_14bis_1",
+        "quote": "Mise en demeure écrite du club débiteur."
+      },
+      {
+        "information_id": "RSTP_DETAIL_14bis_1",
+        "quote": "Délai d’au moins 15 jours laissé au club pour payer intégralement."
+      },
+      {
+        "information_id": "RSTP_DETAIL_14bis_1",
+        "quote": "Trois éléments à réunir : défaut illicite de paiement d’au moins deux mensualités à échéance ; mise en demeure écrite ; délai accordé d’au moins 15 jours pour payer intégralement."
+      },
+      {
+        "information_id": "RSTP_DETAIL_14bis_1",
+        "quote": "Ce n’est pas « attendre deux mois supplémentaires » : le seuil porte sur deux salaires mensuels échus et impayés. Ne pas confondre les échéances de salaire et le délai de mise en demeure."
+      },
+      {
+        "information_id": "RSTP_DETAIL_14bis_1",
+        "quote": "L’extraction ne reprenait pas explicitement unlawful : la fiche rétablit le caractère illicite du défaut de paiement sur la base du texte source."
+      },
+      {
+        "information_id": "RSTP_DETAIL_14bis_1",
+        "quote": "La réserve sur les clauses alternatives vise les contrats existant au moment de l’entrée en vigueur de cette disposition. Elle ne permet pas d’inventer une clause nouvelle supprimant les garanties."
+      },
+      {
+        "information_id": "RSTP_DETAIL_14bis_1",
+        "quote": "L’audit signalait cette réserve absente alors qu’elle était évoquée dans l’énoncé. Sa portée temporelle est précisée ici ; le run et son alerte restent inchangés."
+      }
+    ]
+  },
+  {
+    "id": "EXAM_9c38c07627fa01f6c96a",
+    "question": "Un professionnel établi a joué 9 % des matchs officiels de son club. Il souhaite rompre pour juste cause sportive trente jours après le dernier match officiel de la saison. Quelle analyse est correcte ?",
+    "choices": {
+      "A": "Le seuil de participation rend la rupture automatiquement valable à tout moment.",
+      "B": "La juste cause sportive garantit toujours l’absence d’indemnité.",
+      "C": "Le seuil peut être pertinent, mais le délai de quinze jours n’est pas respecté.",
+      "D": "Il fallait être sous 5 % des matchs."
+    },
+    "approved_answers": [
+      "C"
+    ],
+    "answer_mode": "SINGLE_CHOICE",
+    "option_explanations": {
+      "A": "L’appréciation est au cas par cas et le délai doit être respecté.",
+      "B": "Une indemnité peut rester due dans ce régime.",
+      "C": "Trente jours dépasse la fenêtre de quinze jours.",
+      "D": "Le seuil décrit est inférieur à 10 %."
+    },
+    "information_ids": [
+      "RSTP_DETAIL_15"
+    ],
+    "theme": "REF_RSTP_CONTRACTS_V5",
+    "family": "EXAM_9c38c07627fa01f6c96a",
+    "status": "REVIEWED_CORPUS",
+    "skill": "dates",
+    "review_method": "AI_ASSISTED_COMPARISON_WITH_DRAFT_STUDY_CORPUS",
+    "support_quotes": [
+      {
+        "information_id": "RSTP_DETAIL_15",
+        "quote": "Un professionnel établi qui, au cours de la saison, a participé à moins de dix pour cent des matchs officiels auxquels son club a pris part, peut résilier prématurément son contrat pour juste cause sportive. Les circonstances du joueur doivent être prises en compte lors de l'évaluation de ces cas. L'existence d'un juste cause sportive doit être établie au cas par cas. Dans ce cas, des sanctions sportives ne seront pas imposées, bien qu'une compensation puisse être exigible. Un professionnel ne peut résilier son contrat sur cette base que dans les 15 jours suivant le dernier match officiel de la saison du club avec lequel il est enregistré."
+      },
+      {
+        "information_id": "RSTP_DETAIL_15",
+        "quote": "Le professionnel a participé à moins de dix pour cent des matchs officiels de son club pendant la saison."
+      },
+      {
+        "information_id": "RSTP_DETAIL_15",
+        "quote": "La résiliation doit intervenir dans les 15 jours suivant le dernier match officiel de la saison du club."
+      },
+      {
+        "information_id": "RSTP_DETAIL_15",
+        "quote": "Conditions à examiner : professionnel établi ; participation à moins de 10 % des matchs officiels du club pendant la saison ; circonstances personnelles ; appréciation au cas par cas. Ce n’est pas un droit automatique à partir d’un pourcentage."
+      },
+      {
+        "information_id": "RSTP_DETAIL_15",
+        "quote": "Exemple fictif : sur 40 matchs officiels du club, trois apparitions représentent 7,5 % ; quatre représentent exactement 10 % et ne satisfont pas le seuil strict « moins de 10 % ». Le calcul ne suffit pas à valider les autres critères."
+      },
+      {
+        "information_id": "RSTP_DETAIL_15",
+        "quote": "Le texte parle d’apparitions en matchs, pas d’un pourcentage de minutes jouées."
+      },
+      {
+        "information_id": "RSTP_DETAIL_15",
+        "quote": "Délai : rupture sur ce fondement seulement dans les 15 jours suivant le dernier match officiel de la saison du club où le joueur est enregistré."
+      },
+      {
+        "information_id": "RSTP_DETAIL_15",
+        "quote": "Conséquences : pas de sanction sportive pour cette rupture, mais une indemnité peut être due."
+      },
+      {
+        "information_id": "RSTP_DETAIL_15",
+        "quote": "Le terme « professionnel établi » n’est pas défini numériquement dans cet extrait : ne pas lui inventer un âge, une ancienneté ou un quota de matchs."
+      }
+    ]
+  },
+  {
+    "id": "EXAM_9df4b1ccf0ea11c348d3",
+    "question": "Un contrat de cinq ans est conclu à 26 ans et prend effet au début d’une saison. Aucun renouvellement n’intervient. Après quatre années complètes, quelles affirmations sont exactes ?",
+    "choices": {
+      "A": "Le seul passage du 28e anniversaire avait réduit automatiquement la période protégée à deux ans.",
+      "B": "Le contrat peut encore être en vigueur.",
+      "C": "La fin de période protégée rend nécessairement le départ gratuit.",
+      "D": "La période protégée initiale de trois saisons entières ou trois ans est terminée."
+    },
+    "approved_answers": [
+      "B",
+      "D"
+    ],
+    "answer_mode": "MULTIPLE_CHOICE",
+    "option_explanations": {
+      "A": "L’âge à la conclusion commande le régime initial.",
+      "B": "Un contrat de cinq ans peut avoir encore un an à courir.",
+      "C": "Le contrat reste obligatoire et une compensation peut rester due.",
+      "D": "Après quatre années complètes, les deux termes maximaux de ce régime initial sont dépassés."
+    },
+    "information_ids": [
+      "RSTP_DETAIL_17_3",
+      "RSTP_DETAIL_DEFINITION_7"
+    ],
+    "theme": "REF_RSTP_CONTRACTS_V5",
+    "family": "EXAM_9df4b1ccf0ea11c348d3",
+    "status": "REVIEWED_CORPUS",
+    "skill": "cross_rules",
+    "review_method": "AI_ASSISTED_COMPARISON_WITH_DRAFT_STUDY_CORPUS",
+    "support_quotes": [
+      {
+        "information_id": "RSTP_DETAIL_17_3",
+        "quote": "En plus de l'obligation de payer une compensation, des sanctions sportives sont également imposées à tout joueur reconnu coupable de rupture de contrat pendant la période protégée. La sanction consiste en une interdiction de quatre mois de jouer des matchs officiels. En cas de circonstances aggravantes, l'interdiction dure six mois. Ces sanctions entrent en vigueur immédiatement après que le joueur a été informé de la décision pertinente. Les sanctions sportives restent suspendues entre le dernier match officiel de la saison et le premier match officiel de la saison suivante, y compris les coupes nationales et les championnats internationaux des clubs. Cette suspension des sanctions ne s'applique toutefois pas si le joueur est un membre établi de l'équipe représentative de l'association qu'il est en droit de représenter, et que l'association concernée participe à la compétition finale d'un tournoi international au cours de cette période. Une rupture unilatérale sans juste cause ni juste cause sportive après la période protégée n'entraîne pas de sanctions sportives. Des mesures disciplinaires peuvent être imposées en dehors de la période protégée pour non-respect du préavis de résiliation dans les 15 jours suivant le dernier match officiel de la saison (y compris les coupes nationales) du club avec lequel le joueur est enregistré. La période protégée recommence lorsqu'un renouvellement de contrat prolonge la durée du contrat précédent."
+      },
+      {
+        "information_id": "RSTP_DETAIL_DEFINITION_7",
+        "quote": "Contrat conclu avant le 28e anniversaire : trois saisons entières ou trois ans, au premier terme atteint, à compter de son entrée en vigueur. Contrat conclu après le 28e anniversaire : deux saisons entières ou deux ans, au premier terme atteint. Le renouvellement qui prolonge la durée du contrat relance la période protégée conformément à 17.3."
+      },
+      {
+        "information_id": "RSTP_DETAIL_17_3",
+        "quote": "Rupture de contrat pendant la période protégée."
+      },
+      {
+        "information_id": "RSTP_DETAIL_17_3",
+        "quote": "Pendant la période protégée, rupture fautive du joueur : indemnisation ET interdiction de matchs officiels pendant quatre mois, portée à six mois en cas de circonstances aggravantes."
+      },
+      {
+        "information_id": "RSTP_DETAIL_17_3",
+        "quote": "Effet immédiat à notification. Le décompte des sanctions sportives est suspendu entre le dernier match officiel d’une saison et le premier de la suivante, selon le texte, qui inclut coupes nationales et compétitions internationales de clubs."
+      },
+      {
+        "information_id": "RSTP_DETAIL_17_3",
+        "quote": "Exception à cette suspension : joueur membre établi de sa sélection et association participant à la phase finale d’un tournoi international pendant cet intervalle. Ne pas assimiler à toute convocation ou tout match international."
+      },
+      {
+        "information_id": "RSTP_DETAIL_17_3",
+        "quote": "Après la période protégée : pas de sanction sportive pour la rupture sans juste cause ni juste cause sportive en tant que telle, mais indemnisation possible ; des mesures disciplinaires restent possibles si le préavis prévu dans les 15 jours après le dernier match officiel de la saison du club n’est pas respecté."
+      },
+      {
+        "information_id": "RSTP_DETAIL_17_3",
+        "quote": "Le renouvellement qui prolonge la durée du contrat relance une période protégée. Lire la définition 7 isolée ci-dessous pour les durées et le point de départ."
+      },
+      {
+        "information_id": "RSTP_DETAIL_DEFINITION_7",
+        "quote": "Exemple fictif : contrat signé à 26 ans, prenant effet au début d’une saison : régime de trois saisons entières ou trois ans. Le 28e anniversaire en cours de contrat ne réduit pas automatiquement cette période."
+      },
+      {
+        "information_id": "RSTP_DETAIL_DEFINITION_7",
+        "quote": "Exemple fictif : renouvellement prolongeant la durée à 29 ans : nouvelle période relevant du régime de deux saisons entières ou deux ans."
+      },
+      {
+        "information_id": "RSTP_DETAIL_DEFINITION_7",
+        "quote": "Deux dates différentes : âge au moment de la conclusion ; début du décompte à l’entrée en vigueur."
+      },
+      {
+        "information_id": "RSTP_DETAIL_DEFINITION_7",
+        "quote": "Saison entière ne signifie pas une fraction de saison commencée. Hors période protégée, le contrat reste obligatoire."
+      },
+      {
+        "information_id": "RSTP_DETAIL_DEFINITION_7",
+        "quote": "La source dit avant/après le 28e anniversaire ; le cas du jour anniversaire exactement n’est pas tranché dans ce support."
+      },
+      {
+        "information_id": "RSTP_DETAIL_DEFINITION_7",
+        "quote": "Définition fournie en contexte du run et vérifiée sur la page 162 ; elle n’était pas extraite comme unité autonome."
+      }
+    ]
+  },
+  {
+    "id": "EXAM_973305ae508d268929e9",
+    "question": "Un joueur de 17 ans signe un contrat de travail avec un club et un accord de représentation avec un agent. Quel couple de plafonds correspond aux deux textes étudiés ?",
+    "choices": {
+      "A": "Travail deux ans ; représentation trois ans.",
+      "B": "Les deux sont toujours de cinq ans.",
+      "C": "Les deux sont sans durée maximale.",
+      "D": "Travail trois ans ; représentation deux ans."
+    },
+    "approved_answers": [
+      "D"
+    ],
+    "answer_mode": "SINGLE_CHOICE",
+    "option_explanations": {
+      "A": "Les deux chiffres sont inversés.",
+      "B": "Le maximum général du contrat de travail ne s’applique pas ainsi au mineur.",
+      "C": "Les deux textes fixent bien un plafond dans ce cas.",
+      "D": "Les plafonds se rapportent à deux relations contractuelles différentes."
+    },
+    "information_ids": [
+      "RSTP_DETAIL_18_2",
+      "REF12_003"
+    ],
+    "theme": "REF_RSTP_CONTRACTS_V5",
+    "family": "EXAM_973305ae508d268929e9",
+    "status": "REVIEWED_CORPUS",
+    "skill": "cross_rules",
+    "review_method": "AI_ASSISTED_COMPARISON_WITH_DRAFT_STUDY_CORPUS",
+    "support_quotes": [
+      {
+        "information_id": "RSTP_DETAIL_18_2",
+        "quote": "La durée minimale d'un contrat est de sa date d'effet jusqu'à la fin de la saison. La durée maximale d'un contrat est de cinq ans. D'autres durées ne sont permises que si elles sont conformes aux lois nationales. Les joueurs de moins de 18 ans ne peuvent signer un contrat professionnel pour plus de trois ans. Toute clause prévoyant une période plus longue ne sera pas reconnue."
+      },
+      {
+        "information_id": "REF12_003",
+        "quote": "Un accord de représentation entre un individu et un agent ne peut dépasser deux ans."
+      },
+      {
+        "information_id": "RSTP_DETAIL_18_2",
+        "quote": "Contrat de travail joueur–club : minimum jusqu’à la fin de la saison depuis sa prise d’effet ; maximum de principe cinq ans, sous la réserve des durées conformes aux lois nationales."
+      },
+      {
+        "information_id": "RSTP_DETAIL_18_2",
+        "quote": "Joueur de moins de 18 ans : pas de contrat professionnel de plus de trois ans ; une clause plus longue n’est pas reconnue par ce texte."
+      },
+      {
+        "information_id": "RSTP_DETAIL_18_2",
+        "quote": "Piège : le plafond de deux ans étudié en FFAR concerne le mandat joueur–agent, pas le contrat de travail. Un prêt relève encore d’une autre règle, l’article 10."
+      },
+      {
+        "information_id": "REF12_003",
+        "quote": "Accord conclu avec un individu."
+      },
+      {
+        "information_id": "REF12_003",
+        "quote": "Durée maximale de deux ans."
+      }
+    ]
+  },
+  {
+    "id": "EXAM_b646e9652afc97647377",
+    "question": "Un mineur vit à 50 km de la frontière. Le club de l’association voisine est à 45 km de cette frontière ; le domicile est à 95 km du siège du club. Les deux associations consentent expressément, mais le jeune doit déménager dans un internat du club. Quelle condition de l’exception frontalière manque ?",
+    "choices": {
+      "A": "Le joueur doit continuer à vivre chez lui.",
+      "B": "Le domicile doit être strictement à moins de 50 km.",
+      "C": "La distance totale doit toujours être inférieure à 50 km.",
+      "D": "Le club doit être dans l’UE."
+    },
+    "approved_answers": [
+      "A"
+    ],
+    "answer_mode": "SINGLE_CHOICE",
+    "option_explanations": {
+      "A": "Le déménagement décrit ne respecte pas le maintien au domicile.",
+      "B": "La borne de 50 km est inclusive.",
+      "C": "Le plafond domicile–siège est de 100 km, pas 50.",
+      "D": "Cette exception frontalière n’est pas formulée comme limitée à l’UE."
+    },
+    "information_ids": [
+      "RSTP_DETAIL_19_2_c"
+    ],
+    "theme": "REF_RSTP_MINORS_V2",
+    "family": "EXAM_b646e9652afc97647377",
+    "status": "REVIEWED_CORPUS",
+    "skill": "conditions",
+    "review_method": "AI_ASSISTED_COMPARISON_WITH_DRAFT_STUDY_CORPUS",
+    "support_quotes": [
+      {
+        "information_id": "RSTP_DETAIL_19_2_c",
+        "quote": "Le domicile du joueur est à 50 km au plus d’une frontière nationale ; le club de l’association voisine est aussi à 50 km au plus de cette frontière ; le domicile et le siège du club sont distants de 100 km au plus. Le joueur continue à vivre chez lui et les deux associations donnent leur consentement explicite. Toutes ces conditions se cumulent."
+      },
+      {
+        "information_id": "RSTP_DETAIL_19_2_c",
+        "quote": "Domicile à 50 km au plus de la frontière."
+      },
+      {
+        "information_id": "RSTP_DETAIL_19_2_c",
+        "quote": "Club dans l’association voisine, à 50 km au plus de cette frontière."
+      },
+      {
+        "information_id": "RSTP_DETAIL_19_2_c",
+        "quote": "Domicile–siège du club : 100 km au plus."
+      },
+      {
+        "information_id": "RSTP_DETAIL_19_2_c",
+        "quote": "Maintien du joueur au domicile."
+      },
+      {
+        "information_id": "RSTP_DETAIL_19_2_c",
+        "quote": "Consentement explicite des deux associations."
+      },
+      {
+        "information_id": "RSTP_DETAIL_19_2_c",
+        "quote": "Les bornes sont inclusives : « 50 km au plus » et « 100 km au plus », pas strictement moins."
+      },
+      {
+        "information_id": "RSTP_DETAIL_19_2_c",
+        "quote": "Exemple fictif : domicile à 40 km et club à 45 km de la frontière ne suffisent pas à eux seuls ; il faut encore vérifier la distance totale, le maintien au domicile et les deux consentements."
+      }
+    ]
+  },
+  {
+    "id": "EXAM_4527117657a8b7527930",
+    "question": "Deux mineurs ont fui sans leurs parents et remplissent les conditions humanitaires décrites. L’un est formellement reconnu réfugié, l’autre demandeur d’asile. Avant leurs 18 ans, quelle distinction de club est prévue ?",
+    "choices": {
+      "A": "Tous deux peuvent nécessairement s’inscrire dans un club professionnel.",
+      "B": "Le réfugié reconnu peut être inscrit dans un club professionnel ou purement amateur ; le demandeur d’asile dans un club purement amateur seulement.",
+      "C": "Le demandeur d’asile seul peut rejoindre un club professionnel.",
+      "D": "Aucun ne peut rejoindre un club purement amateur."
+    },
+    "approved_answers": [
+      "B"
+    ],
+    "answer_mode": "SINGLE_CHOICE",
+    "option_explanations": {
+      "A": "Le statut de demandeur d’asile n’ouvre pas ici le même accès au club professionnel.",
+      "B": "La distinction de statut est explicite dans le texte étudié.",
+      "C": "C’est l’inverse de la distinction prévue.",
+      "D": "Les deux régimes permettent un club purement amateur sous leurs conditions."
+    },
+    "information_ids": [
+      "RSTP_DETAIL_19_2_d"
+    ],
+    "theme": "REF_RSTP_MINORS_V2",
+    "family": "EXAM_4527117657a8b7527930",
+    "status": "REVIEWED_CORPUS",
+    "skill": "scope",
+    "review_method": "AI_ASSISTED_COMPARISON_WITH_DRAFT_STUDY_CORPUS",
+    "support_quotes": [
+      {
+        "information_id": "RSTP_DETAIL_19_2_d",
+        "quote": "Le mineur a fui son pays d’origine ou précédent pays de domicile sans ses parents pour les raisons humanitaires des points i OU ii. Il est au moins temporairement autorisé à résider dans le pays d’arrivée et/ou reconnu par ses autorités compétentes comme vulnérable nécessitant une protection. Réfugié ou personne protégée formellement reconnu : inscription possible dans un club professionnel ou purement amateur et transferts nationaux ultérieurs sans restriction prévue ici avant 18 ans. Demandeur d’asile ou personne reconnue vulnérable selon ce texte : club purement amateur seulement ; transfert national possible mais pas d’inscription dans un club professionnel avant 18 ans."
+      },
+      {
+        "information_id": "RSTP_DETAIL_19_2_d",
+        "quote": "Départ sans les parents du pays d’origine ou précédent domicile."
+      },
+      {
+        "information_id": "RSTP_DETAIL_19_2_d",
+        "quote": "Motif humanitaire i OU ii."
+      },
+      {
+        "information_id": "RSTP_DETAIL_19_2_d",
+        "quote": "Autorisation au moins temporaire de résidence ET/OU reconnaissance par les autorités compétentes de la vulnérabilité nécessitant protection."
+      },
+      {
+        "information_id": "RSTP_DETAIL_19_2_d",
+        "quote": "Type de club et transferts ultérieurs selon le statut formel reconnu."
+      },
+      {
+        "information_id": "RSTP_DETAIL_19_2_d",
+        "quote": "La distinction de statut modifie le type de club autorisé. Ne pas assimiler demandeur d’asile et réfugié formellement reconnu."
+      },
+      {
+        "information_id": "RSTP_DETAIL_19_2_d",
+        "quote": "Les motifs i et ii sont alternatifs, et non deux menaces à prouver simultanément."
+      }
+    ]
+  },
+  {
+    "id": "EXAM_0ddfc7e77b4d03c9bb3c",
+    "question": "Un Brésilien de 15 ans n’a jamais été enregistré dans un club et réside continûment en France depuis six ans. Quelle conclusion sur sa première inscription française est correcte ?",
+    "choices": {
+      "A": "Les cinq ans suppriment toute procédure.",
+      "B": "Il est automatiquement réputé français.",
+      "C": "Il relève encore expressément de la procédure de 19.4.c pour mineur non national d’au moins dix ans.",
+      "D": "Une première inscription ne peut jamais relever de l’article 19."
+    },
+    "approved_answers": [
+      "C"
+    ],
+    "answer_mode": "SINGLE_CHOICE",
+    "option_explanations": {
+      "A": "La résidence ne supprime pas la procédure distincte de 19.4.c.",
+      "B": "La résidence ne vaut pas automatiquement nationalité.",
+      "C": "Les critères de cette procédure sont réunis dans le cas décrit.",
+      "D": "L’article traite aussi de premières inscriptions."
+    },
+    "information_ids": [
+      "RSTP_DETAIL_19_3",
+      "RSTP_DETAIL_19_4_c"
+    ],
+    "theme": "REF_RSTP_MINORS_V2",
+    "family": "EXAM_0ddfc7e77b4d03c9bb3c",
+    "status": "REVIEWED_CORPUS",
+    "skill": "cross_rules",
+    "review_method": "AI_ASSISTED_COMPARISON_WITH_DRAFT_STUDY_CORPUS",
+    "support_quotes": [
+      {
+        "information_id": "RSTP_DETAIL_19_3",
+        "quote": "L’article s’applique aussi à la première inscription d’un joueur jamais enregistré auparavant, non national du pays de l’association d’accueil, et n’y ayant pas vécu continûment pendant au moins les cinq dernières années. Ces critères se cumulent ; lire séparément la procédure de 19.4.c pour les non-nationaux y résidant depuis au moins cinq ans."
+      },
+      {
+        "information_id": "RSTP_DETAIL_19_4_c",
+        "quote": "Pour un mineur d’au moins dix ans qui n’est pas national du pays de l’association d’accueil et y a vécu continûment pendant au moins les cinq dernières années, la première inscription doit aussi être approuvée par la Chambre du Statut du Joueur, sous réserve du paragraphe 7."
+      },
+      {
+        "information_id": "RSTP_DETAIL_19_3",
+        "quote": "Jamais enregistré auparavant dans un club."
+      },
+      {
+        "information_id": "RSTP_DETAIL_19_3",
+        "quote": "Non-national du pays de l’association d’accueil."
+      },
+      {
+        "information_id": "RSTP_DETAIL_19_3",
+        "quote": "Absence de résidence continue dans ce pays pendant au moins les cinq dernières années."
+      },
+      {
+        "information_id": "RSTP_DETAIL_19_3",
+        "quote": "Cinq dernières années continues : des périodes discontinues additionnées ne sont pas décrites comme équivalentes dans ce texte."
+      },
+      {
+        "information_id": "RSTP_DETAIL_19_4_c",
+        "quote": "Premier enregistrement pour les non-nationaux avec conditions de résidence."
+      },
+      {
+        "information_id": "RSTP_DETAIL_19_4_c",
+        "quote": "Cinq ans de résidence continue ne signifient pas absence de procédure : cette première inscription reste expressément visée par 19.4.c pour un non-national mineur d’au moins dix ans."
+      }
+    ]
+  },
+  {
+    "id": "EXAM_94e09010577003ac421f",
+    "question": "Un mineur et le club d’essai ont tous deux leur domicile en Europe. L’essai débute pendant la saison de son 15e anniversaire. Les autres conditions propres au mineur sont remplies. Le club dépose le formulaire complet signé cinq jours avant le début. Quelle analyse est correcte ?",
+    "choices": {
+      "A": "L’âge impose dans tous les cas d’attendre le jour des 16 ans.",
+      "B": "Un accord parental réduit automatiquement le délai de dépôt à cinq jours.",
+      "C": "La localisation européenne dispense de tout formulaire.",
+      "D": "Le critère de saison d’anniversaire peut être rempli, mais le dépôt à dix jours au plus tard ne l’est pas."
+    },
+    "approved_answers": [
+      "D"
+    ],
+    "answer_mode": "SINGLE_CHOICE",
+    "option_explanations": {
+      "A": "Le texte prévoit une voie pour la saison du 15e anniversaire en Europe.",
+      "B": "L’accord parental ne remplace pas la formalité de dix jours.",
+      "C": "Le formulaire reste requis.",
+      "D": "La voie européenne d’âge et la formalité TMS sont deux contrôles différents."
+    },
+    "information_ids": [
+      "RSTP_DETAIL_19ter_8_a",
+      "RSTP_DETAIL_19ter_2"
+    ],
+    "theme": "REF_RSTP_MINORS_V2",
+    "family": "EXAM_94e09010577003ac421f",
+    "status": "REVIEWED_CORPUS",
+    "skill": "cross_rules",
+    "review_method": "AI_ASSISTED_COMPARISON_WITH_DRAFT_STUDY_CORPUS",
+    "support_quotes": [
+      {
+        "information_id": "RSTP_DETAIL_19ter_8_a",
+        "quote": "Le début de l’essai doit tomber dans la saison du 16e anniversaire du mineur ; ou dans celle de son 15e anniversaire si le domicile du mineur ET celui du club sont en Europe. Le texte vise la saison de l’anniversaire, pas nécessairement le jour où cet âge est atteint."
+      },
+      {
+        "information_id": "RSTP_DETAIL_19ter_2",
+        "quote": "Avant l’essai, club et joueur conviennent de ses conditions sur le formulaire FIFA : par exemple prise en charge du logement, voyage, repas et dépenses quotidiennes. Le club dépose le formulaire complet et dûment signé dans FIFA TMS au plus tard dix jours avant le début de l’essai."
+      },
+      {
+        "information_id": "RSTP_DETAIL_19ter_8_a",
+        "quote": "Début pendant la saison du 16e anniversaire OU pendant celle du 15e si les deux domiciles sont en Europe."
+      },
+      {
+        "information_id": "RSTP_DETAIL_19ter_8_a",
+        "quote": "Saison du 16e anniversaire ; alternative européenne : saison du 15e."
+      },
+      {
+        "information_id": "RSTP_DETAIL_19ter_8_a",
+        "quote": "Europe n’est pas synonyme d’Union européenne/EEE. Ne pas importer le périmètre de 19.2.b dans les règles d’essai."
+      },
+      {
+        "information_id": "RSTP_DETAIL_19ter_8_a",
+        "quote": "L’âge autorisant un essai ne vaut pas autorisation de transfert international ou de représentation par un agent."
+      },
+      {
+        "information_id": "RSTP_DETAIL_19ter_2",
+        "quote": "Conditions convenues avant l’essai ; dépôt TMS au plus tard dix jours avant son début."
+      },
+      {
+        "information_id": "RSTP_DETAIL_19ter_2",
+        "quote": "Dix jours AVANT, et non dans les dix jours suivant le début. Le formulaire doit être complet et signé lors du dépôt."
+      }
+    ]
+  },
+  {
+    "id": "EXAM_751dad8fae408a6f0335",
+    "question": "Un joueur mineur de 17 ans effectue deux essais dans deux clubs différents au cours de la même année civile. Chacun dure quatre semaines. Hors dérogation collective, un troisième club propose un essai de deux semaines. Quelle réponse est correcte ?",
+    "choices": {
+      "A": "Le troisième essai dépasse le plafond de deux essais dans l’année civile.",
+      "B": "Le troisième essai est admis car aucune période ne dépasse huit semaines.",
+      "C": "Le troisième essai est automatiquement admis si le total est inférieur à douze semaines.",
+      "D": "Chaque club ouvre un nouveau plafond annuel de deux essais pour le joueur."
+    },
+    "approved_answers": [
+      "A"
+    ],
+    "answer_mode": "SINGLE_CHOICE",
+    "option_explanations": {
+      "A": "Le joueur a déjà utilisé deux essais dans cette année civile.",
+      "B": "Le nombre annuel d’essais est une limite distincte de leur durée.",
+      "C": "Le texte ne crée pas ce plafond global de douze semaines.",
+      "D": "Le plafond annuel porte sur le mineur, pas sur chaque club séparément."
+    },
+    "information_ids": [
+      "RSTP_DETAIL_19ter_4",
+      "RSTP_DETAIL_19ter_9"
+    ],
+    "theme": "REF_RSTP_MINORS_V2",
+    "family": "EXAM_751dad8fae408a6f0335",
+    "status": "REVIEWED_CORPUS",
+    "skill": "cross_rules",
+    "review_method": "AI_ASSISTED_COMPARISON_WITH_DRAFT_STUDY_CORPUS",
+    "support_quotes": [
+      {
+        "information_id": "RSTP_DETAIL_19ter_4",
+        "quote": "À 21 ans ou moins : huit semaines maximum d’essai par club et par saison. Au-delà de 21 ans : trois semaines maximum. Les périodes consécutives ou non se cumulent pour ce plafond. Lire avec la réserve des accords collectifs valides du paragraphe 10."
+      },
+      {
+        "information_id": "RSTP_DETAIL_19ter_9",
+        "quote": "Un mineur peut participer au maximum à deux essais par année civile. Chaque essai est soumis au plafond de durée de 19ter.4. Ne pas remplacer l’année civile par la saison ; lire aussi la réserve des accords collectifs de 19ter.10."
+      },
+      {
+        "information_id": "RSTP_DETAIL_19ter_4",
+        "quote": "Huit semaines à 21 ans ou moins ; trois au-delà ; cumul par club et saison."
+      },
+      {
+        "information_id": "RSTP_DETAIL_19ter_4",
+        "quote": "Exemple fictif, hors dérogation collective : à 21 ans, deux passages de cinq puis quatre semaines dans le même club et la même saison totalisent neuf semaines et dépassent huit. À 22 ans, le plafond est trois semaines."
+      },
+      {
+        "information_id": "RSTP_DETAIL_19ter_4",
+        "quote": "Réserve des accords collectifs valides de 19ter.10."
+      },
+      {
+        "information_id": "RSTP_DETAIL_19ter_9",
+        "quote": "Deux essais par année civile."
+      },
+      {
+        "information_id": "RSTP_DETAIL_19ter_9",
+        "quote": "Deux essais dans deux clubs différents consomment aussi le plafond de deux essais dans l’année civile ; ce plafond vise le mineur, pas chaque club séparément."
+      }
+    ]
+  },
+  {
+    "id": "EXAM_82221ac48ca7160d0e80",
+    "question": "Un fonds extérieur reçoit 15 % de l’indemnité d’un futur transfert sans droit de décision. Un autre club obtient un veto contractuel sur les décisions d’emploi, sans part économique. Quelle analyse distingue les deux situations ?",
+    "choices": {
+      "A": "Le fonds échappe toujours aux règles car il ne décide de rien.",
+      "B": "Le partage économique relève de 18ter ; le pouvoir d’influence doit être examiné sous 18bis.",
+      "C": "Seul le pourcentage supérieur à 50 % serait interdit.",
+      "D": "L’autre club échappe nécessairement à 18bis car il n’est pas un tiers."
+    },
+    "approved_answers": [
+      "B"
+    ],
+    "answer_mode": "SINGLE_CHOICE",
+    "option_explanations": {
+      "A": "L’absence d’influence ne neutralise pas l’interdiction de droits économiques de tiers.",
+      "B": "Les deux mécanismes ont des objets distincts.",
+      "C": "Aucun seuil de 50 % ne fonde cette interdiction.",
+      "D": "18bis vise aussi les clubs cocontractants, réciproquement."
+    },
+    "information_ids": [
+      "RSTP_DETAIL_18bis_1",
+      "RSTP_DETAIL_18ter_1"
+    ],
+    "theme": "REF_RSTP_THIRD_PARTIES_V2",
+    "family": "EXAM_82221ac48ca7160d0e80",
+    "status": "REVIEWED_CORPUS",
+    "skill": "cross_rules",
+    "review_method": "AI_ASSISTED_COMPARISON_WITH_DRAFT_STUDY_CORPUS",
+    "support_quotes": [
+      {
+        "information_id": "RSTP_DETAIL_18bis_1",
+        "quote": "Un club ne peut conclure un contrat permettant au club ou aux clubs cocontractants, et réciproquement, ou à tout tiers d’acquérir la capacité d’influencer son indépendance, ses politiques ou les performances de ses équipes dans les questions d’emploi et de transfert."
+      },
+      {
+        "information_id": "RSTP_DETAIL_18ter_1",
+        "quote": "Aucun club ou joueur ne doit conclure un accord avec un tiers permettant à ce dernier de participer, en partie ou en totalité, à la compensation due lors du transfert futur d'un joueur entre clubs, ou de se voir assigner des droits liés à un transfert futur ou une compensation de transfert."
+      },
+      {
+        "information_id": "RSTP_DETAIL_18bis_1",
+        "quote": "Ce texte vise le club ou les clubs cocontractants, réciproquement, ET tout tiers : il ne se limite pas aux investisseurs extérieurs."
+      },
+      {
+        "information_id": "RSTP_DETAIL_18bis_1",
+        "quote": "La capacité contractuelle d’influencer est visée ; le texte n’exige pas ici de démontrer qu’une décision a déjà été effectivement imposée."
+      },
+      {
+        "information_id": "RSTP_DETAIL_18bis_1",
+        "quote": "Exemple pédagogique : une clause donnant à un autre club un droit de veto sur les choix d’emploi ou de transfert doit être examinée sous 18bis. Il n’est pas nécessaire qu’un pourcentage de revente soit aussi attribué."
+      },
+      {
+        "information_id": "RSTP_DETAIL_18ter_1",
+        "quote": "Exemple pédagogique : attribuer à un fonds tiers 20 % de l’indemnité d’un futur transfert entre dans le champ de l’interdiction, même sans pouvoir de décider du transfert."
+      },
+      {
+        "information_id": "RSTP_DETAIL_18ter_1",
+        "quote": "Inversement, l’absence de partage économique n’écarte pas une violation de 18bis si un contrat donne un pouvoir d’influence."
+      },
+      {
+        "information_id": "RSTP_DETAIL_18ter_1",
+        "quote": "Un ancien club où le joueur a été enregistré n’est pas un tiers selon la définition 14 ; cela ne constitue pas une validation générale de toute clause de revente ni de toute influence."
+      },
+      {
+        "information_id": "RSTP_DETAIL_18ter_1",
+        "quote": "Ne pas confondre une rémunération pour un service d’agent avec l’attribution à un tiers de droits sur un transfert futur. Les honoraires ont leur propre régime FFAR."
+      }
+    ]
+  },
+  {
+    "id": "EXAM_5b97f80926ecf3187388",
+    "question": "Un professionnel de 30 ans est transféré contre indemnité entre deux associations pendant son contrat. Quelles propositions sont exactes sur les deux mécanismes étudiés ?",
+    "choices": {
+      "A": "Ce transfert ouvre encore l’indemnité de formation parce que le joueur avait été formé avant 21 ans.",
+      "B": "Le joueur ne peut avoir aucun club formateur bénéficiaire après 23 ans.",
+      "C": "Ce transfert peut générer de la solidarité pour ses années de formation éligibles.",
+      "D": "La limite de fin d’année des 23 ans de l’indemnité de formation n’est pas un âge maximal de déclenchement de solidarité."
+    },
+    "approved_answers": [
+      "C",
+      "D"
+    ],
+    "answer_mode": "MULTIPLE_CHOICE",
+    "option_explanations": {
+      "A": "L’âge historique de formation ne supprime pas la borne du déclenchement de formation à 23 ans.",
+      "B": "Les clubs peuvent recevoir pour les années passées.",
+      "C": "La solidarité peut naître à cet âge, sous ses conditions.",
+      "D": "Il ne faut pas importer cette limite d’âge dans la solidarité."
+    },
+    "information_ids": [
+      "RSTP_DETAIL_20",
+      "RSTP_DETAIL_21"
+    ],
+    "theme": "REF_RSTP_TRAINING_SOLIDARITY_V2",
+    "family": "EXAM_5b97f80926ecf3187388",
+    "status": "REVIEWED_CORPUS",
+    "skill": "cross_rules",
+    "review_method": "AI_ASSISTED_COMPARISON_WITH_DRAFT_STUDY_CORPUS",
+    "support_quotes": [
+      {
+        "information_id": "RSTP_DETAIL_20",
+        "quote": "L'indemnité de formation doit être versée au(x) club(s) formateur(s) d'un joueur dans deux cas : (1) lorsqu'un joueur est enregistré pour la première fois en tant que professionnel, et (2) chaque fois qu'un joueur professionnel est transféré jusqu'à la fin de l'année civile de son 23e anniversaire. L'obligation de verser l'indemnité de formation s'applique indépendamment du fait que le transfert ait lieu pendant ou à la fin du contrat du joueur. Les dispositions relatives à l'indemnité de formation sont définies à l'Annexe 4 de ce règlement. Les principes de l'indemnité de formation ne s'appliquent pas au football féminin."
+      },
+      {
+        "information_id": "RSTP_DETAIL_21",
+        "quote": "Si un joueur professionnel est transféré avant l'expiration de son contrat, tout club ayant contribué à son éducation et à sa formation reçoit une part de l'indemnité versée à son ancien club, appelée contribution de solidarité. Les dispositions relatives aux contributions de solidarité sont définies à l'Annexe 5 de ce règlement."
+      },
+      {
+        "information_id": "RSTP_DETAIL_20",
+        "quote": "Première inscription professionnelle OU transfert ultérieur éligible jusqu’à la fin de l’année civile des 23 ans, à lire avec l’annexe 4."
+      },
+      {
+        "information_id": "RSTP_DETAIL_20",
+        "quote": "Formation : un transfert en fin de contrat peut déclencher une indemnité de formation. Ne pas appliquer automatiquement la condition « contrat encore en cours » de la solidarité."
+      },
+      {
+        "information_id": "RSTP_DETAIL_20",
+        "quote": "L’exclusion du football féminin est explicite pour l’indemnité de formation ; ne pas l’étendre à la solidarité sur la seule base de cette phrase."
+      },
+      {
+        "information_id": "RSTP_DETAIL_20",
+        "quote": "Le renvoi à l’annexe est développé dans la suite de cette fiche ; l’alerte et le statut du run original sont conservés."
+      },
+      {
+        "information_id": "RSTP_DETAIL_20",
+        "quote": "Les principes de l'indemnité de formation ne s'appliquent pas au football féminin."
+      },
+      {
+        "information_id": "RSTP_DETAIL_21",
+        "quote": "Un joueur professionnel est transféré avant la fin de son contrat."
+      },
+      {
+        "information_id": "RSTP_DETAIL_21",
+        "quote": "Le régime de répartition et les cas de transfert, prêt compris, figurent à l’annexe 5."
+      },
+      {
+        "information_id": "RSTP_DETAIL_21",
+        "quote": "Pas de limite d’âge du joueur transféré posée ici : un transfert à 30 ans peut générer de la solidarité pour ses années de formation. Ne pas importer le seuil de 23 ans de l’indemnité de formation."
+      },
+      {
+        "information_id": "RSTP_DETAIL_21",
+        "quote": "Le renvoi à l’annexe est développé dans la suite de cette fiche ; l’alerte et le statut du run original sont conservés."
+      }
+    ]
+  },
+  {
+    "id": "EXAM_7215d6ebe105c37b26f5",
+    "question": "A a formé un joueur de 12 à 17 ans. Celui-ci signe professionnel à B puis, à 21 ans, B le transfère contre paiement à C d’une autre association pendant son contrat. Quelle conclusion sur A est correcte ?",
+    "choices": {
+      "A": "A reçoit automatiquement toute l’indemnité de formation du transfert B–C.",
+      "B": "A ne reçoit jamais plus rien après le premier contrat professionnel.",
+      "C": "A peut recevoir de la solidarité pour ses périodes éligibles ; l’indemnité de formation du transfert ultérieur revient en principe au seul club précédent pour sa formation effective.",
+      "D": "A reçoit 5 % de l’indemnité de transfert pour chaque année passée chez lui."
+    },
+    "approved_answers": [
+      "C"
+    ],
+    "answer_mode": "SINGLE_CHOICE",
+    "option_explanations": {
+      "A": "Au transfert ultérieur, le régime de formation vise en principe le club précédent.",
+      "B": "Les transferts ultérieurs éligibles peuvent encore générer de la solidarité pour A.",
+      "C": "La formation et la solidarité n’ont pas la même liste de bénéficiaires pour cet événement.",
+      "D": "5 % est la réserve globale et non un taux annuel par club."
+    },
+    "information_ids": [
+      "RSTP_DETAIL_ANNEX4_3_1",
+      "RSTP_DETAIL_ANNEX5_1_1"
+    ],
+    "theme": "REF_RSTP_TRAINING_SOLIDARITY_V2",
+    "family": "EXAM_7215d6ebe105c37b26f5",
+    "status": "REVIEWED_CORPUS",
+    "skill": "cross_rules",
+    "review_method": "AI_ASSISTED_COMPARISON_WITH_DRAFT_STUDY_CORPUS",
+    "support_quotes": [
+      {
+        "information_id": "RSTP_DETAIL_ANNEX4_3_1",
+        "quote": "Pour les cas non régis par les Règlements de la FIFA Clearing House, lors de l'enregistrement en tant que professionnel pour la première fois, le club avec lequel le joueur est enregistré est responsable du paiement de l'indemnité de formation dans les 30 jours suivant l'enregistrement à chaque club avec lequel le joueur a été précédemment enregistré et qui a contribué à sa formation à partir de l'année civile de son 12ème anniversaire. Le montant payable est calculé au prorata du temps de formation passé par le joueur dans chaque club. Dans le cas de transferts ultérieurs, l'indemnité de formation sera seulement due à son ancien club pour le temps pendant lequel il a été effectivement formé par ce club."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX5_1_1",
+        "quote": "Si un joueur professionnel change de club durant son contrat, 5% de toute indemnité de transfert, à l'exclusion de l'indemnité de formation versée à son ancien club, doivent être prélevés du montant total de cette indemnité. Ce montant est distribué par le nouveau club en tant que contribution de solidarité aux clubs ayant participé à la formation et à l'éducation du joueur entre ses 12e et 23e années d'anniversaire, conformément à un calcul pro-rata en cas de période de moins d'un an."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX4_3_1",
+        "quote": "Les cas ne sont pas régis par les Règlements de la FIFA Clearing House."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX4_3_1",
+        "quote": "Première inscription : plusieurs clubs peuvent recevoir selon leur durée de formation depuis l’année civile des 12 ans. Transfert professionnel ultérieur : seul le club précédent, pour la formation effectivement dispensée par lui."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX4_3_1",
+        "quote": "Le texte renvoie au parcours fourni par le passeport du joueur ; le temps passé dans chaque club se calcule au prorata."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX5_1_1",
+        "quote": "5 % est la réserve à répartir entre les clubs concernés, pas 5 % pour chacun. L’indemnité de formation est exclue de l’assiette mentionnée."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX5_1_1",
+        "quote": "Exemple fictif : indemnité de transfert pertinente de 1 000 000 € ; réserve totale de référence = 50 000 €. La part de chaque club dépend ensuite des années et fractions d’années."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX5_1_1",
+        "quote": "Quand toutes les années de formation 12–23 ne sont pas encore accomplies, ne pas attribuer à un club les années futures ; appliquer le barème aux périodes éligibles."
+      }
+    ]
+  },
+  {
+    "id": "EXAM_27d92a8eb3b3c3563c61",
+    "question": "Quelle distinction est correcte concernant la catégorie 4 ?",
+    "choices": {
+      "A": "Rejoindre un club de catégorie 4 et employer le tarif catégorie 4 pour les années 12–15 sont la même exception.",
+      "B": "Le tarif de catégorie 4 s’applique à toutes les années jusqu’à 23 ans dans tous les transferts.",
+      "C": "Le tarif de catégorie 4 fixe la solidarité à 4 %.",
+      "D": "Rejoindre un club de catégorie 4 est un cas de non-paiement de formation ; employer son tarif pour les années 12–15 est une règle de calcul."
+    },
+    "approved_answers": [
+      "D"
+    ],
+    "answer_mode": "SINGLE_CHOICE",
+    "option_explanations": {
+      "A": "Une exclusion de paiement et une base de calcul ne se confondent pas.",
+      "B": "La règle de calcul spéciale vise les années civiles 12–15.",
+      "C": "La catégorie de formation ne crée pas un taux de solidarité de 4 %.",
+      "D": "Le texte distingue ces deux usages."
+    },
+    "information_ids": [
+      "RSTP_DETAIL_ANNEX4_2_2_b",
+      "RSTP_DETAIL_ANNEX4_5_3"
+    ],
+    "theme": "REF_RSTP_TRAINING_SOLIDARITY_V2",
+    "family": "EXAM_27d92a8eb3b3c3563c61",
+    "status": "REVIEWED_CORPUS",
+    "skill": "cross_rules",
+    "review_method": "AI_ASSISTED_COMPARISON_WITH_DRAFT_STUDY_CORPUS",
+    "support_quotes": [
+      {
+        "information_id": "RSTP_DETAIL_ANNEX4_2_2_b",
+        "quote": "L'indemnité de formation n'est pas due si le joueur est transféré dans un club de catégorie 4."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX4_5_3",
+        "quote": "Pour éviter que l'indemnité de formation des très jeunes joueurs ne soit fixée à des niveaux déraisonnablement élevés, les coûts pour les années civiles des 12ème à 15ème anniversaires sont basés sur les coûts de formation et d'éducation des clubs de catégorie 4."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX4_2_2_b",
+        "quote": "Ne pas confondre : rejoindre un club de catégorie 4 peut exclure l’indemnité ; employer le tarif de catégorie 4 pour les années 12–15 est une règle de calcul distincte."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX4_5_3",
+        "quote": "Quatre années civiles : 12, 13, 14 et 15. Exemple fictif : tarif catégorie 4 de 10 000 € et quatre années complètes = 40 000 €, sans remplacer ce tarif par celui, plus élevé, du nouveau club."
+      }
+    ]
+  },
+  {
+    "id": "EXAM_102f960f969494b8352a",
+    "question": "Deux mouvements UE/EEE concernent des années entièrement soumises au tarif ordinaire : coût du club de catégorie inférieure 30 000 €, de catégorie supérieure 90 000 €. Quelles bases annuelles sont correctes ?",
+    "choices": {
+      "A": "Inférieure vers supérieure : 60 000 €.",
+      "B": "Supérieure vers inférieure : 30 000 €.",
+      "C": "Supérieure vers inférieure : 60 000 €.",
+      "D": "Inférieure vers supérieure : 90 000 €."
+    },
+    "approved_answers": [
+      "A",
+      "B"
+    ],
+    "answer_mode": "MULTIPLE_CHOICE",
+    "option_explanations": {
+      "A": "Moyenne des deux coûts : (30 000 + 90 000) / 2.",
+      "B": "Le coût du club de catégorie inférieure est retenu.",
+      "C": "Le mouvement vers la catégorie inférieure utilise son coût, pas une moyenne.",
+      "D": "Le mouvement vers la catégorie supérieure applique la moyenne dans ce cas. Tarifs fictifs."
+    },
+    "information_ids": [
+      "RSTP_DETAIL_ANNEX4_6_1_a",
+      "RSTP_DETAIL_ANNEX4_6_1_b"
+    ],
+    "theme": "REF_RSTP_TRAINING_SOLIDARITY_V2",
+    "family": "EXAM_102f960f969494b8352a",
+    "status": "REVIEWED_CORPUS",
+    "skill": "calculation",
+    "review_method": "AI_ASSISTED_COMPARISON_WITH_DRAFT_STUDY_CORPUS",
+    "support_quotes": [
+      {
+        "information_id": "RSTP_DETAIL_ANNEX4_6_1_a",
+        "quote": "Si le joueur passe d'un club de catégorie inférieure à un club de catégorie supérieure, le calcul se base sur les coûts moyens de formation des deux clubs."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX4_6_1_b",
+        "quote": "Si le joueur passe d'un club de catégorie supérieure à un club de catégorie inférieure, le calcul se base sur les coûts de formation du club de catégorie inférieure."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX4_6_1_a",
+        "quote": "Exemple fictif : coûts des deux clubs 30 000 € et 90 000 € ; moyenne = 60 000 € par année concernée. Vérifier séparément les autres règles applicables, notamment 12–15 ans."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX4_6_1_b",
+        "quote": "Exemple fictif : coûts de 90 000 € vers 30 000 € ; base de 30 000 €, pas moyenne de 60 000 €."
+      }
+    ]
+  },
+  {
+    "id": "EXAM_cbeac10e62e09a76ca2a",
+    "question": "Dans le régime UE/EEE décrit, le club envoie à temps une offre au moins équivalente par courriel. Il ne possède aucune confirmation de réception du joueur. Quelle analyse de cette voie électronique est correcte ?",
+    "choices": {
+      "A": "La preuve de réception confirmée par le joueur manque pour cette voie.",
+      "B": "L’envoi seul remplit nécessairement toutes les conditions.",
+      "C": "Le courriel est toujours interdit sans exception.",
+      "D": "Une offre supérieure dispense de toute preuve de réception."
+    },
+    "approved_answers": [
+      "A"
+    ],
+    "answer_mode": "SINGLE_CHOICE",
+    "option_explanations": {
+      "A": "C’est la condition spécifique de la voie électronique étudiée.",
+      "B": "Le texte exige aussi l’obtention d’une confirmation pouvant être produite.",
+      "C": "Le texte fourni admet cette voie sous conditions.",
+      "D": "La valeur de l’offre ne remplace pas les exigences de transmission."
+    },
+    "information_ids": [
+      "RSTP_DETAIL_ANNEX4_6_3",
+      "RSTP_DETAIL_ANNEX4_6_3_i"
+    ],
+    "theme": "REF_RSTP_TRAINING_SOLIDARITY_V2",
+    "family": "EXAM_cbeac10e62e09a76ca2a",
+    "status": "REVIEWED_CORPUS",
+    "skill": "proof",
+    "review_method": "AI_ASSISTED_COMPARISON_WITH_DRAFT_STUDY_CORPUS",
+    "support_quotes": [
+      {
+        "information_id": "RSTP_DETAIL_ANNEX4_6_3",
+        "quote": "Dans le régime UE/EEE, si l’ancien club ne propose pas de contrat au joueur, aucune indemnité de formation n’est due à ce club, sauf s’il justifie son droit. Il doit proposer un contrat écrit par recommandé au moins 60 jours avant l’expiration du contrat actuel, sous réserve de l’exception temporaire de courriel ci-dessous. L’offre est d’une valeur au moins équivalente au contrat actuel. Les droits à indemnité des clubs précédents ne sont pas affectés."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX4_6_3_i",
+        "quote": "L'offre de contrat peut être faite par courrier électronique, à condition que l'ancien club obtienne une confirmation du joueur qu'il a bien reçu une copie de ladite offre et puisse fournir cette confirmation en cas de litige."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX4_6_3",
+        "quote": "Régime UE/EEE applicable."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX4_6_3",
+        "quote": "Offre écrite au moins 60 jours avant l’expiration du contrat actuel."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX4_6_3",
+        "quote": "Valeur au moins équivalente au contrat actuel."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX4_6_3",
+        "quote": "Recommandé, sous réserve du courriel avec confirmation prévu en 6.3.i."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX4_6_3",
+        "quote": "Correction : « au moins équivalente » autorise aussi une offre supérieure ; l’extraction disait seulement « équivalente »."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX4_6_3",
+        "quote": "Sans offre : exception si l’ancien club justifie son droit. Dans tous les cas, les droits des clubs précédents sont réservés."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX4_6_3",
+        "quote": "La possibilité de courriel est qualifiée de temporaire dans le texte fourni : la fiche ne décide pas de son maintien pour une autre édition."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX4_6_3_i",
+        "quote": "Le simple envoi du courriel ne suffit pas : obtenir du joueur la confirmation de réception et pouvoir la produire en cas de litige. Les exigences de délai et de valeur de l’offre demeurent."
+      }
+    ]
+  },
+  {
+    "id": "EXAM_ebaf6bc7b7117721ef5f",
+    "question": "Une compensation pertinente de 8 000 000 € génère une contribution de solidarité. Un club a enregistré le joueur pendant les quatre années civiles complètes de ses 12 à 15 ans. Quelle est sa part pour ces périodes ?",
+    "choices": {
+      "A": "20 000 €",
+      "B": "80 000 €",
+      "C": "400 000 €",
+      "D": "1 600 000 €"
+    },
+    "approved_answers": [
+      "B"
+    ],
+    "answer_mode": "SINGLE_CHOICE",
+    "option_explanations": {
+      "A": "Ce montant ne correspond qu’à une des quatre années.",
+      "B": "8 000 000 × 0,25 % × 4 = 80 000.",
+      "C": "400 000 est la réserve globale de référence de 5 %, pas cette part.",
+      "D": "Ce montant applique à tort 20 % au transfert au lieu de 20 % de la réserve."
+    },
+    "information_ids": [
+      "RSTP_DETAIL_ANNEX5_1_1_a",
+      "RSTP_DETAIL_ANNEX5_1_1_b",
+      "RSTP_DETAIL_ANNEX5_1_1_c",
+      "RSTP_DETAIL_ANNEX5_1_1_d"
+    ],
+    "theme": "REF_RSTP_TRAINING_SOLIDARITY_V2",
+    "family": "EXAM_ebaf6bc7b7117721ef5f",
+    "status": "REVIEWED_CORPUS",
+    "skill": "calculation",
+    "review_method": "AI_ASSISTED_COMPARISON_WITH_DRAFT_STUDY_CORPUS",
+    "support_quotes": [
+      {
+        "information_id": "RSTP_DETAIL_ANNEX5_1_1_a",
+        "quote": "Pour l’année civile du 12e anniversaire : 5 % de la réserve de solidarité de 5 %, soit 0,25 % de la compensation de transfert pertinente, au prorata si l’enregistrement au club couvre moins d’un an. Les conditions générales de l’annexe 5.1.1 s’appliquent."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX5_1_1_b",
+        "quote": "Pour l’année civile du 13e anniversaire : 5 % de la réserve de solidarité de 5 %, soit 0,25 % de la compensation de transfert pertinente, au prorata si l’enregistrement au club couvre moins d’un an. Les conditions générales de l’annexe 5.1.1 s’appliquent."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX5_1_1_c",
+        "quote": "Pour l’année civile du 14e anniversaire : 5 % de la réserve de solidarité de 5 %, soit 0,25 % de la compensation de transfert pertinente, au prorata si l’enregistrement au club couvre moins d’un an. Les conditions générales de l’annexe 5.1.1 s’appliquent."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX5_1_1_d",
+        "quote": "Pour l’année civile du 15e anniversaire : 5 % de la réserve de solidarité de 5 %, soit 0,25 % de la compensation de transfert pertinente, au prorata si l’enregistrement au club couvre moins d’un an. Les conditions générales de l’annexe 5.1.1 s’appliquent."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX5_1_1_a",
+        "quote": "Enregistrement auprès du club formateur pendant tout ou partie de l’année civile visée."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX5_1_1_a",
+        "quote": "Conditions générales de solidarité de l’annexe 5.1.1 remplies."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX5_1_1_a",
+        "quote": "Exemple fictif : sur une indemnité pertinente de 1 000 000 €  une année complète ouvre une part de 2 500 € (séparateur de milliers)."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX5_1_1_a",
+        "quote": "Prorata : si la durée éligible représente exactement la moitié de cette année, la part est divisée par deux. Ne pas appliquer le taux annuel entier à une fraction d’année."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX5_1_1_b",
+        "quote": "Enregistrement auprès du club formateur pendant tout ou partie de l’année civile visée."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX5_1_1_b",
+        "quote": "Conditions générales de solidarité de l’annexe 5.1.1 remplies."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX5_1_1_b",
+        "quote": "Exemple fictif : sur une indemnité pertinente de 1 000 000 €  une année complète ouvre une part de 2 500 € (séparateur de milliers)."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX5_1_1_b",
+        "quote": "Prorata : si la durée éligible représente exactement la moitié de cette année, la part est divisée par deux. Ne pas appliquer le taux annuel entier à une fraction d’année."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX5_1_1_c",
+        "quote": "Enregistrement auprès du club formateur pendant tout ou partie de l’année civile visée."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX5_1_1_c",
+        "quote": "Conditions générales de solidarité de l’annexe 5.1.1 remplies."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX5_1_1_c",
+        "quote": "Exemple fictif : sur une indemnité pertinente de 1 000 000 €  une année complète ouvre une part de 2 500 € (séparateur de milliers)."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX5_1_1_c",
+        "quote": "Prorata : si la durée éligible représente exactement la moitié de cette année, la part est divisée par deux. Ne pas appliquer le taux annuel entier à une fraction d’année."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX5_1_1_d",
+        "quote": "Enregistrement auprès du club formateur pendant tout ou partie de l’année civile visée."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX5_1_1_d",
+        "quote": "Conditions générales de solidarité de l’annexe 5.1.1 remplies."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX5_1_1_d",
+        "quote": "Exemple fictif : sur une indemnité pertinente de 1 000 000 €  une année complète ouvre une part de 2 500 € (séparateur de milliers)."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX5_1_1_d",
+        "quote": "Prorata : si la durée éligible représente exactement la moitié de cette année, la part est divisée par deux. Ne pas appliquer le taux annuel entier à une fraction d’année."
+      }
+    ]
+  },
+  {
+    "id": "EXAM_2235d5158a006113a223",
+    "question": "Sur une compensation pertinente de 4 000 000 €, un club a une durée éligible représentant exactement une demi-année civile des 16 ans du joueur. Quelle part donne le barème et ce prorata ?",
+    "choices": {
+      "A": "5 000 €",
+      "B": "20 000 €",
+      "C": "10 000 €",
+      "D": "100 000 €"
+    },
+    "approved_answers": [
+      "C"
+    ],
+    "answer_mode": "SINGLE_CHOICE",
+    "option_explanations": {
+      "A": "Ce montant divise encore par deux la part déjà proratisée.",
+      "B": "20 000 correspond à une année entière, pas à une moitié.",
+      "C": "4 000 000 × 0,50 % × 1/2 = 10 000.",
+      "D": "Ce résultat confond la fraction annuelle avec la réserve globale."
+    },
+    "information_ids": [
+      "RSTP_DETAIL_ANNEX5_1_1_e"
+    ],
+    "theme": "REF_RSTP_TRAINING_SOLIDARITY_V2",
+    "family": "EXAM_2235d5158a006113a223",
+    "status": "REVIEWED_CORPUS",
+    "skill": "calculation",
+    "review_method": "AI_ASSISTED_COMPARISON_WITH_DRAFT_STUDY_CORPUS",
+    "support_quotes": [
+      {
+        "information_id": "RSTP_DETAIL_ANNEX5_1_1_e",
+        "quote": "Pour l’année civile du 16e anniversaire : 10 % de la réserve de solidarité de 5 %, soit 0,50 % de la compensation de transfert pertinente, au prorata si l’enregistrement au club couvre moins d’un an. Les conditions générales de l’annexe 5.1.1 s’appliquent."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX5_1_1_e",
+        "quote": "Enregistrement auprès du club formateur pendant tout ou partie de l’année civile visée."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX5_1_1_e",
+        "quote": "Conditions générales de solidarité de l’annexe 5.1.1 remplies."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX5_1_1_e",
+        "quote": "Exemple fictif : sur une indemnité pertinente de 1 000 000 €  une année complète ouvre une part de 5 000 € (séparateur de milliers)."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX5_1_1_e",
+        "quote": "Prorata : si la durée éligible représente exactement la moitié de cette année, la part est divisée par deux. Ne pas appliquer le taux annuel entier à une fraction d’année."
+      }
+    ]
+  },
+  {
+    "id": "EXAM_1204d9369f1322674329",
+    "question": "Le club formateur est affilié en France. Toutes les autres conditions de solidarité FIFA sont remplies. Quels mouvements peuvent ouvrir son droit dans les cas décrits par l’annexe 5 ?",
+    "choices": {
+      "A": "France vers Italie.",
+      "B": "France vers France, au seul titre de ces deux cas FIFA.",
+      "C": "Italie vers Italie.",
+      "D": "Aucun transfert après les 23 ans du joueur."
+    },
+    "approved_answers": [
+      "A",
+      "C"
+    ],
+    "answer_mode": "MULTIPLE_CHOICE",
+    "option_explanations": {
+      "A": "Transfert entre associations différentes.",
+      "B": "Transfert et formateur dans la même association : vérifier séparément les règles nationales.",
+      "C": "Transfert dans une même association avec formateur affilié à une autre.",
+      "D": "La solidarité ne s’arrête pas à cet âge de transfert."
+    },
+    "information_ids": [
+      "RSTP_DETAIL_ANNEX5_1_2_a",
+      "RSTP_DETAIL_ANNEX5_1_2_b"
+    ],
+    "theme": "REF_RSTP_TRAINING_SOLIDARITY_V2",
+    "family": "EXAM_1204d9369f1322674329",
+    "status": "REVIEWED_CORPUS",
+    "skill": "scope",
+    "review_method": "AI_ASSISTED_COMPARISON_WITH_DRAFT_STUDY_CORPUS",
+    "support_quotes": [
+      {
+        "information_id": "RSTP_DETAIL_ANNEX5_1_2_a",
+        "quote": "Le club formateur peut recevoir sa part de solidarité lorsqu’un professionnel est transféré, définitivement ou en prêt, entre clubs affiliés à des associations différentes, sous les conditions générales de l’annexe 5.1.1."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX5_1_2_b",
+        "quote": "Le club formateur peut recevoir sa part de solidarité lorsqu’un professionnel est transféré, définitivement ou en prêt, entre clubs affiliés à une même association, à condition que ce club formateur soit affilié à une autre association et sous les conditions générales de l’annexe 5.1.1."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX5_1_2_a",
+        "quote": "Le joueur doit être transféré entre des clubs de différentes associations."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX5_1_2_a",
+        "quote": "Deux clubs affiliés à des associations différentes ; transfert définitif OU prêt, sous les conditions générales de solidarité."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX5_1_2_b",
+        "quote": "Le joueur doit être transféré entre des clubs de la même association, tandis que le club formateur est affilié à une association différente."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX5_1_2_b",
+        "quote": "Exemple fictif : transfert entre deux clubs français ; un club formateur affilié au Brésil peut relever de ce cas. Le seul caractère national du transfert n’exclut donc pas toute solidarité internationale."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX5_1_2_b",
+        "quote": "Ce cas donne le droit au club formateur affilié à l’autre association ; ne pas en déduire automatiquement que tous les formateurs domestiques reçoivent dans le même régime FIFA."
+      }
+    ]
+  },
+  {
+    "id": "EXAM_a958865f0ce499f86975",
+    "question": "Le nouveau club affirme : « Les annexes imposent toujours un paiement direct sous trente jours, donc je peux ignorer la Clearing House. » Quelle réponse est correcte ?",
+    "choices": {
+      "A": "Oui, le délai de trente jours supprime toute autre procédure.",
+      "B": "Oui, si le joueur a plus de 23 ans.",
+      "C": "Non, tout paiement hors Clearing House est interdit sans exception.",
+      "D": "Non, les clauses de paiement hors Clearing House et les renvois au règlement Clearing House doivent être distingués."
+    },
+    "approved_answers": [
+      "D"
+    ],
+    "answer_mode": "SINGLE_CHOICE",
+    "option_explanations": {
+      "A": "Les clauses de trente jours citées sont assorties d’une réserve de champ.",
+      "B": "L’âge ne permet pas d’ignorer le régime applicable.",
+      "C": "Les annexes décrivent justement aussi des cas hors dispositif.",
+      "D": "Les annexes organisent explicitement les deux cadres."
+    },
+    "information_ids": [
+      "RSTP_DETAIL_ANNEX4_3_2",
+      "RSTP_DETAIL_ANNEX5_2_1",
+      "RSTP_DETAIL_ANNEX5_2_3"
+    ],
+    "theme": "REF_RSTP_TRAINING_SOLIDARITY_V2",
+    "family": "EXAM_a958865f0ce499f86975",
+    "status": "REVIEWED_CORPUS",
+    "skill": "scope",
+    "review_method": "AI_ASSISTED_COMPARISON_WITH_DRAFT_STUDY_CORPUS",
+    "support_quotes": [
+      {
+        "information_id": "RSTP_DETAIL_ANNEX4_3_2",
+        "quote": "Dans les deux cas mentionnés, pour les cas non régis par les Règlements de la FIFA Clearing House, le délai pour le paiement de l'indemnité de formation est de 30 jours suivant l'enregistrement du professionnel auprès de la nouvelle association."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX5_2_1",
+        "quote": "Pour les cas non régis par le Règlement de la FIFA Clearing House, le nouveau club doit payer la contribution de solidarité au(x) club(s) formateur(s) conformément aux dispositions prévues, au plus tard 30 jours après l'enregistrement du joueur ou, en cas de paiements conditionnels, 30 jours après la date de ces paiements."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX5_2_3",
+        "quote": "Pour les cas régis par le Règlement de la FIFA Clearing House, le paiement de la contribution de solidarité doit être effectué conformément à ce règlement."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX4_3_2",
+        "quote": "Les cas ne sont pas régis par les Règlements de la FIFA Clearing House."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX4_3_2",
+        "quote": "Réserve essentielle : ces trente jours sont stipulés pour les cas NON régis par la Clearing House."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX5_2_1",
+        "quote": "Non régis par le Règlement de la FIFA Clearing House."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX5_2_1",
+        "quote": "Distinguer le délai après enregistrement et, pour les paiements conditionnels, après le paiement concerné."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX5_2_1",
+        "quote": "La réserve « hors Clearing House » fait partie de la règle."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX5_2_3",
+        "quote": "Régis par le Règlement de la FIFA Clearing House."
+      },
+      {
+        "information_id": "RSTP_DETAIL_ANNEX5_2_3",
+        "quote": "Pour les cas couverts, consulter la fiche Clearing House pour la procédure ; ne pas remplacer ce renvoi par un paiement direct systématique."
+      }
+    ]
+  },
+  {
+    "id": "EXAM_120c0fee804bbaf2cbd2",
+    "question": "Quel enchaînement respecte les délais des étapes distinctes du dispositif Clearing House étudié ?",
+    "choices": {
+      "A": "Inspection provisoire 10 jours ; révision initiale 15 jours ; paiement 30 jours après Request to Pay.",
+      "B": "Inspection 30 jours ; révision 10 jours ; paiement 15 jours après le transfert.",
+      "C": "Inspection 15 jours ; révision 30 jours ; paiement 10 jours après la première signature.",
+      "D": "Tous les délais partent automatiquement du jour du transfert."
+    },
+    "approved_answers": [
+      "A"
+    ],
+    "answer_mode": "SINGLE_CHOICE",
+    "option_explanations": {
+      "A": "Les trois repères correspondent à des étapes et points de départ distincts.",
+      "B": "Les délais et le point de départ du paiement sont inversés.",
+      "C": "Ces valeurs ne correspondent pas aux étapes présentées.",
+      "D": "Chaque étape possède son propre déclencheur."
+    },
+    "information_ids": [
+      "FCH_CORE_005",
+      "FCH_CORE_006",
+      "FCH_CORE_013"
+    ],
+    "theme": "REF_FCH_CORE_2026_V1",
+    "family": "EXAM_120c0fee804bbaf2cbd2",
+    "status": "REVIEWED_CORPUS",
+    "skill": "dates",
+    "review_method": "AI_ASSISTED_COMPARISON_WITH_DRAFT_STUDY_CORPUS",
+    "support_quotes": [
+      {
+        "information_id": "FCH_CORE_005",
+        "quote": "TMS génère un EPP provisoire lorsqu’un déclencheur est identifié. Toutes les associations et tous les clubs peuvent l’inspecter pendant dix jours. Une association absente peut demander à être incluse ; un club absent sollicite son association pour demander sa participation et fournir les informations pertinentes. Après inspection, le secrétariat général évalue le passeport."
+      },
+      {
+        "information_id": "FCH_CORE_006",
+        "quote": "La FIFA invite les parties pertinentes à la révision dans TMS, pour quinze jours, prolongeables exceptionnellement à sa discrétion. Les associations demandent les corrections d’enregistrement avec pièces : attestation, ITC et contrat si applicables. L’ancien club produit l’offre de contrat et sa notification si elles conditionnent son droit. S’il n’a pas fait d’offre mais revendique un droit, demande motivée et preuves. Le nouveau club produit toute renonciation invoquée ; le formateur peut en contester la validité par écrit dans TMS."
+      },
+      {
+        "information_id": "FCH_CORE_013",
+        "quote": "La Request to Pay n’est émise qu’après réussite des contrôles du nouveau club et des clubs formateurs concernés ET EPP et attribution définitifs et contraignants. Le nouveau club dispose de 30 jours après réception pour payer intégralement, frais bancaires compris, par virement depuis un compte à son propre nom. Il ne peut déléguer l’obligation de payer à un tiers."
+      },
+      {
+        "information_id": "FCH_CORE_005",
+        "quote": "L’EPP peut être écarté si rien n’indique une inscription dans une autre association ; une réouverture reste possible à la discrétion du secrétariat général sur demande motivée."
+      },
+      {
+        "information_id": "FCH_CORE_013",
+        "quote": "Contrôles de conformité réussis."
+      },
+      {
+        "information_id": "FCH_CORE_013",
+        "quote": "EPP et attribution définitifs et contraignants."
+      },
+      {
+        "information_id": "FCH_CORE_013",
+        "quote": "Demande disponible sur le portail, notification par courriel. Une adresse TMS ou portail non actualisée n’invalide pas la notification."
+      },
+      {
+        "information_id": "FCH_CORE_013",
+        "quote": "Plusieurs attributions peuvent être regroupées dans une demande de paiement."
+      }
+    ]
+  },
+  {
+    "id": "EXAM_ce88041c352c48e9e7bc",
+    "question": "Une Request to Pay de 80 000 € n’est pas intégralement payée à la première échéance ; aucun montant n’a été payé. Selon le dispositif étudié, quel total doit alors être payé dans les sept jours supplémentaires avec le prélèvement de 2,5 % ?",
+    "choices": {
+      "A": "80 000 €",
+      "B": "82 000 €",
+      "C": "84 000 €",
+      "D": "100 000 €"
+    },
+    "approved_answers": [
+      "B"
+    ],
+    "answer_mode": "SINGLE_CHOICE",
+    "option_explanations": {
+      "A": "Le prélèvement administratif manque.",
+      "B": "80 000 + 80 000 × 2,5 % = 82 000.",
+      "C": "4 000 représente 5 %, pas 2,5 %.",
+      "D": "Le prélèvement n’est pas un forfait de 20 000."
+    },
+    "information_ids": [
+      "FCH_CORE_014"
+    ],
+    "theme": "REF_FCH_CORE_2026_V1",
+    "family": "EXAM_ce88041c352c48e9e7bc",
+    "status": "REVIEWED_CORPUS",
+    "skill": "calculation",
+    "review_method": "AI_ASSISTED_COMPARISON_WITH_DRAFT_STUDY_CORPUS",
+    "support_quotes": [
+      {
+        "information_id": "FCH_CORE_014",
+        "quote": "Paiement incomplet à la première échéance : prélèvement administratif de 2,5 % du montant demandé, versé aux clubs formateurs à la place d’intérêts de retard, et sept jours supplémentaires pour payer le tout. À défaut au terme supplémentaire, procédure disciplinaire. L’article 17.6 prévoit amende ET interdiction d’enregistrer de nouveaux joueurs, levée après paiement intégral."
+      },
+      {
+        "information_id": "FCH_CORE_014",
+        "quote": "Ce prélèvement de retard n’est pas le même mécanisme que la sanction de premier échec de conformité à l’article 17.7."
+      }
+    ]
+  },
+  {
+    "id": "EXAM_2a777d2c5bec5456936f",
+    "question": "Une partie reçoit uniquement le dispositif d’une décision du Tribunal. Pour préserver la voie d’appel, quel raisonnement est correct dans le socle étudié ?",
+    "choices": {
+      "A": "Attendre 21 jours sans demander les motifs est toujours suffisant.",
+      "B": "Demander les motifs dans six mois.",
+      "C": "Demander les motifs dans le délai de dix jours et, si applicable, payer sa part des frais dans ce délai ; distinguer ensuite le délai d’appel.",
+      "D": "Le délai de dix jours remplace définitivement toute autre condition d’appel."
+    },
+    "approved_answers": [
+      "C"
+    ],
+    "answer_mode": "SINGLE_CHOICE",
+    "option_explanations": {
+      "A": "La demande de motifs est une étape préalable à ne pas omettre.",
+      "B": "Ce délai est incompatible avec les dix jours prévus.",
+      "C": "Le socle distingue préservation des motifs, paiement éventuel et recours.",
+      "D": "Le recours a ses propres conditions et délai."
+    },
+    "information_ids": [
+      "REF_CORE_TRIBUNAL_PROCEDURE_V1_005",
+      "REF_CORE_FIFA_INSTITUTIONS_V1_008"
+    ],
+    "theme": "REF_CORE_TRIBUNAL_PROCEDURE_V1",
+    "family": "EXAM_2a777d2c5bec5456936f",
+    "status": "REVIEWED_CORPUS",
+    "skill": "cross_rules",
+    "review_method": "AI_ASSISTED_COMPARISON_WITH_DRAFT_STUDY_CORPUS",
+    "support_quotes": [
+      {
+        "information_id": "REF_CORE_TRIBUNAL_PROCEDURE_V1_005",
+        "quote": "En principe, notification du seul dispositif. Pour préserver l’appel, demander les motifs sous dix jours calendaires ; si frais procéduraux ordonnés, demander ET payer sa part dans ce délai. À défaut, décision finale et contraignante et droit d’appel abandonné. Le délai d’appel commence à notification des motifs. Les décisions imposant immédiatement une sanction sportive sont notifiées avec motifs."
+      },
+      {
+        "information_id": "REF_CORE_FIFA_INSTITUTIONS_V1_008",
+        "quote": "Le TAS, indépendant et situé à Lausanne, peut connaître des appels contre décisions finales FIFA sous ses conditions. Délai général des Statuts : 21 jours après réception de la décision ; épuiser d’abord les voies internes disponibles. Appliquer le point de départ précis de la procédure concernée, notamment notification des motifs lorsque requis."
+      },
+      {
+        "information_id": "REF_CORE_FIFA_INSTITUTIONS_V1_008",
+        "quote": "Exclusions statutaires notamment : Lois du Jeu, suspensions jusqu’à quatre matchs ou trois mois sauf dopage, reconnaissance des chambres nationales de résolution des litiges, et cas d’un tribunal arbitral indépendant reconnu."
+      },
+      {
+        "information_id": "REF_CORE_FIFA_INSTITUTIONS_V1_008",
+        "quote": "L’appel au TAS n’est pas suspensif par principe ; sursis possible par l’organe FIFA ou le TAS. Les dispositions spéciales peuvent différer, comme pour l’EPP de la Clearing House."
+      }
+    ]
+  },
+  {
+    "id": "EXAM_30f63060a78af776bfa8",
+    "question": "Les conditions de présence requises pour modifier les Statuts sont remplies. Parmi 200 associations présentes habilitées à voter, 149 approuvent la modification. Quelle conclusion sur la majorité des trois quarts ?",
+    "choices": {
+      "A": "Elle est atteinte puisque 149 est supérieur à la moitié.",
+      "B": "Il faut seulement 100 approbations.",
+      "C": "Il faut obligatoirement 200 approbations.",
+      "D": "Elle manque d’une voix : il faut 150 approbations."
+    },
+    "approved_answers": [
+      "D"
+    ],
+    "answer_mode": "SINGLE_CHOICE",
+    "option_explanations": {
+      "A": "La majorité requise est de trois quarts, pas la simple majorité.",
+      "B": "100 ne correspond pas aux trois quarts.",
+      "C": "L’unanimité n’est pas la règle indiquée.",
+      "D": "200 × 3/4 = 150."
+    },
+    "information_ids": [
+      "REF_CORE_FIFA_INSTITUTIONS_V1_003",
+      "REF_CORE_FIFA_INSTITUTIONS_V1_004"
+    ],
+    "theme": "REF_CORE_FIFA_INSTITUTIONS_V1",
+    "family": "EXAM_30f63060a78af776bfa8",
+    "status": "REVIEWED_CORPUS",
+    "skill": "calculation",
+    "review_method": "AI_ASSISTED_COMPARISON_WITH_DRAFT_STUDY_CORPUS",
+    "support_quotes": [
+      {
+        "information_id": "REF_CORE_FIFA_INSTITUTIONS_V1_003",
+        "quote": "Congrès ordinaire chaque année. Une voix par association membre, trois délégués au maximum ; les observateurs des confédérations ne votent pas. Le président FIFA ne vote pas au Congrès, mais dispose d’une voix ordinaire au Conseil. Congrès extraordinaire sur décision du Conseil ou demande écrite d’un cinquième des associations, tenu dans les trois mois de cette demande."
+      },
+      {
+        "information_id": "REF_CORE_FIFA_INSTITUTIONS_V1_004",
+        "quote": "Modifier les Statuts : présence de plus de la moitié des associations habilitées à voter et approbation des trois quarts des associations présentes habilitées à voter. Règlement d’application et règlement du Congrès : majorité simple des suffrages valides. Règle générale des autres décisions : plus de 50 % des voix valides sauf règle spéciale. Décisions du Congrès applicables après 60 jours, sauf autre date fixée."
+      },
+      {
+        "information_id": "REF_CORE_FIFA_INSTITUTIONS_V1_004",
+        "quote": "Toujours vérifier le dénominateur : associations présentes habilitées à voter n’est pas la même chose que suffrages valides."
+      }
+    ]
+  },
+  {
+    "id": "EXAM_ffc9bdfa5b4627b6200b",
+    "question": "Un cadeau de valeur symbolique est offert à un responsable pendant une décision où le donateur a un intérêt. Quelles conclusions sont justifiées par le socle ?",
+    "choices": {
+      "A": "Il faut aussi vérifier absence d’influence, d’avantage indu et de conflit.",
+      "B": "La faible valeur rend le cadeau automatiquement acceptable.",
+      "C": "L’absence d’argent liquide rend tous les cadeaux acceptables.",
+      "D": "L’apparence de conflit peut être pertinente même sans corruption démontrée."
+    },
+    "approved_answers": [
+      "A",
+      "D"
+    ],
+    "answer_mode": "MULTIPLE_CHOICE",
+    "option_explanations": {
+      "A": "Le montant ne suffit pas à lui seul.",
+      "B": "Les exigences relatives aux cadeaux se cumulent.",
+      "C": "Un cadeau en nature n’est pas automatiquement licite.",
+      "D": "Le texte vise les intérêts qui peuvent paraître compromettre l’indépendance."
+    },
+    "information_ids": [
+      "REF_CORE_ETHICS_CORE_V1_005",
+      "REF_CORE_ETHICS_CORE_V1_004"
+    ],
+    "theme": "REF_CORE_ETHICS_CORE_V1",
+    "family": "EXAM_ffc9bdfa5b4627b6200b",
+    "status": "REVIEWED_CORPUS",
+    "skill": "conditions",
+    "review_method": "AI_ASSISTED_COMPARISON_WITH_DRAFT_STUDY_CORPUS",
+    "support_quotes": [
+      {
+        "information_id": "REF_CORE_ETHICS_CORE_V1_005",
+        "quote": "Un cadeau ou avantage ne peut être offert ou accepté que s’il a une valeur symbolique ou insignifiante, n’influence pas un acte ou une omission, ne viole pas les devoirs, ne crée pas d’avantage indu et ne crée pas de conflit. Dans le doute, s’abstenir. Les espèces sous toute forme et pour tout montant sont interdites dans ce régime."
+      },
+      {
+        "information_id": "REF_CORE_ETHICS_CORE_V1_004",
+        "quote": "Des intérêts secondaires personnels ou liés à des proches peuvent compromettre ou paraître compromettre l’indépendance. Déclarer les liens avant la nomination ou l’emploi ; révéler immédiatement un conflit et ne pas participer à la décision affectée."
+      },
+      {
+        "information_id": "REF_CORE_ETHICS_CORE_V1_005",
+        "quote": "Si refuser heurterait les usages culturels, réception au nom de l’organisation, déclaration et remise immédiate à l’organe compétent selon le texte ; pas d’appropriation personnelle."
+      },
+      {
+        "information_id": "REF_CORE_ETHICS_CORE_V1_004",
+        "quote": "La seule transparence ne suffit pas à rendre licite une participation à une décision en situation de conflit."
+      }
+    ]
+  },
+  {
+    "id": "EXAM_4c93571b2e92e60f1a31",
+    "question": "Un enfant révèle un abus et indique un danger immédiat. Quelles réactions correspondent au socle de protection ?",
+    "choices": {
+      "A": "Promettre de ne jamais transmettre son récit à quiconque.",
+      "B": "Contacter les secours compétents sans attendre une validation interne.",
+      "C": "Écouter calmement et partager les informations pertinentes avec les personnes compétentes ayant besoin de savoir.",
+      "D": "Interroger longuement l’enfant pour établir soi-même la preuve avant tout signalement."
+    },
+    "approved_answers": [
+      "B",
+      "C"
+    ],
+    "answer_mode": "MULTIPLE_CHOICE",
+    "option_explanations": {
+      "A": "La confidentialité n’est pas une promesse de secret absolu.",
+      "B": "La sécurité immédiate ne doit pas être retardée.",
+      "C": "Écoute et partage limité aux besoins de protection sont compatibles.",
+      "D": "L’accueil de la révélation ne remplace pas l’enquête des professionnels compétents."
+    },
+    "information_ids": [
+      "REF_SAFEGUARDING_SAFEGUARDING_RESPONSE_V1_002",
+      "REF_SAFEGUARDING_SAFEGUARDING_RESPONSE_V1_003",
+      "REF_SAFEGUARDING_SAFEGUARDING_RESPONSE_V1_008"
+    ],
+    "theme": "REF_SAFEGUARDING_SAFEGUARDING_RESPONSE_V1",
+    "family": "EXAM_4c93571b2e92e60f1a31",
+    "status": "REVIEWED_CORPUS",
+    "skill": "cross_rules",
+    "review_method": "AI_ASSISTED_COMPARISON_WITH_DRAFT_STUDY_CORPUS",
+    "support_quotes": [
+      {
+        "information_id": "REF_SAFEGUARDING_SAFEGUARDING_RESPONSE_V1_002",
+        "quote": "Si l’enfant est en danger immédiat, contacter immédiatement les secours compétents. Ne pas laisser une procédure interne retarder sa mise en sécurité."
+      },
+      {
+        "information_id": "REF_SAFEGUARDING_SAFEGUARDING_RESPONSE_V1_003",
+        "quote": "Rester calme, écouter attentivement, prendre les propos au sérieux et rassurer l’enfant sans le culpabiliser. Expliquer les suites de manière adaptée à son âge. Questions seulement pour clarifier : pas de questions détaillées, insistantes ou orientées."
+      },
+      {
+        "information_id": "REF_SAFEGUARDING_SAFEGUARDING_RESPONSE_V1_008",
+        "quote": "Préserver la confidentialité avec un partage limité aux personnes qui ont besoin de savoir pour protéger l’enfant. Cela permet et impose de communiquer les informations pertinentes aux autorités chargées d’enquêter. Confidentialité ne signifie pas secret absolu ni absence de signalement."
+      },
+      {
+        "information_id": "REF_SAFEGUARDING_SAFEGUARDING_RESPONSE_V1_002",
+        "quote": "Les numéros et services dépendent du pays ; aucun numéro universel n’est donné ici."
+      },
+      {
+        "information_id": "REF_SAFEGUARDING_SAFEGUARDING_RESPONSE_V1_003",
+        "quote": "Ne pas manifester choc ou incrédulité ; ne pas spéculer ni accuser."
+      },
+      {
+        "information_id": "REF_SAFEGUARDING_SAFEGUARDING_RESPONSE_V1_003",
+        "quote": "Ne pas promettre le secret : expliquer que seules les personnes nécessaires à sa sécurité seront informées."
+      }
+    ]
+  },
+  {
+    "id": "EXAM_3dfb426d6b5457142228",
+    "question": "Un agent propose de payer une aide à la famille d’un mineur uniquement si elle signe immédiatement un mandat exclusif ; la famille dit accepter. Quelle analyse est correcte selon le guide étudié ?",
+    "choices": {
+      "A": "La condition financière de signature et la pression temporelle sont des problèmes à traiter ; accepter ne les efface pas.",
+      "B": "Le consentement familial suffit à rendre l’incitation acceptable.",
+      "C": "Tout est acceptable si le mandat dure moins de deux ans.",
+      "D": "La seule traduction du contrat rend l’offre éthique."
+    },
+    "approved_answers": [
+      "A"
+    ],
+    "answer_mode": "SINGLE_CHOICE",
+    "option_explanations": {
+      "A": "L’incitation et le temps de compréhension sont deux aspects de la protection du choix.",
+      "B": "Le guide proscrit les incitations conditionnant la signature.",
+      "C": "La durée ne neutralise pas ces problèmes.",
+      "D": "La compréhension linguistique ne suffit pas à rendre l’incitation conforme."
+    },
+    "information_ids": [
+      "REF_SAFEGUARDING_ETHICAL_RECRUITMENT_V1_003",
+      "REF_SAFEGUARDING_ETHICAL_RECRUITMENT_V1_002"
+    ],
+    "theme": "REF_SAFEGUARDING_ETHICAL_RECRUITMENT_V1",
+    "family": "EXAM_3dfb426d6b5457142228",
+    "status": "REVIEWED_CORPUS",
+    "skill": "cross_rules",
+    "review_method": "AI_ASSISTED_COMPARISON_WITH_DRAFT_STUDY_CORPUS",
+    "support_quotes": [
+      {
+        "information_id": "REF_SAFEGUARDING_ETHICAL_RECRUITMENT_V1_003",
+        "quote": "Le guide proscrit les incitations financières, cadeaux ou biens offerts à un mineur ou sa famille comme condition de signature. Repérer la dette morale, la pression, l’achat d’exclusivité et les avantages indus qui remplacent une évaluation libre de l’agent et de l’opportunité."
+      },
+      {
+        "information_id": "REF_SAFEGUARDING_ETHICAL_RECRUITMENT_V1_002",
+        "quote": "Expliquer clairement services, coûts, commissions, garanties, primes conditionnelles, pénalités, durée et sortie. Adapter le langage à l’âge, laisser du temps et des questions, vérifier la compréhension, traduire si nécessaire et encourager un conseil juridique indépendant. Associer la famille sans effacer la parole du jeune."
+      },
+      {
+        "information_id": "REF_SAFEGUARDING_ETHICAL_RECRUITMENT_V1_002",
+        "quote": "Ne pas présenter un document complexe à signer dans l’urgence comme une formalité."
+      }
+    ]
+  },
+  {
+    "id": "EXAM_d0687c4ee1aab65075b7",
+    "question": "Le secrétariat propose un règlement dans une procédure visée. La partie ne le rejette pas dans le délai fixé. Peut-elle soutenir que son silence exclut nécessairement toute acceptation ?",
+    "choices": {
+      "A": "Oui, le silence n’a jamais d’effet dans cette procédure.",
+      "B": "Non, la proposition peut être réputée acceptée selon le mécanisme décrit.",
+      "C": "Oui, sauf si elle a déjà payé.",
+      "D": "Non, car tout silence équivaut toujours à un aveu de tous les faits dans n’importe quel dossier."
+    },
+    "approved_answers": [
+      "B"
+    ],
+    "answer_mode": "SINGLE_CHOICE",
+    "option_explanations": {
+      "A": "Le socle prévoit précisément un mécanisme de non-rejet valant acceptation.",
+      "B": "Il faut respecter le délai de rejet de cette proposition.",
+      "C": "Le paiement préalable n’est pas la condition donnée ici.",
+      "D": "Ne pas étendre ce mécanisme à tous les silences et à tout dossier."
+    },
+    "information_ids": [
+      "REF_CORE_TRIBUNAL_PROCEDURE_V1_007"
+    ],
+    "theme": "REF_CORE_TRIBUNAL_PROCEDURE_V1",
+    "family": "EXAM_d0687c4ee1aab65075b7",
+    "status": "REVIEWED_CORPUS",
+    "skill": "procedure",
+    "review_method": "AI_ASSISTED_COMPARISON_WITH_DRAFT_STUDY_CORPUS",
+    "support_quotes": [
+      {
+        "information_id": "REF_CORE_TRIBUNAL_PROCEDURE_V1_007",
+        "quote": "Une proposition de règlement du secrétariat non rejetée dans le délai est réputée acceptée et peut donner lieu à une lettre finale contraignante. En revanche, absence de réponse à une demande au fond : décision sur le dossier, pas acceptation automatique de toutes les prétentions. Une demande reconventionnelle doit accompagner la réponse dans son délai. Après clôture des échanges, plus d’ajout par les parties, sauf demandes complémentaires du secrétariat ou de la chambre."
+      }
+    ]
+  }
+]
