@@ -2,7 +2,8 @@
 import copy,json,logging,os,threading,time,uuid
 from html import escape
 from urllib.parse import parse_qs
-from app.practice_core import load_data,digest,pick_quiz,public_question,score,token,untoken,model_input,validate_result,response_schema,PROMPT_VERSION,targeted_context,TARGETED_PROMPT_VERSION
+from app.practice_core import load_data,digest,pick_quiz,public_question,score,token,untoken,model_input,validate_result,response_schema,PROMPT_VERSION,targeted_context,TARGETED_PROMPT_VERSION,quiz_stats,shuffled_choice_order
+THEMES={'FFAR_ELIGIBILITY': 'Éligibilité', 'FFAR_MINORS': 'Représentation des mineurs', 'REF_FFAR_ARTICLE_12_V1': 'Accord de représentation', 'REF_FFAR_ARTICLE_17_V1': 'Maintien de la licence', 'REF_FFAR_AGENCY_CLIENTS_V1': 'Agents, agences et clients', 'REF_FFAR_AGENT_DUTIES_V1': 'Droits et obligations des agents', 'REF_FFAR_BECOMING_AGENT_V1': 'Devenir agent', 'REF_FFAR_DISCLOSURE_DISPUTES_DISCIPLINE_V1': 'Publication, litiges et discipline', 'REF_FFAR_FEES_V1': 'Honoraires', 'REF_FFAR_FINAL_PROVISIONS_V1': 'Transitions et dispositions finales', 'REF_FFAR_FRAMEWORK_V1': 'Cadre international et national', 'REF_CORE_FIFA_INSTITUTIONS_V1': 'Institutions FIFA', 'REF_CORE_DISCIPLINE_CORE_V1': 'Discipline', 'REF_CORE_ETHICS_CORE_V1': 'Éthique', 'REF_CORE_TRIBUNAL_PROCEDURE_V1': 'Tribunal du Football', 'REF_FCH_CORE_2026_V1': 'Clearing House', 'REF_SAFEGUARDING_SAFEGUARDING_RISKS_V1': 'Protection : reconnaître et prévenir', 'REF_SAFEGUARDING_SAFEGUARDING_RESPONSE_V1': 'Protection : réagir et signaler', 'REF_SAFEGUARDING_ETHICAL_RECRUITMENT_V1': 'Recrutement éthique', 'REF_RSTP_STATUS_REGISTRATION_V6': 'RSTP : statut et enregistrement', 'REF_RSTP_CONTRACTS_V5': 'RSTP : contrats et joueuses', 'REF_RSTP_MINORS_V2': 'RSTP : mineurs, académies et essais', 'REF_RSTP_THIRD_PARTIES_V2': 'RSTP : tiers et droits économiques', 'REF_RSTP_TRAINING_SOLIDARITY_V2': 'RSTP : formation et solidarité'}
 DATASET='myagent-512316.MYAGENT'
 LOCK=threading.Lock()
 LOG=logging.getLogger('myagent.practice')
@@ -49,22 +50,41 @@ def build_practice_router(require_admin,get_bigquery_client):
   LOG.error('Practice failure (%s)',type(exc).__name__)
   raise HTTPException(503,'Entraînement indisponible : vérifier la table FIFA_PRACTICE_EVENT et les logs Render.') from None
 
+ def quiz_history():
+  rows=query(f"SELECT CREATED_AT,PAYLOAD_JSON FROM `{DATASET}.FIFA_PRACTICE_EVENT` WHERE EVENT_TYPE='QUIZ' ORDER BY CREATED_AT DESC, ID_EVENT DESC LIMIT 1000")
+  result=[]
+  for row in rows:
+   try:e=json.loads(row['PAYLOAD_JSON'])
+   except (TypeError,ValueError):continue
+   if isinstance(e,dict) and isinstance(e.get('score'),dict):result.append((row,e))
+  return result
  @router.get('/practice',response_class=HTMLResponse)
  def home():
-  bank,corpus=data();valid=[q for q in bank if q['status']=='REVIEWED_CORPUS'];families=len({q['family'] for q in valid})
-  try:events=query(f"SELECT CREATED_AT,PAYLOAD_JSON FROM `{DATASET}.FIFA_PRACTICE_EVENT` WHERE EVENT_TYPE='QUIZ' ORDER BY CREATED_AT DESC LIMIT 20")
+  bank,corpus=data();valid=[q for q in bank if q['status']=='REVIEWED_CORPUS']
+  try:events=quiz_history()
   except Exception as exc:problem(exc)
+  stats=quiz_stats(bank,[e for _,e in events]);families={q['family'] for q in valid}
+  seen=len(families & set(stats));retry=sum(not stats[f]['latest_correct'] for f in families & set(stats))
   history=''
-  for event in events:
-   e=json.loads(event['PAYLOAD_JSON']);s=e['score'];history+='<li>'+safe(str(event['CREATED_AT'])[:19])+' — '+str(s['correct'])+'/'+str(s['total'])+' ; '+str(s['abstentions'])+' abstention(s)</li>'
-  return respond('S’entraîner',f'<p>Corpus figé : {len(corpus)} informations. Banque : 600 occurrences, {len(bank)} QCM distincts sur une dizaine de thèmes.</p><section><h2>Test sans le modèle</h2><p>{len(valid)} variantes relues à partir du corpus, représentant seulement {families} thèmes. Une seule question par thème sera tirée ; cette banque ne mesure pas la couverture de l’examen.</p><form method="post" action="/practice/start">'+hidden(form_token('start'))+'<button>Commencer une série de '+str(families)+' questions</button></form></section><section><h2>Évaluer le modèle</h2><p>Tester un QCM avec les 352 informations, sans lui fournir les corrigés. Les réponses du modèle ne deviennent jamais automatiquement des corrigés.</p><a href="/practice/bank">Ouvrir la banque et les diagnostics</a></section><section><h2>Mes dernières séries</h2><ul>'+history+'</ul></section>')
+  for event,e in events[:20]:
+   s=e['score'];history+='<li>'+safe(str(event['CREATED_AT'])[:19])+' — '+str(s['correct'])+'/'+str(s['total'])+' ; '+str(s['abstentions'])+' abstention(s)</li>'
+  options='<option value="">Tous les thèmes</option>'
+  for theme in sorted({q['theme'] for q in valid},key=lambda k:THEMES.get(k,k)):
+   count=sum(q['theme']==theme for q in valid)
+   options+='<option value="'+safe(theme)+'">'+safe(THEMES.get(theme,theme))+' ('+str(count)+')</option>'
+  return respond('S’entraîner',f'<p>{len(valid)} questions utilisables, dont 80 nouvelles questions en français sur les 24 thèmes. Corpus de travail : {len(corpus)} informations, avec les cinq fiches RSTP enrichies.</p><section><h2>Ma prochaine série</h2><p>'+str(seen)+' questions ou familles déjà travaillées ; '+str(retry)+' à revoir selon la dernière réponse. Historique limité aux 1 000 dernières séries terminées.</p><p>Jusqu’à 20 questions : jusqu’à six erreurs ou abstentions récentes à retravailler, puis priorité aux questions jamais vues. Les choix sont mélangés et les thèmes diversifiés.</p><form method="post" action="/practice/start">'+hidden(form_token('start'))+'<label>Thème <select name="theme">'+options+'</select></label><button>Commencer une série</button></form><p class="muted">Sans appel OpenAI. Une série non validée ne compte pas comme travaillée. Questions pédagogiques et corrigés relus à partir des fiches DRAFT, pas des questions officielles ni une mesure représentative de l’examen.</p></section><section><h2>Diagnostic du modèle</h2><p>Mode séparé : le pilote ciblé mineurs reste disponible avec appel OpenAI payant. Le diagnostic global est bloqué pour cet instantané trop volumineux. Les séries corrigées fonctionnent sans modèle.</p><a href="/practice/bank">Banque et diagnostics</a></section><section><h2>Mes dernières séries</h2><ul>'+history+'</ul></section>')
  @router.post('/practice/start')
  async def start(request:Request):
-  _,t=await fields(request,'start');bank,corpus=data();ids=pick_quiz(bank);by={q['id']:q for q in bank}
+  f,t=await fields(request,'start');bank,corpus=data();theme=f.get('theme','')
+  if theme and theme not in {q.get('theme') for q in bank if q['status']=='REVIEWED_CORPUS'}:raise HTTPException(400,'Thème inconnu')
+  try:events=await run_in_threadpool(quiz_history)
+  except Exception as exc:problem(exc)
+  ids=pick_quiz(bank,limit=20,history=[e for _,e in events],theme=theme);by={q['id']:q for q in bank}
+  if not ids:raise HTTPException(400,'Aucune question disponible')
   tkn=form_token('submit',{'ids':ids,'corpus_hash':digest(corpus),'bank_hash':digest(bank)})
-  body='<p>Choisis une réponse par question, ou laisse vide pour t’abstenir. Correction après validation.</p><form method="post" action="/practice/submit">'+hidden(tkn)
+  body='<p>Une réponse par question. Laisser vide permet de s’abstenir. Corrigé après validation.</p><form method="post" action="/practice/submit">'+hidden(tkn)
   for n,id in enumerate(ids,1):
-   q=by[id];body+='<article><h2>'+str(n)+'. '+safe(q['question'])+'</h2>'+''.join('<label><input type="radio" name="'+id+'" value="'+k+'"> '+k+'. '+safe(v)+'</label>' for k,v in q['choices'].items())+'</article>'
+   q=by[id];body+='<article><p class="tag">'+safe(THEMES.get(q.get('theme'),''))+'</p><h2>'+str(n)+'. '+safe(q['question'])+'</h2>'+''.join('<label><input type="radio" name="'+id+'" value="'+k+'"> '+safe(q['choices'][k])+'</label>' for k in shuffled_choice_order(q))+'</article>'
   return respond('Ma série',body+'<button>Corriger et enregistrer</button></form>')
  def submit_sync(f,t):
   bank,corpus=data()
@@ -76,10 +96,14 @@ def build_practice_router(require_admin,get_bigquery_client):
   e={'score':s,'corpus_hash':digest(corpus),'bank_hash':digest(bank)};save_event(id,'QUIZ',e)
   return result_html(e,bank)
  def result_html(e,bank):
-  by={q['id']:q for q in bank};s=e['score'];body='<p><strong>'+str(s['correct'])+'/'+str(s['total'])+'</strong> ; '+str(s['abstentions'])+' abstention(s). Score sur ce petit ensemble relu, pas sur tout le programme.</p>'
+  by={q['id']:q for q in bank};s=e['score'];body='<p><strong>'+str(s['correct'])+'/'+str(s['total'])+'</strong> ; '+str(s['abstentions'])+' abstention(s). Score sur cette série pédagogique ; il ne prédit pas le résultat à l’examen.</p>'
   for item in s['items']:
    q=by[item['question_id']];expected=' ; '.join(k+'. '+q['choices'][k] for k in item['approved_answers'])
-   body+='<article><h2>'+safe(q['question'])+'</h2><p>'+('Juste' if item['correct'] else 'Abstention' if item['abstained'] else 'À revoir')+' — ton choix : '+safe(item['selected'] or '—')+'</p><p>Réponse du corpus : '+safe(expected)+'</p><p>'+safe(item['note'])+'</p><p class="tag">Informations : '+safe(', '.join(item['information_ids']))+'</p></article>'
+   body+='<article><h2>'+safe(q['question'])+'</h2><p>'+('Juste' if item['correct'] else 'Abstention' if item['abstained'] else 'À revoir')+' — ton choix : '+safe(item['selected'] or '—')+'</p><p>Réponse du corpus : '+safe(expected)+'</p><p>'+safe(item['note'])+'</p><p class="tag">Informations : '+safe(', '.join(item['information_ids']))+'</p>'
+   if q.get('support_quotes'):
+    body+='<details><summary>Information utilisée pour le corrigé</summary>'+''.join('<p class="tag">'+safe(p['information_id'])+'</p><blockquote>'+safe(p['quote'])+'</blockquote>' for p in q['support_quotes'])+'</details>'
+   if q.get('study_slug'):body+='<p><a href="/study/'+safe(q['study_slug'])+'">Revoir la fiche correspondante</a></p>'
+   body+='</article>'
   return respond('Résultats',body+'<a href="/practice">Retour à l’entraînement</a>')
  @router.post('/practice/submit')
  async def submit(request:Request):
@@ -90,9 +114,9 @@ def build_practice_router(require_admin,get_bigquery_client):
 
  @router.get('/practice/bank',response_class=HTMLResponse)
  def bank_page():
-  bank,corpus=data();body='<p>Les corrigés PDF sont non officiels. 600 numéros se réduisent à 20 QCM distincts, regroupés en dix familles. Les lettres ont été remappées selon le texte des choix.</p><p>Le diagnostic fait un appel OpenAI payant par question. Résultat réutilisé pour la même question, version de corpus, banque, modèle et consigne. Pas de nouvel appel lors d’une simple consultation.</p>'
+  bank,corpus=data();body='<p>Banque pédagogique : 80 nouveaux QCM en français, plus 20 questions PDF historiques dont huit variantes relues. Les questions PDF non relues restent exclues des séries. Les corrigés ne sont pas officiels.</p><p>Le diagnostic fait un appel OpenAI payant par question. Résultat réutilisé pour la même question, version de corpus, banque, modèle et consigne. Pas de nouvel appel lors d’une simple consultation.</p>'
   for q in bank:
-   body+='<article><h2>'+safe(q['question'])+'</h2><p class="tag">'+safe(q['id'])+' · '+str(len(q['occurrences']))+' occurrences · '+safe(q['status'])+'</p><ol type="A">'+''.join('<li>'+safe(v)+'</li>' for v in q['choices'].values())+'</ol><p>'+safe(q['review_note'])+'</p><details><summary>Corrigés proposés par les PDF — non validés</summary><p>'+safe(' ; '.join(sorted({x['source_answer_text'] for x in q['occurrences']})))+'</p></details><form method="post" action="/practice/diagnose">'+hidden(form_token('diagnose',{'qid':q['id']}))+'<button>Tester le modèle sur ce QCM</button></form></article>'
+   body+='<article><h2>'+safe(q['question'])+'</h2><p class="tag">'+safe(q['id'])+' · '+str(len(q['occurrences']))+' occurrences · '+safe(q['status'])+'</p><ol type="A">'+''.join('<li>'+safe(v)+'</li>' for v in q['choices'].values())+'</ol><p>'+safe(q['review_note'])+'</p><details><summary>Corrigés documentaires éventuels — non officiels</summary><p>'+safe(' ; '.join(sorted({x['source_answer_text'] for x in q['occurrences']})))+'</p></details><form method="post" action="/practice/diagnose">'+hidden(form_token('diagnose',{'qid':q['id']}))+'<button>Diagnostic global (limite de taille contrôlée)</button></form></article>'
   for q in bank:
    if q['family']=='minor-signature':
     body+='<section><h2>Comparaison ciblée : '+safe(q['question'])+'</h2><p>11 informations ; choix unique explicite. Contexte et consigne changent ensemble : comparaison exploratoire.</p><form method="post" action="/practice/diagnose">'+hidden(form_token('diagnose',{'qid':q['id'],'mode':'targeted'}))+'<button>Relancer avec le contexte ciblé V2</button></form></section>'
@@ -123,13 +147,14 @@ def build_practice_router(require_admin,get_bigquery_client):
     except Exception:LOG.error('Benchmark result could not be persisted')
  def claim(qid,mode="full"):
   if mode not in ("full","targeted"):raise HTTPException(400,"Mode inconnu")
-  if not os.environ.get('OPENAI_API_KEY'):raise HTTPException(503,'OPENAI_API_KEY manquante')
   bank,corpus=data();q=next((q for q in bank if q['id']==qid),None)
   if not q:raise HTTPException(404,'Question absente')
   full_hash=digest(corpus);targeted=mode=='targeted'
   if targeted:
    try:corpus=targeted_context(q,corpus)
    except ValueError:raise HTTPException(400,'Pilote ciblé réservé à la cosignature des mineurs') from None
+  if not targeted and len(json.dumps(corpus,ensure_ascii=False))>300000:raise HTTPException(400,'Diagnostic global trop volumineux pour cet instantané ; le pilote ciblé mineurs reste disponible. Les séries corrigées fonctionnent sans modèle.')
+  if not os.environ.get('OPENAI_API_KEY'):raise HTTPException(503,'OPENAI_API_KEY manquante')
   version=TARGETED_PROMPT_VERSION if targeted else PROMPT_VERSION
   model=os.environ.get('OPENAI_MODEL','gpt-4o')
   id=digest({'qid':qid,'corpus':digest(corpus),'bank':digest(bank),'model':model,'prompt':version})
